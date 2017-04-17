@@ -1,6 +1,6 @@
 class IndeedApi
 
-  def search_jobs(word_search, location, job_type, user_ip, user_browser)
+  def self.search_jobs(word_search, location, job_type, user_ip, user_browser)
     HTTParty.get("http://api.indeed.com/ads/apisearch?",
       {
         params: [
@@ -9,7 +9,7 @@ class IndeedApi
           {q: word_search},
           {l: location},
           {st: "jobsite"},
-          {jt: tob_type},
+          {jt: job_type},
           {limit: 50},
           {fromage: "any"},
           {highlight: 1},
