@@ -8,17 +8,102 @@
 
     <meta name='viewport' content='width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no'>
 
-    <link href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u' crossorigin='anonymous'>
+    <link href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'
+          rel='stylesheet' integrity='sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u'
+          crossorigin='anonymous'>
     <link rel='stylesheet' href='/css/style.css' type='text/css'>
 
     <script src="https://use.fontawesome.com/8982efdf4a.js"></script>
   </head>
   <body>
 
+    <header>
+      <h1>CareerAtlas</h1>
+      <p>Mapping your future career move! Find a job near you!</p>
+
+      <nav>
+         <ul>
+           <li><a>home</a></li>
+           <li><a>about us</a></li>
+           <li><a>saved jobs</a></li>
+           <li><a>logout</a></li>
+           <li><a>login</a></li>
+         </ul>
+      </nav>
+    </header>
+
+    <main>
+
+
+      <form>
+        <p>Please fill out all search fields.</p>
+
+        <label for='jobtitle'>Job Title</label>
+          <input
+            type='text'
+            class='form-control'
+            placeholder='jobtitle'
+            required
+            name='jobtitle'
+            id='jobtitle'>
+
+        <label for='jobtype'>Job Type</label>
+          <select name='jobtype' id='jobtype' required class='form-control' type='option'>
+            <option value='All job types'>All job types</option>
+            <option value='Temporary'>Temporary</option>
+            <option value='Part-time'>Part-time</option>
+            <option value='Internship'>Internship</option>
+            <option value='Contract'>Contract</option>
+            <option value='Full-Time'>Full-Time</option>
+          </select>
+
+        <label for='radius'>Location</label>
+          <select name='radius' id='radius' required class='form-control' type='option'>
+            <option value='5'>within 5 miles of</option>
+            <option value='10'>within 10 miles of</option>
+            <option value='15'>within 15 miles of</option>
+            <option value='20'>within 20 miles of</option>
+            <option value='25'>within 25 miles of</option>
+            <option value='50'>within 50 miles of</option>
+
+        <label for='location'>(city, state, or zipcode)</label>
+          <input type='text' id='location' name='location' size='28' maxlength='250' value='Arlington, VA' autocomplete='off'>
+      </form>
+
+
+      <section>MAP GOES HERE</section>
+
+
+    </main>
+
+    <footer>
+      <p>Map your future career move, today!</p>
+      <p>&copy; CareerAtlas</p>
+
+      <section>
+        <p id="indeed_at">
+          <a title="Job Search" href="https://www.indeed.com" rel="nofollow">
+          jobs by
+            <img alt=Indeed src="https://www.indeed.com/p/jobsearch.gif" style="border: 0; vertical-align: middle;">
+          </a>
+        </p>
+        <p>Glass Door Information</p>
+        <p>Google Maps Information</p>
+        <p>Walking Score Information</p>
+      </section>
+    </footer>
+
+
+
+
+
+
     <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.min.js'></script>
+    <script src='https://code.jquery.com/jquery-3.1.0.min.js'></script>
     <script src='//unpkg.com/angular-ui-router/release/angular-ui-router.min.js'></script>
     <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script>
     <script src='https://maps.googleapis.com/maps/api/js?key=AIzaSyABvhW-nILCiy0MvU-ExFk68uqQc4SPl6I'></script>
+
 
     <script src='/js/app.js'></script>
   </body>
