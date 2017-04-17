@@ -65,7 +65,7 @@ module.exports = function(grunt) {
     },
     concat: {
       dist: {
-        src: ['app/client/js/*.module.js', 'app/client/js/**/*.js'], //we need to specify the name of the module here
+        src: ['app/client/js/career_atlas.module.js', 'app/client/js/**/*.js'], 
         dest: 'public/js/app.js'
       }
     },
