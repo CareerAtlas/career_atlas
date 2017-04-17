@@ -8,7 +8,7 @@ RSpec.describe IndeedApi, type: :model do
         body: File.read(Rails.root.join("spec", "stubbed_requests", "job_search.json")),
         headers: {'Content-Type' => 'application/json'}
       )
-    response = IndeedApi.new.search_jobs "ruby", "20180", "fulltime", "127.0.0.1", "Chrome"
+    response = IndeedApi.search_jobs "ruby", "20180", "fulltime", "127.0.0.1", "Chrome"
     expect(response).to be_truthy
     expect(response["results"][0]["jobtitle"]).to eq "Software Engineering - University graduates"
   end
