@@ -2,7 +2,7 @@
 
 ## The Iron Yard - Final Project
 
-Created by: [Robby Dore](https://www.linkedin.com/in/robby-dore-61b88910b/) (Backend - Ruby On Rails), [Christine Ash](https://www.linkedin.com/in/christine-ash-5a21743b/) (Frontend - Angular), and [Jennifer Oakes](https://www.linkedin.com/in/jennifernicoleoakes/) (Frontend - Angular).
+Created by: [Christine Ash](https://www.linkedin.com/in/christine-ash-5a21743b/) (Frontend - Angular), [Robby Dore](https://www.linkedin.com/in/robby-dore-61b88910b/) (Backend - Ruby On Rails), and [Jennifer Oakes](https://www.linkedin.com/in/jennifernicoleoakes/) (Frontend - Angular).
 
 ## Project Details:
 
