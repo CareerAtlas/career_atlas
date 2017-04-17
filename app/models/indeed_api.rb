@@ -1,4 +1,4 @@
-class IndeedApi < ApplicationRecord
+class IndeedApi
 
   def search_jobs(word_search, location, job_type, user_ip, user_browser)
     HTTParty.get("http://api.indeed.com/ads/apisearch?",
