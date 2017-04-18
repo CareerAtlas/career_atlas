@@ -19,7 +19,7 @@
         searchresults = angular.toJson(searchresults);
 
         return $http({
-          method: 'POST',
+          method: 'GET',
           url: '/api/jobs/',
           headers: {
             'Content-Type': 'application/json',
