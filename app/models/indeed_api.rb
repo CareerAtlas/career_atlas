@@ -1,6 +1,6 @@
 class IndeedApi
   include HTTParty
-  debug_output $stdout
+
   def self.search_jobs(search_params)
     get("http://api.indeed.com/ads/apisearch?",
       {
