@@ -29,7 +29,7 @@ module.exports = function(grunt) {
       files: [
         {
           cwd: 'app/client/img/',
-          src: ['*.jpg'],
+          src: ['*.jpg', '*.png'],
           dest: 'public/img/',
           expand: true
         }
@@ -65,7 +65,7 @@ module.exports = function(grunt) {
     },
     concat: {
       dist: {
-        src: ['app/client/js/career_atlas.module.js', 'app/client/js/**/*.js'], 
+        src: ['app/client/js/career_atlas.module.js', 'app/client/js/**/*.js'],
         dest: 'public/js/app.js'
       }
     },
