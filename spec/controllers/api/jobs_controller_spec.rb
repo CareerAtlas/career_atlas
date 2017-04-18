@@ -1,8 +1,8 @@
 require 'rails_helper'
 
-RSpec.describe IndeedApi, type: :model do
+RSpec.describe Api::JobsController, type: :controller do
 
-  it "receives response when asking indeed for jobs" do
+  it "gets required params" do
     search_params = { job_title: "Ruby", location: 20011, radius: 25, job_type: "fulltime" }
 
     stub_request(:get, /api.indeed.com\/ads\/apisearch/)
@@ -10,9 +10,7 @@ RSpec.describe IndeedApi, type: :model do
         body: File.read(Rails.root.join("spec", "stubbed_requests", "job_search.json")),
         headers: {'Content-Type' => 'application/json'}
       )
-
-    response = IndeedApi.search_jobs(search_params)
-    expect(response).to be_truthy
-    expect(response["results"][0]["jobtitle"]).to eq "Software Engineering - University graduates"
+    get :index, params: search_params
+    assert response.ok?
   end
 end
