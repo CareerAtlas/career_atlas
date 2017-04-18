@@ -10,7 +10,7 @@ class IndeedApi
           format: "json",
           q: search_params["job_title"],
           l: search_params["location"],
-          radius: search_params["distance"],
+          radius: search_params["radius"],
           st: "jobsite",
           jt: search_params["job_type"],
           limit: 50,
