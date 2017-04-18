@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app='career_atlas'>
   <head>
     <meta charset="utf-8">
     <title>CareerAtlas</title>
@@ -31,23 +31,24 @@
       </nav>
     </header>
 
-    <main>
+    <main ng-controller='FormController as formCtrl'>
 
 
-      <form>
+      <form ng-submit='formCtrl.submit(formCtrl.search)'>
         <p>Please fill out all search fields.</p>
 
         <label for='jobtitle'>Job Title</label>
           <input
             type='text'
             class='form-control'
-            placeholder='jobtitle'
+            placeholder='Job Title'
             required
-            name='jobtitle'
+            name='job_title'
+            ng-model='formCtrl.search.job_title'
             id='jobtitle'>
 
         <label for='jobtype'>Job Type</label>
-          <select name='jobtype' id='jobtype' required class='form-control' type='option'>
+          <select name='job_type' id='job_type' required class='form-control' ng-model='formCtrl.search.job_type' type='option'>
             <option value='All job types'>All job types</option>
             <option value='Temporary'>Temporary</option>
             <option value='Part-time'>Part-time</option>
@@ -57,7 +58,7 @@
           </select>
 
         <label for='radius'>Location</label>
-          <select name='radius' id='radius' required class='form-control' type='option'>
+          <select name='radius' id='radius' required class='form-control' ng-model='formCtrl.search.radius' type='option'>
             <option value='5'>within 5 miles of</option>
             <option value='10'>within 10 miles of</option>
             <option value='15'>within 15 miles of</option>
@@ -66,7 +67,8 @@
             <option value='50'>within 50 miles of</option>
 
         <label for='location'>(city, state, or zipcode)</label>
-          <input type='text' id='location' name='location' size='28' maxlength='250' value='Arlington, VA' autocomplete='off'>
+          <input type='text' id='location' name='location' size='28' maxlength='250' placeholder='Arlington, VA' autocomplete='off' ng-model='formCtrl.search.location' required>
+          <input type='submit' class='btn btn-info' value='Search'>
       </form>
 
 
