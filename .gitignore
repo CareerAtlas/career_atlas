@@ -16,3 +16,4 @@ public/apple-touch-icon.png
 public/favicon.ico
 public/robots.txt
 tmp
+log/development.log
