@@ -16,7 +16,10 @@
       };
 
       vm.submit = function submit(search) {
-        FormService.createJobSearch(search.job_title, search.job_type, search.radius, search.location);
+        console.log(search);
+
+        FormService.createJobSearch(search);
+        console.log(search);
       };
     }
 }());
