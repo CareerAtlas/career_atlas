@@ -16,15 +16,13 @@
           location: search.location
         };
 
-        searchresults = angular.toJson(searchresults);
-
         return $http({
           method: 'GET',
           url: '/api/jobs/',
           headers: {
             'Content-Type': 'application/json',
           },
-          data: searchresults
+          params: searchresults
         })
           .then(function handleResponse(response) {
             return response.data;
