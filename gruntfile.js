@@ -17,7 +17,7 @@ module.exports = function(grunt) {
           },
           {
             cwd: 'app/client/',
-            src: 'views/**/*.template.html',
+            src: 'templates/**/*.template.html',
             dest: 'public/',
             expand: true
           }
