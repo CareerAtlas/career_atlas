@@ -9,9 +9,9 @@
     function FormService($http) {
 
       /**
-       * [createJobSearch description]
-       * @param  {[type]} search [description]
-       * @return {Promise}        [description]
+       * Gets information from backend after searching for a job
+       * @param  {Object} search
+       * @return {Promise}        
        */
       function createJobSearch(search) {
 
