@@ -7,6 +7,12 @@
     FormService.$inject =['$http'];
 
     function FormService($http) {
+
+      /**
+       * [createJobSearch description]
+       * @param  {[type]} search [description]
+       * @return {Promise}        [description]
+       */
       function createJobSearch(search) {
 
         let searchresults = {
@@ -25,7 +31,8 @@
           params: searchresults
         })
           .then(function handleResponse(response) {
-            return response.data;
+            let jobs = response.data;
+            return jobs;
           });
       }
 
