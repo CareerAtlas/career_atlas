@@ -1,6 +1,7 @@
 class GlassdoorApi
+  include HTTParty
 
-  def self.search_company(ipaddress, browser, company)
+  def self.search_company(search_params)
     HTTParty.get("http://api.glassdoor.com/api/api.htm?",
       {
         query:
@@ -9,10 +10,10 @@ class GlassdoorApi
           format: "json",
           "t.p": 142249,
           "t.k": "kHfjVZZplCE",
-          userip: ipaddress,
-          useragent: browser,
+          # userip: search_params["ipaddress"],
+          # useragent: search_params["browser"],
           action: "employers",
-          q: company
+          q: search_params["company"]
         }
       }
     )
