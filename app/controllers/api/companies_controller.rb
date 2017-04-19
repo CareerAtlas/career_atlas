@@ -1,15 +1,15 @@
 class Api::CompaniesController < ApplicationController
 
   def index
-    company = GlassDoorApi.search_jobs(params)
-    company_info = output_info(company["employers"])
+    company = GlassdoorApi.search_company(params)
+    company_info = output_info(company["response"]["employers"])
     render json: company_info
   end
 
   private
 
-  def output_info(company)
-    company.map do |el|
+  def output_info(company_info_to_output)
+    company_info_to_output.map do |el|
       {
         company: el["name"],
         logo: el["squareLogo"],

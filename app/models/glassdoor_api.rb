@@ -10,10 +10,10 @@ class GlassdoorApi
           format: "json",
           "t.p": 142249,
           "t.k": "kHfjVZZplCE",
-          userip: ipaddress,
-          useragent: browser,
+          # userip: search_params["ipaddress"],
+          # useragent: search_params["browser"],
           action: "employers",
-          q: search_company["company"]
+          q: search_params["company"]
         }
       }
     )
