@@ -19,10 +19,18 @@
       function initMap(scope, element) {
         let mapOptions = new google.maps.Map(document.querySelector('.showmap'), {
           center: scope.center,
-          zoom: 10
+          zoom: 12
         });
+
+        let marker = new google.maps.Marker({
+          position: scope.center,
+          mapOptions: mapOptions,
+          title: 'Job!'
+        });
+
+        marker.setMap(mapOptions);
     //
-    //     // make some pin drops.. using scope
+    //     // make some markers.. using scope
       }
     }
 
