@@ -1,0 +1,60 @@
+{
+  "success": true,
+  "status": "OK",
+  "jsessionid": "84D499C7A17BA5B588305BA26285852E",
+  "response": {
+    "attributionURL": "http://www.glassdoor.com/Reviews/verisign-reviews-SRCH_KE0,8.htm",
+    "currentPageNumber": 1,
+    "totalNumberOfPages": 1,
+    "totalRecordCount": 1,
+    "employers": [
+      {
+        "id": 7492,
+        "name": "Verisign",
+        "website": "www.verisign.com",
+        "isEEP": false,
+        "exactMatch": true,
+        "industry": "IT Services",
+        "numberOfRatings": 296,
+        "squareLogo": "https://media.glassdoor.com/sqll/7492/verisign-squarelogo.png",
+        "overallRating": "3.4",
+        "ratingDescription": "OK",
+        "cultureAndValuesRating": "3.3",
+        "seniorLeadershipRating": "2.9",
+        "compensationAndBenefitsRating": "4.3",
+        "careerOpportunitiesRating": "3.0",
+        "workLifeBalanceRating": "3.9",
+        "recommendToFriendRating": 64,
+        "sectorId": 10013,
+        "sectorName": "Information Technology",
+        "industryId": 200064,
+        "industryName": "IT Services",
+        "featuredReview": {
+          "attributionURL": "http://www.glassdoor.com/Reviews/Employee-Review-Verisign-RVW14586109.htm",
+          "id": 14586109,
+          "currentJob": false,
+          "reviewDateTime": "2017-04-11 11:06:33.95",
+          "jobTitle": "Employee",
+          "location": "",
+          "headline": "Engineer",
+          "pros": "New Technology and team work",
+          "cons": "hectic  work and schedules",
+          "overall": 4,
+          "overallNumeric": 4
+        },
+        "ceo": {
+          "name": "D. James Bidzos",
+          "title": "Chairman, President, CEO",
+          "numberOfRatings": 96,
+          "pctApprove": 75,
+          "pctDisapprove": 25,
+          "image": {
+            "src": "https://media.glassdoor.com/people/sqll/7492/verisign-d-james-bidzos.png",
+            "height": 200,
+            "width": 200
+          }
+        }
+      }
+    ]
+  }
+}
