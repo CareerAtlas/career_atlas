@@ -13,6 +13,6 @@ class Api::JobsController < ApplicationController
         date_posted: job["formattedRelativeTime"]
       }
     end
-    render json:job_info
+    render json: job_info
   end
 end
