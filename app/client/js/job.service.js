@@ -2,11 +2,17 @@
   'use strict';
 
   angular.module('career_atlas')
-    .factory('FormService', FormService);
+    .factory('JobService', JobService);
 
-    FormService.$inject =['$http'];
+    JobService.$inject =['$http'];
 
-    function FormService($http) {
+    function JobService($http) {
+
+      /**
+       * Gets information from backend after searching for a job
+       * @param  {Object} search
+       * @return {Promise}        
+       */
       function createJobSearch(search) {
 
         let searchresults = {
@@ -25,7 +31,8 @@
           params: searchresults
         })
           .then(function handleResponse(response) {
-            return response.data;
+            let jobs = response.data;
+            return jobs;
           });
       }
 
