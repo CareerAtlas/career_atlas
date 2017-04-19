@@ -1,4 +1,4 @@
-# CAREER ATLAS
+# [CAREER ATLAS](https://careeratlas.herokuapp.com/)
 
 ## The Iron Yard - Final Project
 
@@ -10,11 +10,11 @@ Finding a job specifically by location does not exist currently. CareerAtlas hel
 
 Content Provided By:
 
-![Indeed](https://www.indeed.com)
+[Indeed](https://www.indeed.com)
 
-![Glassdoor](http://www.glassdoor.com)
+[Glassdoor](http://www.glassdoor.com)
 
-![Google Maps](http://www.googlemaps.com)
+[Google Maps](http://www.googlemaps.com)
 
 
 ## Terminal Commands: (Delete when project completed)

@@ -1,6 +1,13 @@
 .sass-cache/
 node_modules/
-log/development.log
+/log
+*.rbc
+/tmp
+/db/*.sqlite3
+/spec/tmp
+.env
+/.bundle
+/vendor/bundle
 public/
 public/422.html
 public/500.html
@@ -9,3 +16,4 @@ public/apple-touch-icon.png
 public/favicon.ico
 public/robots.txt
 tmp
+log/development.log
