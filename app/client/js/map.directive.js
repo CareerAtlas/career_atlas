@@ -14,10 +14,11 @@
         link: initMap,
         scope: {
           center: '=',
-          pindrops: '='
+          pindrops: '=',
+          markerclicked: '='
         }
       };
-      function initMap(scope, element) {
+      function initMap(scope, element, attributes, controller) {
         let mapOptions = new google.maps.Map(document.querySelector('.showmap'), {
           center: scope.center,
           zoom: 12
@@ -36,7 +37,13 @@
               title: 'Job Markers'
             });
             marker.setMap(mapOptions);
+            marker.data = pinDetails;
             markers.push(marker);
+
+            marker.addListener('click', function handleClick(event) {
+              console.log('inside handle click', scope.markerclicked);
+              scope.markerclicked(marker);
+            });
           });
         });
 
