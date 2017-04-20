@@ -22,8 +22,9 @@
           center: scope.center,
           zoom: 12
         });
-
-        scope.$watch('pindrops', function makePins(newValue) {
+        let markers = [];
+        scope.$watch('pindrops', function makePins() {
+          clearMarkers();
           scope.pindrops.forEach(function getPinDetails(pinDetails) {
             console.log("details", pinDetails);
             let marker = new google.maps.Marker({
@@ -32,12 +33,19 @@
                 "lng": pinDetails.longitude
               },
               mapOptions: mapOptions,
-              title: 'Job!'
+              title: 'Job Markers'
             });
             marker.setMap(mapOptions);
+            markers.push(marker);
           });
         });
-      }
 
+        function clearMarkers() {
+          markers.forEach(function deleteMarkers(marker) {
+            marker.setMap(null);
+          });
+          markers = [];
+        }
+      }
     }
 }());
