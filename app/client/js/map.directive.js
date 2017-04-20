@@ -5,6 +5,7 @@
     .directive('map', Map);
 
     let $ = angular.element;
+    let vm = this;
 
     function Map() {
       return {
@@ -19,12 +20,23 @@
       function initMap(scope, element) {
         let mapOptions = new google.maps.Map(document.querySelector('.showmap'), {
           center: scope.center,
-          zoom: 10
+          zoom: 12
         });
-    //
-    //     // make some pin drops.. using scope
+
+        scope.$watch('pindrops', function makePins(newValue) {
+          scope.pindrops.forEach(function getPinDetails(pinDetails) {
+            console.log("details", pinDetails);
+            let marker = new google.maps.Marker({
+              position: {
+                "lat": pinDetails.latitude,
+                "lng": pinDetails.longitude
+              },
+              mapOptions: mapOptions,
+              title: 'Job!'
+            });
+            marker.setMap(mapOptions);
+          });
+        });
       }
     }
-
-
 }());
