@@ -14,16 +14,18 @@
         link: initMap,
         scope: {
           center: '=',
-          pindrops: '='
+          pindrops: '=',
+          markerclicked: '='
         }
       };
-      function initMap(scope, element) {
+      function initMap(scope, element, attributes, controller) {
         let mapOptions = new google.maps.Map(document.querySelector('.showmap'), {
           center: scope.center,
           zoom: 12
         });
-
-        scope.$watch('pindrops', function makePins(newValue) {
+        let markers = [];
+        scope.$watch('pindrops', function makePins() {
+          clearMarkers();
           scope.pindrops.forEach(function getPinDetails(pinDetails) {
             console.log("details", pinDetails);
             let marker = new google.maps.Marker({
@@ -32,11 +34,25 @@
                 "lng": pinDetails.longitude
               },
               mapOptions: mapOptions,
-              title: 'Job!'
+              title: 'Job Markers'
             });
             marker.setMap(mapOptions);
+            marker.data = pinDetails;
+            markers.push(marker);
+
+            marker.addListener('click', function handleClick(event) {
+              console.log('inside handle click', scope.markerclicked);
+              scope.markerclicked(marker);
+            });
           });
         });
+
+        function clearMarkers() {
+          markers.forEach(function deleteMarkers(marker) {
+            marker.setMap(null);
+          });
+          markers = [];
+        }
       }
     }
 }());

@@ -1,4 +1,3 @@
-
 <form ng-submit='jobCtrl.submit(jobCtrl.search)'>
   <p>Please fill out all search fields.</p>
 
@@ -36,8 +35,12 @@
     <input type='submit' class='btn btn-info' value='Search'>
 </form>
 
+<map ng-show='!jobCtrl.displayedJob' center='{lat: 38.904149, lng: -77.017094}' pindrops='jobCtrl.jobs' markerclicked='jobCtrl.showJobInformation'></map>
 
-<section>
-  <h3>The Map</h3>
-  <map center='{lat: 38.904149, lng: -77.017094}' pindrops='jobCtrl.jobs'></map>
-</section>
+<article ng-show='jobCtrl.displayedJob'>
+  <button href='#' ng-click='jobCtrl.displayedJob = !jobCtrl.displayedJob '>Back to the Map!</button>
+  <p>Job Title: {{jobCtrl.displayedJob.jobtitle}}</p>
+  <p>Company: {{jobCtrl.displayedJob.company}}</p>
+  <p>URL: {{jobCtrl.displayedJob.url}}</p>
+  <p>Location: {{jobCtrl.displayedJob.location}}</p>
+</article>
