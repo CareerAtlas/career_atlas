@@ -1,11 +1,13 @@
 class Api::UsersController < ApplicationController
 
   def create
-    new_user = User.new(user_params)
-    if new_user.save
-      render json: {}
+    binding.pry
+    @new_user = User.new(user_params)
+    @new_user.secure_random
+    if @new_user.save
+      render json: {authorization: @new_user.authorization_token}
     else
-      render json: {}
+      render json: { message: error.to_s, status: :unprocessable_entity }
     end
   end
 

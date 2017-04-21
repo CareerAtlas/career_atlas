@@ -8,5 +8,8 @@ class User < ApplicationRecord
   validates :email, uniqueness: true
   # has_many :jobs
 
-  
+  def secure_random
+    self.authorization_token = SecureRandom.hex(10)
+  end
+
 end
