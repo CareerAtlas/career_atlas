@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     resources :users, only: [:index, :create]
     resources :companies, only: [:index, :show, :create]
     resources :walkscores, only: [:index]
+    resources :authorizations, only: [:create, :destroy]
 
   end
 end
