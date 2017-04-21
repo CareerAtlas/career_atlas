@@ -75,7 +75,7 @@ module.exports = function(grunt) {
         tasks: ['sass']
       },
       html: {
-        files: ['app/client/index.html', 'app/client/views/*.html'],
+        files: ['app/client/index.html', 'app/client/templates/*.html'],
         tasks: ['copy']
       },
       js: {

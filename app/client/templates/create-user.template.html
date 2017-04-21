@@ -1,17 +1,17 @@
 
-<form class='form-inline' name='create-user'>
-  <label for='Name'>Name</label>
-  <input name='name' type='text' class='form-control' placeholder='User Name'>
+<form class='form-inline' name='create-user' ng-submit='userCtrl.createUser(userCtrl.user)'>
+  <label for='name'>Name</label>
+  <input name='name' type='text' class='form-control' placeholder='User Name' ng-model='userCtrl.user.name'>
 
 
   <label for='email'>Email</label>
-  <input name='email' type='text' class='form-control' placeholder='User Email'>
+  <input name='email' type='text' class='form-control' placeholder='User Email' ng-model='userCtrl.user.email'>
 
   <label for='password'>Password</label>
-  <input name='password' type='password' class='form-control' placeholder='********'>
+  <input name='password' type='password' class='form-control' placeholder='********' ng-model='userCtrl.user.password'>
 
   <label for='password_confirmation'>Password Confirmation</label>
-  <input name='password_confirmation' type='password' class='form-control' placeholder='********'>
+  <input name='password_confirmation' type='password' class='form-control' placeholder='********' ng-model='userCtrl.user.password_confirmation'>
 
   <button type='submit' class='form-control btn btn-success' value='Create User'>Create User</button>
 </form>

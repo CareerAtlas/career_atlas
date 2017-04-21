@@ -14,8 +14,12 @@
 
     vm.createUser = function createUser(user) {
       return UserService.createUser(user)
-        .then(function goToSavedJobs() {
-          $state.go('saved-jobs');
+
+
+        .then(function goToSavedJobs(createdUser) {
+        })
+        .catch(function handleError(err) {
+          console.warn(err);
         });
     };
   }
