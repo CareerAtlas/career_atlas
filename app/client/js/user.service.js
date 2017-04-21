@@ -4,7 +4,7 @@
   angular.module('career_atlas')
     .factory('UserService', UserService);
 
-  UserService.$inject = [];
+  UserService.$inject = ['$http'];
 
   function UserService() {
     let token;
@@ -18,12 +18,15 @@
         url: '',
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
+          'Authorization': token
         },
         data: {
+          user: {
           email: email,
           password: password
         }
+      }
       })
       .then(function handleResponse(response) {
 
