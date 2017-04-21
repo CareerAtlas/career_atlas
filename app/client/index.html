@@ -75,7 +75,7 @@
       <map ng-show='!jobCtrl.displayedJob' center='{lat: 38.904149, lng: -77.017094}' pindrops='jobCtrl.jobs' markerclicked='jobCtrl.showJobInformation'></map>
 
       <article ng-show='jobCtrl.displayedJob'>
-        <button ng-click='?????'>Back to the Map!</button>
+        <button href='#' ng-click='jobCtrl.displayedJob = !jobCtrl.displayedJob '>Back to the Map!</button>
         <p>Job Title: {{jobCtrl.displayedJob.jobtitle}}</p>
         <p>Company: {{jobCtrl.displayedJob.company}}</p>
         <p>URL: {{jobCtrl.displayedJob.url}}</p>
