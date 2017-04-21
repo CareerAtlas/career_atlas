@@ -1,4 +1,4 @@
-class Api::WalkingscoresController < ApplicationController
+class Api::WalkscoresController < ApplicationController
 
   def index
     walk_score = WalkscoreApi.search_walkscore(params)
@@ -7,10 +7,10 @@ class Api::WalkingscoresController < ApplicationController
   end
 
   private
-  
+
   def output(search)
     {
-      walkscore: search["walkscore"],
+      walk_score: search["walkscore"],
       description: search["description"],
       transit_score: search["transit"]["score"],
       bike_score: search["bike"]["score"]

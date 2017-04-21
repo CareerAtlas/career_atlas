@@ -8,7 +8,7 @@ RSpec.describe Api::JobsController, type: :controller do
     stub_request(:get, /api.indeed.com\/ads\/apisearch/)
       .to_return(
         body: File.read(Rails.root.join("spec", "stubbed_requests", "job_search.json")),
-        headers: {'Content-Type' => 'application/json'}
+        headers: {"Content-Type" => "application/json"}
       )
     get :index, params: search_params
     assert response.ok?
