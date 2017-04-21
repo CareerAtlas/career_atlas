@@ -1,6 +1,7 @@
 class Api::JobsController < ApplicationController
 
   def index
+    binding.pry
     jobs = IndeedApi.search_jobs(params)
     job_info = info_for_output(jobs["results"])
     render json: job_info
