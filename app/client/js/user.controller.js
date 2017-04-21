@@ -9,12 +9,13 @@
   function UserController(UserService) {
     let vm = this;
 
-    vm.userLogin = {};
+    vm.user = {};
+    vm.users = [];
 
-    vm.login = function login(userLogin) {
-      UserService.login(userLogin.email, userLogin.password)
+    vm.createUser = function createUser(user) {
+      return UserService.createUser(user)
         .then(function goToSavedJobs() {
-          $state.go('saved jobs');
+          $state.go('saved-jobs');
         });
     };
   }

@@ -20,9 +20,16 @@
         controllerAs: 'jobCtrl'
       })
       .state({
-        name: 'user-login',
-        url: '/login',
-        templateUrl: 'templates/user-login.template.html',
+        name: 'create-user',
+        url: '/create-user',
+        templateUrl: 'templates/create-user.template.html',
+        controller: 'UserController',
+        controllerAs: 'userCtrl'
+      })
+      .state({
+        name: 'saved-jobs',
+        url: '/saved-jobs',
+        templateUrl: 'templates/saved-jobs.template.html',
         controller: 'UserController',
         controllerAs: 'userCtrl'
       });

@@ -7,29 +7,31 @@
   UserService.$inject = ['$http'];
 
   function UserService() {
-    let token;
+    let token = localStorage.getItem('token');
 
     function getToken() {
       return token;
     }
 
-    function createUser(email, password) {
+    function createUser(user) {
       $http({
-        url: '',
+        url: '/api/users/',
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': token
+          'authorization': token
         },
         data: {
           user: {
-          email: email,
-          password: password
+          name: user.name,
+          email: user.email,
+          password: user.password,
+          password_confirmation: user.password_confirmation
         }
       }
       })
       .then(function handleResponse(response) {
-
+        return response.data;
       });
     }
     return {
