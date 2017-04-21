@@ -13,7 +13,7 @@
       return token;
     }
 
-    function login(email, password) {
+    function createUser(email, password) {
       $http({
         url: '',
         method: 'POST',
@@ -34,7 +34,7 @@
     }
     return {
       getToken: getToken,
-      login: login
+      createUser: createUser
     };
 
   }
