@@ -33,75 +33,9 @@
       </nav>
     </header>
 
-    <main ng-controller='JobController as jobCtrl'>
 
-      <form ng-submit='jobCtrl.submit(jobCtrl.search)'>
-        <p>Please fill out all search fields.</p>
+    <main ui-view></main>
 
-        <label for='jobtitle'>Job Title</label>
-          <input
-            type='text'
-            class='form-control'
-            placeholder='Job Title'
-            required
-            name='job_title'
-            ng-model='jobCtrl.search.job_title'
-            id='jobtitle'>
-
-        <label for='jobtype'>Job Type</label>
-          <select name='job_type' id='job_type' required class='form-control' ng-model='jobCtrl.search.job_type' type='option'>
-            <option value='All job types'>All job types</option>
-            <option value='Temporary'>Temporary</option>
-            <option value='Part-time'>Part-time</option>
-            <option value='Internship'>Internship</option>
-            <option value='Contract'>Contract</option>
-            <option value='Full-Time'>Full-Time</option>
-          </select>
-
-        <label for='radius'>Location</label>
-          <select name='radius' id='radius' required class='form-control' ng-model='jobCtrl.search.radius' type='option'>
-            <option value='5'>within 5 miles of</option>
-            <option value='10'>within 10 miles of</option>
-            <option value='15'>within 15 miles of</option>
-            <option value='20'>within 20 miles of</option>
-            <option value='25'>within 25 miles of</option>
-            <option value='50'>within 50 miles of</option>
-
-        <label for='location'>(city, state, or zipcode)</label>
-          <input type='text' id='location' name='location' size='28' maxlength='250' placeholder='Arlington, VA' autocomplete='off' ng-model='jobCtrl.search.location' required>
-          <input type='submit' class='btn btn-info' value='Search'>
-      </form>
-
-      <map ng-show='!jobCtrl.displayedJob' center='{lat: 38.904149, lng: -77.017094}' pindrops='jobCtrl.jobs' markerclicked='jobCtrl.showJobInformation'></map>
-
-      <article ng-show='jobCtrl.displayedJob'>
-        <button href='#' ng-click='jobCtrl.displayedJob = !jobCtrl.displayedJob '>Back to the Map!</button>
-        <p>Job Title: {{jobCtrl.displayedJob.jobtitle}}</p>
-        <p>Company: {{jobCtrl.displayedJob.company}}</p>
-        <p>URL: {{jobCtrl.displayedJob.url}}</p>
-        <p>Location: {{jobCtrl.displayedJob.location}}</p>
-      </article>
-
-      <!-- Modal -->
-      <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-              <h4 class="modal-title" id="myModalLabel">Modal title</h4>
-            </div>
-            <div class="modal-body">
-              ...
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-    </main>
     <footer>
       <p>Map your future career move, today!</p>
       <p>&copy; CareerAtlas</p>
