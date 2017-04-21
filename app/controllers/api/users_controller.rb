@@ -1,7 +1,6 @@
 class Api::UsersController < ApplicationController
 
   def create
-    binding.pry
     @new_user = User.new(user_params)
     @new_user.secure_random
     if @new_user.save
