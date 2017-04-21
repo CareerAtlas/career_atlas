@@ -23,6 +23,7 @@
           center: scope.center,
           zoom: 12
         });
+
         let markers = [];
         scope.$watch('pindrops', function makePins() {
           clearMarkers();
@@ -45,6 +46,32 @@
               scope.markerclicked(marker);
             });
           });
+
+          function findCenterOfPinDrops(pinData) {
+            console.log('pinData', pinData);
+            let longitudes = pinData.map(function getLongitudes(objectData) {
+              return objectData.longitude;
+            });
+            let latitudes = pinData.map(function getLatitudes(objectData) {
+              return objectData.latitude;
+            });
+            let longitudeSum = longitudes.reduce(function(acc, val) {
+              return acc + val;
+            }, 0);
+            let longitudeAverage = longitudeSum / longitudes.length;
+            let latitudeSum = latitudes.reduce(function(acc, val) {
+              return acc + val;
+            }, 0);
+            let latitudeAverage = latitudeSum / latitudes.length;
+            let newPoint = {lat: latitudeAverage, lng: longitudeAverage};
+            return newPoint;
+          }
+
+          if (scope.pindrops.length > 0) {
+            let newCenterPinPoint = findCenterOfPinDrops(scope.pindrops);
+            console.log("center point", newCenterPinPoint);
+            mapOptions.setCenter(newCenterPinPoint);
+          }
         });
 
         function clearMarkers() {
