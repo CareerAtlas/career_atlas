@@ -16,6 +16,7 @@ class Api::JobsController < ApplicationController
         url: job["url"],
         latitude: job["latitude"],
         longitude: job["longitude"],
+        key: job["jobkey"],
         location: job["formattedLocationFull"],
         date_posted: job["formattedRelativeTime"]
       }
