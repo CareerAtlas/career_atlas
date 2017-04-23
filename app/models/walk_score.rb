@@ -1,0 +1,2 @@
+class WalkScore < ApplicationRecord
+end
