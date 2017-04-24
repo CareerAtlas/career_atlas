@@ -6,35 +6,43 @@
 
   UserService.$inject = ['$http'];
 
-  function UserService() {
-    let token;
+  function UserService($http) {
+    let token = localStorage.getItem('token');
 
     function getToken() {
       return token;
     }
 
-    function login(email, password) {
-      $http({
-        url: '',
+    /**
+     * [createUser description]
+     * @param  {Object} user [description]
+     * @return {Promise}      [description]
+     */
+    function createUser(user) {
+
+      return $http({
+        url: '/api/users/',
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json',
-          'Authorization': token
+          'Content-Type': 'application/json'
         },
         data: {
           user: {
-          email: email,
-          password: password
+            name: user.name,
+            email: user.email,
+            password: user.password,
+            password_confirmation: user.password_confirmation
+          }
         }
-      }
       })
       .then(function handleResponse(response) {
-
+  
+        return response.data;
       });
     }
     return {
       getToken: getToken,
-      login: login
+      createUser: createUser
     };
 
   }
