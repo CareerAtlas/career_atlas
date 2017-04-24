@@ -6,7 +6,7 @@ Created by: [Christine Ash](https://www.linkedin.com/in/christine-ash-5a21743b/)
 
 ## Project Details:
 
-Finding a job specifically by location does not exist currently. CareerAtlas helps people know where specific jobs are available and helps people make better informed decisions when they are looking for a new opportunity. CareerAtlas allows users to see jobs that are currently listed on Indeed, populated on a map. The interface includes the ability to search for jobs by location, title, salary range, and job type. CareerAtlas provides a superior user experience so job seekers can find a job that matches their lifestyle.
+Finding a job specifically by location does not exist currently. CareerAtlas helps people know where specific jobs are available and helps people make better informed decisions when they are looking for a new opportunity. CareerAtlas allows users to see jobs that are currently listed on Indeed, populated on a map. The interface includes the ability to search for jobs by job title, job type, and location. CareerAtlas provides a superior user experience so job seekers can find a job that matches their lifestyle.
 
 Content Provided By:
 
