@@ -43,6 +43,7 @@
   <button href='#' ng-click='jobCtrl.displayedJob = !jobCtrl.displayedJob '>Back to the Map!</button>
   <p>Job Title: {{jobCtrl.displayedJob.jobtitle}}</p>
   <p>Company: {{jobCtrl.displayedJob.company}}</p>
-  <p>URL: {{jobCtrl.displayedJob.url}}</p>
+  <p><a ng-href='{{jobCtrl.displayedJob.url}}'>URL: {{jobCtrl.displayedJob.url}}</a></p>
   <p>Location: {{jobCtrl.displayedJob.location}}</p>
+  <p>Date Posted: {{jobCtrl.displayedJob.date_posted}}
 </article>
