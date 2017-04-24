@@ -7,6 +7,14 @@ class Api::JobsController < ApplicationController
     render json: job_info
   end
 
+  def create
+    if current_user
+      current_user.jobs.create(params)
+    else
+      
+    end
+  end
+
   private
   def info_for_output(jobs)
     jobs.map do |job|
