@@ -86,5 +86,12 @@
   <p ng-show='jobCtrl.displayedJob.glassdoorData.work_life_balance_rating.length != null'>
     Work Life Balance Rating: {{jobCtrl.displayedJob.glassdoorData.work_life_balance_rating}}
   </p>
+  <p>
+    Walk Score: {{jobCtrl.displayedJob.walkscoreData.walk_score}}
+  </p>
+  <p ng-show='jobCtrl.displayedJob.walkscoreData.description.length != null'>
+    Description: {{jobCtrl.displayedJob.walkscoreData.description}}
+  </p>
+
 
 </article>
