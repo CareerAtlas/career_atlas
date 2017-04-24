@@ -10,24 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170423183511) do
+ActiveRecord::Schema.define(version: 20170423182600) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "companies", force: :cascade do |t|
-    t.integer  "job_id"
-    t.string   "name"
-    t.integer  "overall_rating"
-    t.integer  "culture_rating"
-    t.integer  "leadership_rating"
-    t.integer  "compensation_rating"
-    t.integer  "opportunity_rating"
-    t.integer  "work_life_balance_rating"
-    t.integer  "recommend_to_friend_rating"
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
-  end
 
   create_table "jobs", force: :cascade do |t|
     t.integer  "user_id"
@@ -46,16 +32,6 @@ ActiveRecord::Schema.define(version: 20170423183511) do
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
     t.string   "authorization_token"
-  end
-
-  create_table "walk_scores", force: :cascade do |t|
-    t.integer  "job_id"
-    t.integer  "walking_score"
-    t.string   "description"
-    t.integer  "transit_score"
-    t.integer  "biking_score"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
   end
 
 end
