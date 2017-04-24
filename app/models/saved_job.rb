@@ -1,0 +1,2 @@
+class SavedJob < ApplicationRecord
+end
