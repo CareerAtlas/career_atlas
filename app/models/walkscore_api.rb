@@ -9,10 +9,10 @@ class WalkscoreApi
           lat: search_params["latitude"],
           lon: search_params["longitude"],
           address: search_params["address"],
-          wsapikey: "5108b6df6ffbdbd8ad43d4a5dc25ee8a",
+          wsapikey: ENV["WALKSCOREAPIKEY"],
           transit: 1,
           bike: 1,
-          format: "JSON"
+          format: "json"
         }
 
       }
