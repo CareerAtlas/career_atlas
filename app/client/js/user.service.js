@@ -49,7 +49,7 @@
           'Content-Type': 'application/json',
         },
         data: {
-          users: {
+          user: {
             email: user.email,
             password: user.password
           }
