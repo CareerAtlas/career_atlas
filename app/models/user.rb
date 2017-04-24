@@ -14,6 +14,7 @@ class User < ApplicationRecord
 
   def logout
     self.authorization_token = SecureRandom.hex(64)
+    self.save
   end
 
 end
