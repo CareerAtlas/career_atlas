@@ -41,7 +41,8 @@
       });
     }
 
-    function login() {
+    function login(user) {
+      console.log('this is the login fn', user);
       return $http({
         url: '/api/authorizations/',
         method: 'POST',

@@ -24,6 +24,7 @@
     };
 
     vm.login = function login(user) {
+      console.log('trying to login via controller', login);
       return UserService.login(user)
 
         .then(function goToSavedJobs(loggedInUser) {
