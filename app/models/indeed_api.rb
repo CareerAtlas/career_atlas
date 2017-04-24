@@ -6,7 +6,7 @@ class IndeedApi
       {
         query:
           {
-          publisher: 8417063092021675,
+          publisher: ENV["INDEEDAPIKEY"],
           format: "json",
           q: search_params["job_title"],
           l: search_params["location"],
