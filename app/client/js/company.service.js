@@ -7,15 +7,15 @@
     CompanyService.$inject =['$http'];
 
     function CompanyService($http) {
-      console.log('inside company service'); //getting HERE
+      console.log('inside company service');
       /**
        * Gets glassdoor company information from backend
        * @param  {String} companyName name
        * @return {Promise}
        */
-      function getGlassdoorCompanyInformation(companyName) { //company  needs to be handled in the job controller?
+      function getGlassdoorCompanyInformation(companyName) {
 
-        let companyObject = { //what I am sending to the backend //do I need to connect this specifically with Robbie?
+        let companyObject = {
           company: companyName,
         };
 
@@ -29,7 +29,7 @@
         })
           .then(function handleResponse(response) {
             let glassdoorCompanyInformation = response.data[0];
-            console.log('glassdoorCompanyInformation', glassdoorCompanyInformation); //not getting HERE
+            console.log('glassdoorCompanyInformation', glassdoorCompanyInformation);
             return glassdoorCompanyInformation;
           });
       }
