@@ -9,7 +9,12 @@ class User < ApplicationRecord
   has_many :jobs
 
   def secure_random
-    self.authorization_token = SecureRandom.hex(10)
+    self.authorization_token = SecureRandom.hex(64)
+  end
+
+  def logout
+    self.authorization_token = SecureRandom.hex(64)
+    self.save
   end
 
 end
