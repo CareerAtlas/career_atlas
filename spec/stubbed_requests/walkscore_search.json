@@ -6,7 +6,7 @@
   "logo_url": "https://cdn.walk.sc/images/api-logo.png",
   "more_info_icon": "https://cdn.walk.sc/images/api-more-info.gif",
   "more_info_link": "https://www.redfin.com/how-walk-score-works",
-  "ws_link": "https://www.walkscore.com/score/405-Lexington-Ave-New-York-City-10174/lat=40.751652/lng=-73.975311/?utm_source=careeratlas.herokuapp.com &utm_medium=ws_api&utm_campaign=ws_api",
+  "ws_link": "https://www.walkscore.com/score/405-Lexington-Ave-New-York-City-10174/lat=40.751652/lng=-73.975311/?utm_source=careeratlas.herokuapp.com&utm_medium=ws_api&utm_campaign=ws_api",
   "help_link": "https://www.redfin.com/how-walk-score-works",
   "snapped_lat": 40.752,
   "snapped_lon": -73.9755,

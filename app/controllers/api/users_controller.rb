@@ -10,6 +10,17 @@ class Api::UsersController < ApplicationController
     end
   end
 
+  def destroy
+    @user = User.find_by(email: params[:email])
+    if @user && @user.authorization_token == params[:authorization]
+      @user.destroy
+      render json: { message: "Account Deleted", status: :ok}
+    else
+      render json: {message: error.to_s, status: :unauthorized}
+    end
+
+  end
+
   private
   def user_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation)
