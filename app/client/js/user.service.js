@@ -56,8 +56,8 @@
         }
       })
       .then(function handleResponse(response) {
-        localStorage.setItem('token', response.data);
-        token = response.data;
+        localStorage.setItem('token', response.data.authorization);
+        token = response.data.authorization;
         return token;
       });
     }
@@ -73,7 +73,7 @@
       })
       .then(function handleResponse(response) {
 
-        token = response.data;
+        token = null;
         localStorage.removeItem('token');
       });
     }
