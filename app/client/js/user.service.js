@@ -43,7 +43,7 @@
 
     function login() {
       return $http({
-        url: '/api/authorizations',
+        url: '/api/authorizations/',
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -62,10 +62,26 @@
       });
     }
 
+    function logout() {
+      return $http({
+        url: '/api/logout/',
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': token
+        }
+      })
+      .then(function handleResponse(response) {
+        token = null;
+        localStorage.removeItem('token');
+      });
+    }
+
     return {
       getToken: getToken,
       createUser: createUser,
-      login:login
+      login:login,
+      logout:logout
     };
 
   }
