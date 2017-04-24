@@ -39,6 +39,13 @@
         templateUrl: 'templates/saved-jobs.template.html',
         controller: 'UserController',
         controllerAs: 'userCtrl'
+      })
+      .state({
+        name: 'about-us',
+        url: '/about-us',
+        templateUrl: 'templates/about-us.template.html',
+        controller: 'NavController',
+        controllerAs: 'navCtrl'
       });
 
 

@@ -22,14 +22,14 @@
       <h1>CareerAtlas</h1>
       <p>Mapping your future career move! Find a job near you!</p>
 
-      <nav>
-         <ul>
-           <li><a>home</a></li>
-           <li><a>about us</a></li>
-           <li><a>saved jobs</a></li>
-           <li><a>logout</a></li>
-           <li><a>login</a></li>
-           <li><a>create user</a></li>
+      <nav ng-controller='NavController as navCtrl' class='navbar navbar-default navbar-static-top'>
+         <ul class='nav navbar-nav'>
+           <li><a ui-sref='home'>home</a></li>
+           <li><a ui-sref='about-us'>about us</a></li>
+           <li><a ui-sref='saved-jobs'>saved jobs</a></li>
+           <li><a ui-sref='create-user'>create user</a></li>
+           <li><a ui-sref='login'>login</a></li>
+           <li><a href='#' ng-click='navCtrl.logout()'>logout</a></li>
          </ul>
       </nav>
     </header>
