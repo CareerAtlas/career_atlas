@@ -41,8 +41,17 @@
 
 <article ng-show='jobCtrl.displayedJob'>
   <button href='#' ng-click='jobCtrl.displayedJob = !jobCtrl.displayedJob '>Back to the Map!</button>
+  <img alt='CompanyLogo' src='{{jobCtrl.displayedJob.glassdoorData.logo}}' ng-hide='jobCtrl.displayedJob.glassdoorData.logo.length <= 1'>
   <p>Job Title: {{jobCtrl.displayedJob.jobtitle}}</p>
   <p>Company: {{jobCtrl.displayedJob.company}}</p>
   <p>URL: {{jobCtrl.displayedJob.url}}</p>
   <p>Location: {{jobCtrl.displayedJob.location}}</p>
+  <p>Compensation Rating: {{jobCtrl.displayedJob.glassdoorData.compensation_rating}}</p>
+  <p>Culture Rating: {{jobCtrl.displayedJob.glassdoorData.culture_rating}}</p>
+  <p>Leadership Rating: {{jobCtrl.displayedJob.glassdoorData.leadership_rating}}</p>
+  <p>Overall Rating: {{jobCtrl.displayedJob.glassdoorData.overall_rating}}</p>
+  <p>Recommend to a Friend Rating: {{jobCtrl.displayedJob.glassdoorData.recommend_to_friend_rating}}</p>
+  <p>Opportunity Rating: {{jobCtrl.displayedJob.glassdoorData.opportunity_rating}}</p>
+  <p>Work Life Balance Rating: {{jobCtrl.displayedJob.glassdoorData.balance_rating}}</p>
+
 </article>
