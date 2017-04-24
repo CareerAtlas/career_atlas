@@ -42,7 +42,6 @@
     }
 
     function login(user) {
-      console.log('this is the login fn', user);
       return $http({
         url: '/api/authorizations/',
         method: 'POST',
@@ -65,15 +64,16 @@
 
     function logout() {
       return $http({
-        url: '/api/logout/',
-        method: 'POST',
+        url: '/api/authorization/',
+        method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',
           'Authorization': token
         }
       })
       .then(function handleResponse(response) {
-        token = null;
+
+        token = response.data;
         localStorage.removeItem('token');
       });
     }
