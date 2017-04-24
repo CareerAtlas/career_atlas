@@ -11,9 +11,7 @@ class Api::WalkscoresController < ApplicationController
   def output(search)
     {
       walk_score: search["walkscore"],
-      description: search["description"],
-      transit_score: search["transit"]["score"],
-      bike_score: search["bike"]["score"]
+      description: search["description"]
     }
   end
 end
