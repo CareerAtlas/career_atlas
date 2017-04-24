@@ -30,3 +30,7 @@ Update (run after a git pull)
 ```sh
 bin/update
 ```
+Shows rails routes 
+```
+rails routes
+```
