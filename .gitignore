@@ -17,3 +17,5 @@ public/favicon.ico
 public/robots.txt
 tmp
 log/development.log
+.DS_Store
+app/.DS_Store
