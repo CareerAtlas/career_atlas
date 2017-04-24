@@ -33,17 +33,64 @@
       <option value='50'>within 50 miles of</option>
 
   <label for='location'>(city, state, or zipcode)</label>
-    <input type='text' id='location' name='location' size='28' maxlength='250' placeholder='Arlington, VA' autocomplete='off' ng-model='jobCtrl.search.location' required>
+    <input
+      type='text'
+      id='location'
+      name='location'
+      size='28'
+      maxlength='250'
+      placeholder='Arlington, VA'
+      autocomplete='off'
+      ng-model='jobCtrl.search.location'
+      required>
     <input type='submit' class='btn btn-info' value='Search'>
 </form>
 
-<map ng-show='!jobCtrl.displayedJob' center='{lat: 38.904149, lng: -77.017094}' pindrops='jobCtrl.jobs' markerclicked='jobCtrl.showJobInformation'></map>
+<map
+  ng-show='!jobCtrl.displayedJob'
+  center='{lat: 38.904149, lng: -77.017094}'
+  pindrops='jobCtrl.jobs'
+  markerclicked='jobCtrl.showJobInformation'>
+</map>
 
 <article ng-show='jobCtrl.displayedJob'>
-  <button href='#' ng-click='jobCtrl.displayedJob = !jobCtrl.displayedJob '>Back to the Map!</button>
+  <button href='#' ng-click='jobCtrl.displayedJob = !jobCtrl.displayedJob'>
+    Back to the Map!
+  </button>
+  <img alt='CompanyLogo' src='{{jobCtrl.displayedJob.glassdoorData.logo}}' ng-show='jobCtrl.displayedJob.glassdoorData.logo.length != null'>
   <p>Job Title: {{jobCtrl.displayedJob.jobtitle}}</p>
   <p>Company: {{jobCtrl.displayedJob.company}}</p>
-  <p><a ng-href='{{jobCtrl.displayedJob.url}}'>URL: {{jobCtrl.displayedJob.url}}</a></p>
+  <p><a ng-href='{{jobCtrl.displayedJob.url}}'>{{jobCtrl.displayedJob.url}}</a></p>
   <p>Location: {{jobCtrl.displayedJob.location}}</p>
   <p>Date Posted: {{jobCtrl.displayedJob.date_posted}}
+  <p ng-show='jobCtrl.displayedJob.glassdoorData.overall_rating.length != null'>
+    Overall Rating: {{jobCtrl.displayedJob.glassdoorData.overall_rating}}
+  </p>
+  <p ng-show='jobCtrl.displayedJob.glassdoorData.compensation_rating.length != null'>
+    Compensation Rating: {{jobCtrl.displayedJob.glassdoorData.compensation_rating}}
+  </p>
+  <p ng-show='jobCtrl.displayedJob.glassdoorData.culture_rating.length != null'>
+    Culture Rating: {{jobCtrl.displayedJob.glassdoorData.culture_rating}}
+  </p>
+  <p ng-show='jobCtrl.displayedJob.glassdoorData.leadership_rating.length != null'>
+    Leadership Rating: {{jobCtrl.displayedJob.glassdoorData.leadership_rating}}
+  </p>
+  <p ng-show='jobCtrl.displayedJob.glassdoorData.overall_rating.length != null'>
+    Overall Rating: {{jobCtrl.displayedJob.glassdoorData.overall_rating}}
+  </p>
+  <p ng-show='jobCtrl.displayedJob.glassdoorData.recommend_to_friend_rating.length != null'>
+    Recommend to a Friend Rating: {{jobCtrl.displayedJob.glassdoorData.recommend_to_friend_rating}}
+  </p>
+  <p ng-show='jobCtrl.displayedJob.glassdoorData.opportunity_rating.length != null'>
+    Opportunity Rating: {{jobCtrl.displayedJob.glassdoorData.opportunity_rating}}
+  </p>
+  <p ng-show='jobCtrl.displayedJob.glassdoorData.work_life_balance_rating.length != null'>
+    Work Life Balance Rating: {{jobCtrl.displayedJob.glassdoorData.work_life_balance_rating}}
+  </p>
+  <p>
+    Walk Score: {{jobCtrl.displayedJob.walkscoreData.walk_score}}
+  </p>
+  <p ng-show='jobCtrl.displayedJob.walkscoreData.description.length != null'>
+    Description: {{jobCtrl.displayedJob.walkscoreData.description}}
+  </p>
 </article>
