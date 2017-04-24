@@ -9,9 +9,9 @@ class Api::JobsController < ApplicationController
 
   def create
     if current_user
-      current_user.jobs.create(params)
+      current_user.jobs.create(params["job"])
     else
-      
+
     end
   end
 
@@ -28,14 +28,6 @@ class Api::JobsController < ApplicationController
         location: job["formattedLocationFull"],
         date_posted: job["formattedRelativeTime"]
       }
-    end
-  end
-
-  def save_jobs(jobs)
-    jobs.each do |job|
-      unless Job.find_by(job.key)
-        Job.create(job)
-      end
     end
   end
 end
