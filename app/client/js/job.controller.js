@@ -4,11 +4,11 @@
   angular.module('career_atlas')
     .controller('JobController', JobController);
 
-    JobController.$inject = ['$scope', 'JobService', 'CompanyService'];
+    JobController.$inject = ['$scope', 'JobService', 'CompanyService', 'WalkscoreService'];
 
     console.log('inside the form controller here');
 
-    function JobController($scope, JobService, CompanyService) {
+    function JobController($scope, JobService, CompanyService, WalkscoreService) {
       let vm = this;
       vm.jobs = [];
 
@@ -16,13 +16,21 @@
 
       vm.showJobInformation = function showJobInformation(marker) {
         vm.displayedJob = marker.data;
-        console.log('marker.data', marker.data);
-        //plus glassdoor information
-        //here i need to someone get information from http request for glassdoor information
         CompanyService.getGlassdoorCompanyInformation(marker.data.company)
           .then(function handleGlassdoorData(glassdoorData) {
             vm.displayedJob.glassdoorData = glassdoorData;
             console.log('data here', glassdoorData);
+          });
+
+        vm.ObjectToSendBackEndForWalkScore = {
+            latitude: marker.data.latitude,
+            longitude: marker.data.longitude,
+            address: marker.data.location
+        };
+        WalkscoreService.getWalkscoreInformation(vm.ObjectToSendBackEndForWalkScore)
+          .then(function handleWalkscoreData(walkscoreData) {
+            vm.displayedJob.walkscoreData = walkscoreData;
+            console.log('walkscore data', walkscoreData);
           });
         $scope.$apply();
       };
