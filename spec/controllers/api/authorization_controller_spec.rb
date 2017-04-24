@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Api::AuthorizationsController, type: :controller do
+RSpec.describe Api::AuthorizationController, type: :controller do
 
   it "allows someone to log in" do
     User.create!(name: "John", email: "John@johnny.com", password: "bro", password_confirmation: "bro", authorization_token: SecureRandom.hex(10))
