@@ -20,4 +20,10 @@ RSpec.describe User, type: :model do
     robby.save
     expect(robby.authorization_token).to be_present
   end
+  it "creates a job" do
+    john = User.create!(name: "John", email: "John@Smith.com", password: "hello", password_confirmation: "hello")
+    john.jobs.create(job_title: "Software Engineer")
+    expect(john.jobs.length).to eq(1)
+
+  end
 end
