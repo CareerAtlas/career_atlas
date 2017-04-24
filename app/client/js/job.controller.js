@@ -22,7 +22,7 @@
 
       vm.search = {
         job_type: 'Full-Time',
-        radius: '20',
+        radius: '1',
       };
 
       vm.submit = function submit(search) {

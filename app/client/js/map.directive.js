@@ -26,7 +26,9 @@
 
         let markers = [];
         scope.$watch('pindrops', function makePins() {
+          let bounds = new google.maps.LatLngBounds();
           clearMarkers();
+          
           scope.pindrops.forEach(function getPinDetails(pinDetails) {
             console.log("details", pinDetails);
             let marker = new google.maps.Marker({
@@ -37,7 +39,12 @@
               mapOptions: mapOptions,
               title: 'Job Markers'
             });
+
             marker.setMap(mapOptions);
+
+            let locationOfPin = new google.maps.LatLng(marker.position.lat(), marker.position.lng());
+            bounds.extend(locationOfPin);
+
             marker.data = pinDetails;
             markers.push(marker);
 
@@ -46,6 +53,11 @@
               scope.markerclicked(marker);
             });
           });
+
+          if (markers.length > 0) {
+            mapOptions.fitBounds(bounds); //auto-zoom
+            mapOptions.panToBounds(bounds); //auto-center
+          }
 
           function findCenterOfPinDrops(pinData) {
             console.log('pinData', pinData);
@@ -73,6 +85,7 @@
             mapOptions.setCenter(newCenterPinPoint);
           }
         });
+
 
         function clearMarkers() {
           markers.forEach(function deleteMarkers(marker) {
