@@ -43,7 +43,7 @@
 
     function login(user) {
       return $http({
-        url: '/api/authorizations/',
+        url: '/api/authorization/',
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
