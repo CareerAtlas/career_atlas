@@ -36,13 +36,36 @@
         }
       })
       .then(function handleResponse(response) {
-  
+
         return response.data;
       });
     }
+
+    function login() {
+      return $http({
+        url: '/api/authorizations',
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        data: {
+          users: {
+            email: user.email,
+            password: user.password
+          }
+        }
+      })
+      .then(function handleResponse(response) {
+        localStorage.setItem('token', response.data);
+        token = response.data;
+        return token;
+      });
+    }
+
     return {
       getToken: getToken,
-      createUser: createUser
+      createUser: createUser,
+      login:login
     };
 
   }

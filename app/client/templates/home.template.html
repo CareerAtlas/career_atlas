@@ -62,6 +62,7 @@
   <p>Company: {{jobCtrl.displayedJob.company}}</p>
   <p><a ng-href='{{jobCtrl.displayedJob.url}}'>{{jobCtrl.displayedJob.url}}</a></p>
   <p>Location: {{jobCtrl.displayedJob.location}}</p>
+  <p>Date Posted: {{jobCtrl.displayedJob.date_posted}}
   <p ng-show='jobCtrl.displayedJob.glassdoorData.overall_rating.length != null'>
     Overall Rating: {{jobCtrl.displayedJob.glassdoorData.overall_rating}}
   </p>
@@ -92,6 +93,4 @@
   <p ng-show='jobCtrl.displayedJob.walkscoreData.description.length != null'>
     Description: {{jobCtrl.displayedJob.walkscoreData.description}}
   </p>
-
-
 </article>

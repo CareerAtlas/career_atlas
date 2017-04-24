@@ -27,6 +27,13 @@
         controllerAs: 'userCtrl'
       })
       .state({
+        name: 'login',
+        url: '/login',
+        templateUrl: 'templates/login.template.html',
+        controller: 'UserController',
+        controllerAs: 'userCtrl'
+      })
+      .state({
         name: 'saved-jobs',
         url: '/saved-jobs',
         templateUrl: 'templates/saved-jobs.template.html',
