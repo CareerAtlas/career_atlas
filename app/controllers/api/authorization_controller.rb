@@ -10,6 +10,6 @@ class Api::AuthorizationController < ApplicationController
   end
 
   def destroy
-    @current_user.logout
+    current_user.logout
   end
 end
