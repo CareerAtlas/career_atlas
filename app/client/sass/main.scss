@@ -1,5 +1,6 @@
 @import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
 
+@import 'page_defaults';
 @import 'variables';
 @import 'mixins';
 @import 'header';
@@ -8,3 +9,5 @@
 @import 'about_us';
 @import 'not_found';
 @import 'search_form';
+@import 'tablet_view.scss';
+@import 'desktop_view.scss';
