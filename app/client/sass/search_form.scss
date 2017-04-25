@@ -1,0 +1,40 @@
+.search_form {
+  width: 88%;
+  margin: auto;
+  background-color: $ThemeColorTwo;
+  padding: 2em;
+  border-radius: 3em;
+  display: flex;
+  flex-direction: column;
+}
+
+.form_submit_button {
+  border-radius: 0.5em;
+  background-color: $ThemeColorOne;
+  color: $ThemeColorFour;
+  padding: 0.5em;
+}
+
+.form_submit_button:hover,
+.form_submit_button.active,
+.form_submit_button:active:focus,
+.form_submit_button:focus {
+  background-color: $ThemeColorThree;
+  color: $ThemeColorFive;
+}
+
+.panel-default {
+  display: flex;
+  flex-direction: column;
+  .form-control:hover {
+    color: $ThemeColorThree;
+  }
+  .panel_heading {
+    text-align: center;
+    width: 100%;
+    color: $ThemeColorFour;
+  }
+  .label {
+    color: $ThemeColorFour;
+  }
+}
