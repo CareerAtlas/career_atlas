@@ -1,4 +1,5 @@
 class Api::JobsController < ApplicationController
+  before_action :authorize!, only: [:create, :show]
 
   def index
     jobs = IndeedApi.search_jobs(params)
@@ -8,11 +9,7 @@ class Api::JobsController < ApplicationController
   end
 
   def create
-    if current_user
-      current_user.jobs.create(params["job"])
-    else
-
-    end
+  
   end
 
   private
@@ -28,6 +25,12 @@ class Api::JobsController < ApplicationController
         location: job["formattedLocationFull"],
         date_posted: job["formattedRelativeTime"]
       }
+    end
+  end
+
+  def authorize!
+    unless current_user
+      render json: {message: "Please login", status: :unauthorized}
     end
   end
 end
