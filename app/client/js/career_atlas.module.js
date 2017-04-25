@@ -2,7 +2,8 @@
   'use strict';
 
   angular.module( 'career_atlas', ['ui.router'] )
-    .config(routerConfig);
+    .config(routerConfig)
+    .run(setupAuthCheck);
 
   routerConfig.$inject = ['$stateProvider', '$urlRouterProvider'];
   function routerConfig($stateProvider, $urlRouterProvider) {
@@ -39,10 +40,29 @@
         templateUrl: 'templates/saved-jobs.template.html',
         controller: 'UserController',
         controllerAs: 'userCtrl'
+      })
+      .state({
+        name: 'about-us',
+        url: '/about-us',
+        templateUrl: 'templates/about-us.template.html',
+        controller: 'NavController',
+        controllerAs: 'navCtrl'
       });
-
-
   }
+
+  setupAuthCheck.$inject = ['$rootScope','$state', 'UserService'];
+     function setupAuthCheck($rootScope, $state, UserService) {
+
+
+       $rootScope.$on('$stateChangeStart', function checkLoginStatus(eventObj, toState) {
+
+         if (toState.requiresLogin && !UserService.getToken()) {
+           eventObj.preventDefault();
+           $state.go('login');
+         }
+
+       });
+     }
 
 
 }());

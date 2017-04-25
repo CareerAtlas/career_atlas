@@ -22,28 +22,27 @@ module.exports = function(grunt) {
             expand: true
           }
         ]
+      },
+      images: {
+        files: [
+          {
+            cwd: 'app/client/img/',
+            src: ['*.jpg', '*.png'],
+            dest: 'public/img/',
+            expand: true
+          }
+        ]
+      },
+      angular: {
+        files: [
+          {
+            cwd: 'node_modules/angular',
+            src: ['angular.js'],
+            dest: 'public/',
+            expand: true
+          }
+        ]
       }
-    },
-
-    images: {
-      files: [
-        {
-          cwd: 'app/client/img/',
-          src: ['*.jpg', '*.png'],
-          dest: 'public/img/',
-          expand: true
-        }
-      ]
-    },
-    angular: {
-      files: [
-        {
-          cwd: 'node_modules/angular',
-          src: ['angular.js'],
-          dest: 'public/',
-          expand: true
-        }
-      ]
     },
     sass: {
       allSass: {

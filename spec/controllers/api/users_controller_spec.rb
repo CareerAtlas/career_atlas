@@ -28,7 +28,7 @@ RSpec.describe Api::UsersController, type: :controller do
     post :create, params: params
     assert response.ok?
     john = User.find_by(email: "John@johnny.com")
-    delete :destroy, params: {id: john.id, email: john.email, authorization: john.authorization_token}
+    delete :destroy, params: {id: john.id, Authorization: john.authorization_token}
     assert response.ok?
     expect(User.all.count).to eq(0)
   end
