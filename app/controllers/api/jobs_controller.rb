@@ -9,7 +9,14 @@ class Api::JobsController < ApplicationController
   end
 
   def create
-  
+    new_job = Job.new(params)
+    if new_job.save
+      SavedJob.create(user_id: current_user.id, job_id: new_job.id)
+      render json: {message: "Job Saved", status: 	:created}
+    else
+      render json: {message: "Job not saved", status:	:not_acceptable}
+    end
+
   end
 
   private
