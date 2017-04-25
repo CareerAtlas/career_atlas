@@ -1,4 +1,5 @@
 class Api::UsersController < ApplicationController
+before_action :authorize!, only: [:destroy]
 
   def create
     @new_user = User.new(user_params)
@@ -11,9 +12,7 @@ class Api::UsersController < ApplicationController
   end
 
   def destroy
-    @user = User.find_by_id(params[:id])
-    if @user && @user.authorization_token == params[:Authorization]
-      @user.destroy
+    if current_user.destroy
       render json: { message: "Account Deleted", status: :ok}
     else
       render json: {message: "Please log in to delete an account", status: :unauthorized}
@@ -23,5 +22,11 @@ class Api::UsersController < ApplicationController
   private
   def user_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation)
+  end
+
+  def authorize!
+    unless current_user
+      render json: {message: "Please log in first"}
+    end
   end
 end
