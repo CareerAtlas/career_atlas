@@ -1,0 +1,9 @@
+@media screen and (min-width: $TabletBreakPoint) {
+  .developer_section {
+   flex-direction: row;
+  }
+  .headshots {
+    height: 100px;
+    width: 100px;
+  }
+}
