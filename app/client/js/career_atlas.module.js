@@ -47,6 +47,11 @@
         templateUrl: 'templates/about-us.template.html',
         controller: 'NavController',
         controllerAs: 'navCtrl'
+      })
+      .state({
+        name: 'not-found',
+        url: '/not-found',
+        templateUrl: 'templates/not-found.template.html'
       });
   }
 
