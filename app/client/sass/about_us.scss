@@ -1,17 +1,28 @@
 .developer_section {
  display: flex;
+ flex-direction: column;
+ justify-content: flex-start;
  text-align: center;
+ box-sizing: border-box;
 }
 
 .each_developer {
   padding: 3em;
-}
-
-.socialmediabuttons {
-  padding: 0em;
+  background-color: $ThemeColorOne;
+  margin: 1em;
+  color: $ThemeColorFour;
+  box-sizing: border-box;
+  .btn-social-icon {
+    color: $ThemeColorFour;
+  }
 }
 
 .headshots {
   height: 200px;
   width: 200px;
+}
+
+.about_us_section {
+  background-image: url('/img/mapTwo.jpeg');
+  background-size: 100% auto;
 }
