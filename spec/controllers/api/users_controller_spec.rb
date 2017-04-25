@@ -17,6 +17,12 @@ RSpec.describe Api::UsersController, type: :controller do
     expect(john.authorization_token).to be_present
   end
 
+  it "wont create a user without required information" do
+    params = {user: { name: "John", password: "bro", password_confirmation: "bro" }}
+    post :create, params: params
+    assert response.ok?
+  end
+
   it "destroys a user" do
     params = {user: { name: "John", email: "John@johnny.com", password: "bro", password_confirmation: "bro" }}
     post :create, params: params
