@@ -1,4 +1,5 @@
 class Api::AuthorizationController < ApplicationController
+  before_action :authorize!, only: [:destroy]
 
   def create
     @user = User.find_by(email: params[:user][:email])
@@ -11,5 +12,13 @@ class Api::AuthorizationController < ApplicationController
 
   def destroy
     current_user.logout
+    render json: {message: "You are now logged out"}
+  end
+
+  private
+  def authorize!
+    unless current_user
+      render json: {message: "Please log in first"}
+    end
   end
 end
