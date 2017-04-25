@@ -16,7 +16,6 @@ class Api::JobsController < ApplicationController
     else
       render json: {message: "Job not saved", status:	:not_acceptable}
     end
-
   end
 
   private
