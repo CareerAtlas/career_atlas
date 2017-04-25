@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_user
   def current_user
-    if request.headers["HTTP_AUTHORIZATION"].split(" ").last
+    if request.headers["HTTP_AUTHORIZATION"]
       @current_user ||= User.find_by(authorization_token: request.headers["HTTP_AUTHORIZATION"].split(" ").last)
     end
   end
