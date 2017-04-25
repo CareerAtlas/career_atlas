@@ -5,8 +5,8 @@ class IndeedApi
     get("http://api.indeed.com/ads/apisearch?",
       {
         query:
-          {
-          publisher: 8417063092021675,
+        {
+          publisher: ENV["INDEEDAPIKEY"],
           format: "json",
           q: search_params["job_title"],
           l: search_params["location"],
@@ -17,11 +17,23 @@ class IndeedApi
           fromage: "any",
           highlight: 1,
           latlong: 1,
-          # userip: user_ip,
-          # useragent: user_browser,
           v: 2
-          }
+        }
       }
+    )
+  end
+
+  def self.search_for_job(search_param)
+    get(" http://api.indeed.com/ads/apigetjobs?",
+    {
+      query:
+      {
+          publisher: ENV["INDEEDAPIKEY"],
+          job_key: search_param[:job_key],
+          v: 2,
+          format: "json"
+      }
+    }
     )
   end
 end

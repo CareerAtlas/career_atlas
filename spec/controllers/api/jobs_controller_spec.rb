@@ -14,9 +14,17 @@ RSpec.describe Api::JobsController, type: :controller do
     assert response.ok?
   end
 
-  it "saves a job" do
-    params = {job_title: "Software Developer", job_key: "66d032cd079cc5ab", latitude: "38.956764", longitude: "-77.361435", location: "Reston, VA", company: "VeriSign"}
-    post :create, params: params, json_payload: User.create!({ name: "Moose", email: "moose@gmail.com", password: "treat", password_confirmation: "treat" })
-    assert response.ok?
+  it "wont save a job if your not logged in" do
+    post :create
+    body = JSON.parse(response.body)
+    expect(body["message"]).to eq("Please log in")
+  end
+
+  it "wil create new job and save it" do
+    john = User.create!({ name: "John", email: "John@johnny.com", password: "bro", password_confirmation: "bro", authorization_token: SecureRandom.hex(10) })
+    request.headers["HTTP_AUTHORIZATION"]= john.authorization_token
+    post :create, params: {job: {job_key: "66d032cd079cc5ab", latitude: 38.956764, longitude: -77.361435, company: "VeriSign", location: "Reston, VA", job_title: "Developer" }}
+    body = JSON.parse(response.body)
+    expect(body["message"]).to eq("Job saved")
   end
 end

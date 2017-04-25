@@ -8,10 +8,10 @@ class Api::JobsController < ApplicationController
   end
 
   def create
-    unless Job.find_by(job_key: params[job_key])
-      create_new_job_and_save(params)
+    unless Job.find_by(job_key: job_params[:job_key])
+      create_new_job_and_save(job_params)
     else
-      update_job_and_save(params)
+      update_job_and_save(params[:job])
       render json: {message: "Job Saved", status: :created}
     end
   end
@@ -32,20 +32,19 @@ class Api::JobsController < ApplicationController
     end
   end
 
+  def job_params
+    params.require(:job).permit(:job_key)
+  end
+
   def authorize!
     unless current_user
-      render json: {message: "Please login", status: :unauthorized}
+      render json: {message: "Please log in", status: :unauthorized}
     end
   end
 
   def create_new_job_and_save(params)
-    new_job = Job.new(params)
-    if new_job.save
-      SavedJob.create(job_id: new_job.id, user_id: current_user.id)
-      render json: {message: "Job saved", status: :created}
-    else
-      render json: {message: "Error with Indeed Api", status: :failed_dependency}
-    end
+    binding.pry
+    
   end
 
   def update_job_and_save(params)
