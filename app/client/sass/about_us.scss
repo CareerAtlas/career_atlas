@@ -5,13 +5,24 @@
 
 .each_developer {
   padding: 3em;
+  background-color: $ThemeColorSeven;
+  margin: 1em;
+  color: $ThemeColorFour;
+  .socialmediabuttons {
+    padding: 0em;
+  }
+  .btn-social-icon {
+    color: $ThemeColorFour;
+  }
 }
 
-.socialmediabuttons {
-  padding: 0em;
-}
+
 
 .headshots {
   height: 200px;
   width: 200px;
+}
+
+.about_us_section {
+  background-image: url('/img/mapTwo.jpeg');
 }
