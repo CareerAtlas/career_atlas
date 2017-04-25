@@ -6,7 +6,7 @@ class Api::UsersController < ApplicationController
     if @new_user.save
       render json: {authorization: @new_user.authorization_token}
     else
-      render json: { message: @user.errors.to_s, status: :unprocessable_entity }
+      render json: { message: "Please enter correct information", status: :unprocessable_entity }
     end
   end
 

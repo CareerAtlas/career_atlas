@@ -17,10 +17,11 @@ RSpec.describe Api::UsersController, type: :controller do
     expect(john.authorization_token).to be_present
   end
 
-  it "wont create a user without required information" do
+  it "will not create a user without required information" do
     params = {user: { name: "John", password: "bro", password_confirmation: "bro" }}
     post :create, params: params
-    assert response.ok?
+    body = JSON.parse(response.body)
+    expect(body["message"]).to eq("Please enter correct information")
   end
 
   it "destroys a user" do
@@ -30,6 +31,14 @@ RSpec.describe Api::UsersController, type: :controller do
     john = User.find_by(email: "John@johnny.com")
     delete :destroy, params: {id: john.id, Authorization: john.authorization_token}
     assert response.ok?
+    body = JSON.parse(response.body)
     expect(User.all.count).to eq(0)
+    expect(body["message"]).to eq("Account Deleted")
+  end
+
+  it "will not destroy an account unless they are logged in" do
+    delete :destroy, params: {id: 1}
+    body = JSON.parse(response.body)
+    expect(body["message"]).to eq("Please log in to delete an account")
   end
 end
