@@ -1,6 +1,9 @@
 .developer_section {
  display: flex;
+ flex-direction: column;
+ justify-content: flex-start;
  text-align: center;
+ box-sizing: border-box;
 }
 
 .each_developer {
@@ -8,15 +11,11 @@
   background-color: $ThemeColorSeven;
   margin: 1em;
   color: $ThemeColorFour;
-  .socialmediabuttons {
-    padding: 0em;
-  }
+  box-sizing: border-box;
   .btn-social-icon {
     color: $ThemeColorFour;
   }
 }
-
-
 
 .headshots {
   height: 200px;
