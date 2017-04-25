@@ -8,8 +8,8 @@ class GlassdoorApi
         {
           v: 1,
           format: "json",
-          "t.p": 142249,
-          "t.k": "kHfjVZZplCE",
+          "t.p": ENV["GLASSDOORID"],
+          "t.k": ENV["GLASSDOORAPIKEY"],
           # userip: search_params["ipaddress"],
           # useragent: search_params["browser"],
           action: "employers",

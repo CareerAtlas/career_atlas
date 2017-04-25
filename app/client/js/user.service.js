@@ -41,31 +41,48 @@
       });
     }
 
-    function login() {
+    function login(user) {
       return $http({
-        url: '/api/authorizations',
+        url: '/api/authorization/',
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         data: {
-          users: {
+          user: {
             email: user.email,
             password: user.password
           }
         }
       })
       .then(function handleResponse(response) {
-        localStorage.setItem('token', response.data);
-        token = response.data;
+        localStorage.setItem('token', response.data.authorization);
+        token = response.data.authorization;
         return token;
+      });
+    }
+
+    function logout() {
+      return $http({
+        url: '/api/authorization/',
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': token
+        }
+      })
+      .then(function handleResponse(response) {
+
+        token = null;
+        localStorage.removeItem('token');
       });
     }
 
     return {
       getToken: getToken,
       createUser: createUser,
-      login:login
+      login:login,
+      logout:logout
     };
 
   }
