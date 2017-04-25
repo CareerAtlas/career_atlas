@@ -32,17 +32,17 @@ module.exports = function(grunt) {
             expand: true
           }
         ]
+      },
+      angular: {
+        files: [
+          {
+            cwd: 'node_modules/angular',
+            src: ['angular.js'],
+            dest: 'public/',
+            expand: true
+          }
+        ]
       }
-    },
-    angular: {
-      files: [
-        {
-          cwd: 'node_modules/angular',
-          src: ['angular.js'],
-          dest: 'public/',
-          expand: true
-        }
-      ]
     },
     sass: {
       allSass: {
