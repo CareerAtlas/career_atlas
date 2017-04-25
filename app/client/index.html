@@ -26,10 +26,10 @@
          <ul class='nav navbar-nav'>
            <li><a ui-sref='home'>home</a></li>
            <li><a ui-sref='about-us'>about us</a></li>
-           <li><a ui-sref='saved-jobs'>saved jobs</a></li>
-           <li><a ui-sref='create-user'>create user</a></li>
-           <li><a ui-sref='login'>login</a></li>
-           <li><a href='#' ng-click='navCtrl.logout()'>logout</a></li>
+           <li ng-show='navCtrl.isLoggedIn()'><a ui-sref='saved-jobs'>saved jobs</a></li>
+           <li ng-hide='navCtrl.isLoggedIn()'><a ui-sref='create-user'>create user</a></li>
+           <li ng-hide='navCtrl.isLoggedIn()'><a ui-sref='login'>login</a></li>
+           <li ng-show='navCtrl.isLoggedIn()'><a href='#' ng-click='navCtrl.logout()'>logout</a></li>
          </ul>
       </nav>
     </header>
