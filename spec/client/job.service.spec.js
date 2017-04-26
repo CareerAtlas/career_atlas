@@ -16,7 +16,5 @@
     it('should expect the function to be function', function() {
       expect(JobService.createJobSearch).to.be.a('function');
     });
-
   });
-
 }());
