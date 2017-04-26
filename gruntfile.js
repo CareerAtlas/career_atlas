@@ -81,9 +81,44 @@ module.exports = function(grunt) {
         files: ['app/client/js/*.js'],
         tasks: ['concat', 'babel']
       }
+    },
+    jshint: {
+      source: {
+        options: {
+          jshintrc: '.jshintrc'
+        },
+        files: {
+          src: ['app/client/js/**/*.js']
+        }
+      }
+    },
+    karma: {
+      all: {
+        options: {
+          frameworks: ['mocha', 'chai'],
+          browsers: ['Chrome'],
+          files: [
+            'node_modules/angular/angular.js',
+            'node_modules/angular-ui-router/release/angular-ui-router.min.js',
+            'node_modules/angular-mocks/angular-mocks.js',
+            'app/client/js/career_atlas.module.js',
+            'app/client/js/**/*.js',
+            'spec/client/**/*.spec.js'
+          ],
+          singleRun: true,
+          preprocessors: {
+            'app/client/js/**/*.js': ['coverage']
+          },
+          reporters: ['dots', 'coverage'],
+          coverageReporter: {
+            type: 'text-summary'
+          }
+        }
+      }
     }
   });
-
+grunt.loadNpmTasks('grunt-karma');
+grunt.loadNpmTasks('grunt-contrib-jshint');
 grunt.loadNpmTasks('grunt-contrib-copy');
 grunt.loadNpmTasks('grunt-contrib-sass');
 grunt.loadNpmTasks('grunt-contrib-watch');
@@ -91,6 +126,5 @@ grunt.loadNpmTasks('grunt-babel');
 grunt.loadNpmTasks('grunt-contrib-concat');
 grunt.loadNpmTasks('grunt-contrib-clean');
 
-grunt.registerTask('default', ['clean', 'concat', 'babel', 'copy', 'sass']);
-
+grunt.registerTask('default', ['jshint', 'clean', 'concat', 'babel', 'copy', 'sass']);
 };
