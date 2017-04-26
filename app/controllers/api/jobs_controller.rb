@@ -42,13 +42,31 @@ class Api::JobsController < ApplicationController
     end
   end
 
-  def create_new_job_and_save(params)
-    binding.pry
-    
+  def info_to_create_job(job)
+    {
+      job_key: job["jobkey"],
+      longitude: job["longitude"],
+      latitude: job["latitude"],
+      company: job["company"],
+      job_title: job["jobtitle"],
+      location: job["location"]
+    }
   end
 
-  def update_job_and_save(params)
-    job = Job.find_by(job_key: params[:job_key])
+  def create_new_job_and_save(params)
+    job = IndeedApi.search_for_job(job_key)
+    job_to_save = info_to_create_job(job)
+    new_job = Job.new(job_to_save)
+    if new_job.save
+      SavedJob.create(job_id: new_job.id)
+      json render: {message: "Job Saved", status: :created}
+    else
+      render json: {message: "Problem with indeed sarch", status:	:failed_dependency}
+    end
+  end
+
+  def update_job_and_save(search_params)
+    job = Job.find_by(job_key: search_params[:job_key])
     job.update(params)
     job.save
     SavedJob.create(job_id: job.id, user_id: current_user.id)
