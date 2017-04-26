@@ -1,20 +1,20 @@
 (function() {
-  'use strict';
+ 'use strict';
 
-  let expect = chai.expect;
+ let expect = chai.expect;
 
-  describe('job service', function(){
+ describe('job service', function(){
 
-    let JobService;
+   let JobService;
 
-    beforeEach(module('career_atlas'));
+   beforeEach(module('career_atlas'));
 
-    beforeEach(inject(function(_JobService_){
-      JobService = _JobService_;
-    }));
+   beforeEach(inject(function(_JobService_){
+     JobService = _JobService_;
+   }));
 
-    it('should expect the function to be function', function() {
-      expect(JobService.createJobSearch).to.be.a('function');
-    });
-  });
+   it('should expect the function to be function', function() {
+     expect(JobService.createJobSearch).to.be.a('function');
+   });
+ });
 }());
