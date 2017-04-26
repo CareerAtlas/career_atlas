@@ -8,10 +8,10 @@ class Api::JobsController < ApplicationController
   end
 
   def create
-    unless Job.find_by(job_key: job_params[:job_key])
-      create_new_job_and_save(job_params)
+    unless Job.find_by(job_key: job_params[:jobkeys])
+      create_new_job_and_save(job_params[:jobkeys])
     else
-      update_job_and_save(params[:job])
+      update_job_and_save(job_params[:jobkeys])
       render json: {message: "Job Saved", status: :created}
     end
   end
@@ -33,7 +33,7 @@ class Api::JobsController < ApplicationController
   end
 
   def job_params
-    params.require(:job).permit(:job_key)
+    params.require(:job).permit(:jobkeys)
   end
 
   def authorize!
@@ -49,25 +49,27 @@ class Api::JobsController < ApplicationController
       latitude: job["latitude"],
       company: job["company"],
       job_title: job["jobtitle"],
-      location: job["location"]
+      location: job["formattedLocationFull"]
     }
   end
 
-  def create_new_job_and_save(params)
+  def create_new_job_and_save(job_key)
     job = IndeedApi.search_for_job(job_key)
-    job_to_save = info_to_create_job(job)
+    job_to_save = info_to_create_job(job["results"][0])
     new_job = Job.new(job_to_save)
     if new_job.save
-      SavedJob.create(job_id: new_job.id)
-      json render: {message: "Job Saved", status: :created}
+      SavedJob.create(job_id: new_job.id, user_id: current_user.id)
+      render json: {message: "Job Saved", status: :created}
     else
       render json: {message: "Problem with indeed sarch", status:	:failed_dependency}
     end
   end
 
-  def update_job_and_save(search_params)
-    job = Job.find_by(job_key: search_params[:job_key])
-    job.update(params)
+  def update_job_and_save(job_key)
+    job = Job.find_by(job_key: job_key)
+    job_from_indeed = IndeedApi.search_for_job(job_key)
+    job_update = info_to_create_job(job_from_indeed["results"][0])
+    job.update(job_update)
     job.save
     SavedJob.create(job_id: job.id, user_id: current_user.id)
   end

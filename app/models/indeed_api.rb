@@ -24,12 +24,12 @@ class IndeedApi
   end
 
   def self.search_for_job(search_param)
-    get(" http://api.indeed.com/ads/apigetjobs?",
+        get("http://api.indeed.com/ads/apigetjobs?",
       {
         query:
         {
           publisher: ENV["INDEEDAPIKEY"],
-          job_key: search_param[:job_key],
+          jobkeys: search_param,
           v: 2,
           format: "json"
         }
