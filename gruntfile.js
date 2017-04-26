@@ -126,5 +126,5 @@ grunt.loadNpmTasks('grunt-babel');
 grunt.loadNpmTasks('grunt-contrib-concat');
 grunt.loadNpmTasks('grunt-contrib-clean');
 
-grunt.registerTask('default', ['jshint', 'karma', 'clean', 'concat', 'babel', 'copy', 'sass']);
+grunt.registerTask('default', ['jshint', 'clean', 'concat', 'babel', 'copy', 'sass']);
 };
