@@ -1,5 +1,5 @@
 class Api::SavedJobsController < ApplicationController
-  before_action :authorize!, only: [:create, :show]
+  before_action :authorize!, only: [:index, :show]
 
   def index
     jobs_to_look_up = current_user.saved_jobs
@@ -9,12 +9,12 @@ class Api::SavedJobsController < ApplicationController
 
   def show
     job = IndeedApi.search_for_job(params[:job_key])
-    if job["results"].length == 1
+    if job["results"]&.length == 1
       job_output = info_for_output(job["results"][0])
       update_job(job_output)
       render json: job_output
     else
-      render json: {message: "Sorry, this job is no longer available"}
+      render json: {message: "Sorry, this job is no longer available", status: :not_found}
     end
   end
 

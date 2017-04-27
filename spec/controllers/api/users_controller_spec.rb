@@ -36,7 +36,7 @@ RSpec.describe Api::UsersController, type: :controller do
   end
 
   it "will not destroy an account unless they are logged in" do
-    delete :destroy, {id: 1}
+    delete :destroy, params: {id: 1}
     body = JSON.parse(response.body)
     expect(body["message"]).to eq("Please log in first")
   end
