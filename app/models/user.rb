@@ -7,6 +7,7 @@ class User < ApplicationRecord
   validates :email, presence: true, format: { with: VALID_EMAIL_REGEX }
   validates :email, uniqueness: true
   has_many :saved_jobs
+  has_many :jobs, through: :saved_jobs
 
   def secure_random
     self.authorization_token = SecureRandom.hex(64)

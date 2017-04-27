@@ -23,7 +23,7 @@ RSpec.describe Api::JobsController, type: :controller do
 
   it "will create new job and save it if you are logged in" do
     john = create_john
-    job_key = { job: {jobkeys: "24c5d6db45db2b16" }}
+    job_key = { job: {key: "24c5d6db45db2b16" }}
     stub_request(:get, /api.indeed.com/)
       .to_return(
         body: File.read(Rails.root.join("spec", "stubbed_requests", "single_job_search.json")),
@@ -38,7 +38,7 @@ RSpec.describe Api::JobsController, type: :controller do
 
   it "wont save a job if its missing core information" do
     john = create_john
-    job_key = { job: {jobkeys: "24c5d6db45db2b16" }}
+    job_key = { job: {key: "24c5d6db45db2b16" }}
     stub_request(:get, /api.indeed.com/)
       .to_return(
         body: File.read(Rails.root.join("spec", "stubbed_requests", "incomplete_single_job_search.json")),
@@ -59,7 +59,7 @@ RSpec.describe Api::JobsController, type: :controller do
         headers: {"Content-Type" => "application/json"}
       )
     request.headers["HTTP_AUTHORIZATION"] = john.authorization_token
-    post :create, params: {job: {jobkeys: "24c5d6db45db2b16"}}
+    post :create, params: {job: {key: "24c5d6db45db2b16"}}
     body = JSON.parse(response.body)
     expect(body["message"]).to eq("Job Saved")
     job = Job.find_by(job_key: "24c5d6db45db2b16")

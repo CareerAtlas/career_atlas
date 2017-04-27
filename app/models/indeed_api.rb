@@ -2,7 +2,7 @@ class IndeedApi
   include HTTParty
 
   def self.search_jobs(search_params)
-    get("http://api.indeed.com/ads/apisearch?",
+    jobs = get("http://api.indeed.com/ads/apisearch?",
       {
         query:
         {
@@ -21,6 +21,7 @@ class IndeedApi
         }
       }
     )
+    format_jobs(jobs["results"])
   end
 
   def self.find_job(search_param)
@@ -35,6 +36,28 @@ class IndeedApi
         }
       }
     )
-    job_result["results"]&.first
+    job = job_result["results"]&.first
+    if job
+      format_job(job)
+    end
+  end
+
+  def self.format_jobs(jobs)
+    jobs.map do |job|
+      format_job(job)
+    end
+  end
+
+  def self.format_job(job)
+    {
+      job_title: job["jobtitle"],
+      company: job["company"],
+      url: job["url"],
+      latitude: job["latitude"],
+      longitude: job["longitude"],
+      job_key: job["jobkey"],
+      location: job["formattedLocationFull"],
+      date_posted: job["formattedRelativeTime"]
+    }
   end
 end
