@@ -8,26 +8,7 @@ require 'webmock/rspec'
 require 'rspec/rails'
 require 'securerandom'
 # Add additional requires below this line. Rails is not loaded until this point!
-def create_john
-  User.create!(
-    name: "John",
-    email: "John@johnny.com",
-    password: "bro",
-    password_confirmation: "bro",
-    authorization_token: SecureRandom.hex(10)
-    )
-end
 
-def create_job
-  Job.create!(
-    job_key: "24c5d6db45db2b16",
-    longitude: -77.07143,
-    latitude: 38.96978,
-    company: "Precision System Design, Inc.",
-    job_title: "Apps Developer (Android/Java)",
-    location: "Chevy Chase, MD"
-    )
-end
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are
@@ -48,6 +29,8 @@ end
 # If you are not using ActiveRecord, you can remove this line.
 ActiveRecord::Migration.maintain_test_schema!
 
+Dir.glob(Rails.root.join("spec", "support", "*.rb")) { |f| require f  }
+
 RSpec.configure do |config|
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
@@ -57,19 +40,11 @@ RSpec.configure do |config|
   # instead of true.
   config.use_transactional_fixtures = true
 
-  # RSpec Rails can automatically mix in different behaviours to your tests
-  # based on their file location, for example enabling you to call `get` and
-  # `post` in specs under `spec/controllers`.
-  #
-  # You can disable this behaviour by removing the line below, and instead
-  # explicitly tag your specs with their type, e.g.:
-  #
-  #     RSpec.describe UsersController, :type => :controller do
-  #       # ...
-  #     end
-  #
-  # The different available types are documented in the features, such as in
-  # https://relishapp.com/rspec/rspec-rails/docs
+  config.include JsonBody, type: :controller
+  config.include AuthorizationSetup, type: :controller
+
+
+
   config.infer_spec_type_from_file_location!
 
   # Filter lines from Rails gems in backtraces.

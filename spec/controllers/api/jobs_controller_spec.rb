@@ -1,10 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe Api::JobsController, type: :controller do
-
-  def json_body
-    @body ||= JSON.parse(response.body)
-  end
+  include JsonBody
+  include AuthorizationSetup
 
   it "gets required params" do
     search_params = { job_title: "Ruby", location: 20011, radius: 25, job_type: "fulltime" }

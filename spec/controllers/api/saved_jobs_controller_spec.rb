@@ -1,10 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Api::SavedJobsController, type: :controller do
-
-  def json_body
-    JSON.parse(response.body)
-  end
+  include JsonBody
 
   it "will require a user to be signed in to see saved jobs" do
     get :index

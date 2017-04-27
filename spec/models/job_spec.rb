@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Job, type: :model do
+  include AuthorizationSetup
 
   it "exists" do
     assert Job
