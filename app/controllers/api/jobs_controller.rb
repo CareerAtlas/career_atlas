@@ -8,10 +8,12 @@ class Api::JobsController < ApplicationController
   end
 
   def create
-    unless Job.find_by(job_key: job_params[:jobkeys])
+    job = Job.find_by(job_key: job_params[:jobkeys])
+    unless job
       create_new_job_and_save(job_params[:jobkeys])
     else
-      update_job_and_save(job_params[:jobkeys])
+      job.update_job_and_save(job.job_key)
+      SavedJob.create(job_id: job.id, user_id: current_user.id)
       render json: {message: "Job Saved", status: :created}
     end
   end
@@ -58,14 +60,4 @@ class Api::JobsController < ApplicationController
       render json: {message: "Problem with indeed sarch", status:	:failed_dependency}
     end
   end
-
-  def update_job_and_save(job_key)
-    job = Job.find_by(job_key: job_key)
-    job_from_indeed = IndeedApi.search_for_job(job_key)
-    job_update = info_to_create_job(job_from_indeed["results"][0])
-    job.update(job_update)
-    job.save
-    SavedJob.create(job_id: job.id, user_id: current_user.id)
-  end
-
 end
