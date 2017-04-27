@@ -45,12 +45,13 @@
 
      resultValue.then(function(data) {
        expect(data).to.be.an('array');
-       expect(data.jobtitle).to.be.a('string');
-       expect(data.company).to.be.a('string');
-       expect(data.url).to.be.a('string');
-       expect(data.latitude).to.be.a('string');
-       expect(data.longitude).to.be.a('string');
-       expect(data.date_posted).to.be.a('string');
+      //  console.info(data);
+       expect(data[0].jobtitle).to.be.a('string');
+       expect(data[0].company).to.be.a('string');
+       expect(data[0].url).to.be.a('string');
+       expect(data[0].latitude).to.be.a('string');
+       expect(data[0].longitude).to.be.a('string');
+       expect(data[0].date_posted).to.be.a('string');
      });
       $httpBackend.flush();
    });

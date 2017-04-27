@@ -10,6 +10,7 @@
     let mockCompanyService = {};
     let mockWalkscoreService = {};
     let jobs = [];
+    let $q;
 
     beforeEach(module('career_atlas'));
 
@@ -19,10 +20,11 @@
       $provide.value('WalkscoreService', mockWalkscoreService);
     }));
 
-    beforeEach(inject(function($controller, $rootScope) {
+    beforeEach(inject(function($controller, $rootScope, _$q_) {
+      $q = _$q_;
       mockJobService.createJobSearch = function createJobSearch() {
         mockJobService.createJobSearch.numTimesCalled++;
-        return Promise.resolve( [
+        return $q.resolve( [
           {
             "jobtitle": "Ruby on Rails Developer",
             "company": "Metro Systems, Inc.",
@@ -34,14 +36,15 @@
         ]);
       };
       mockJobService.createJobSearch.numTimesCalled = 0;
-      let scope = $rootScope.$new();
-      JobController = $controller('JobController', { $scope:scope });
     }));
 
-    beforeEach(inject(function($controller, $rootScope) {
+
+    beforeEach(inject(function($controller, $rootScope, _$q_) {
+      $q = _$q_;
       mockCompanyService.getGlassdoorCompanyInformation = function getGlassdoorCompanyInformation() {
         mockCompanyService.getGlassdoorCompanyInformation.numTimesCalled++;
-        return Promise.resolve( [
+        console.info(mockCompanyService.getGlassdoorCompanyInformation.numTimesCalled);
+        return $q.resolve(
           {
             "company": "Metro Systems (VA)",
             "logo": "https://media.glassdoor.com/sqll/643465/metro-systems-va-squarelogo-1425026414371.png",
@@ -53,17 +56,17 @@
             "recommend_to_friend_rating": "3.2",
             "work_life_balance_rating": "3.1"
           }
-        ]);
+        );
       };
       mockCompanyService.getGlassdoorCompanyInformation.numTimesCalled = 0;
-      let scope = $rootScope.$new();
-      JobController = $controller('JobController', { $scope:scope });
     }));
 
-    beforeEach(inject(function($controller, $rootScope) {
+
+    beforeEach(inject(function($controller, $rootScope, _$q_) {
+      $q = _$q_;
       mockWalkscoreService.getWalkscoreInformation = function getWalkscoreInformation() {
         mockWalkscoreService.getWalkscoreInformation.numTimesCalled++;
-        return Promise.resolve(
+        return $q.resolve(
           {
             "walk_score": "67",
             "description": "Somewhat Walkable"
@@ -90,29 +93,24 @@
       expect(result).to.equal(undefined);
     });
 
-    it('should be enough tests already', function() {
+    it('should test preliminary setup', function() {
       expect(JobController.displayedJob).to.equal(null);
       expect(JobController.jobs).to.be.an('array');
-      expect(JobController).to.be.an('object');
     });
 
-    it('should call function createJobSearch', function() {
-      expect(mockJobService.createJobSearch.numTimesCalled).to.equal(0);
-      mockJobService.createJobSearch();
-      expect(mockJobService.createJobSearch.numTimesCalled).to.equal(1);
-    });
-
-    it('should call function createJobSearch', function() {
-      expect(mockCompanyService.getGlassdoorCompanyInformation.numTimesCalled).to.equal(0);
-      mockCompanyService.getGlassdoorCompanyInformation();
-      expect(mockCompanyService.getGlassdoorCompanyInformation.numTimesCalled).to.equal(1);
-    });
-
-    it('should call function createJobSearch', function() {
-      expect(mockWalkscoreService.getWalkscoreInformation.numTimesCalled).to.equal(0);
-      mockWalkscoreService.getWalkscoreInformation();
-      expect(mockWalkscoreService.getWalkscoreInformation.numTimesCalled).to.equal(1);
-      expect(JobController.job).length.to.equal(undefined);
+    it('should display job information in job object', function() {
+      let marker = {
+        data: {
+          company: "Metro Star",
+          latitude: 38.862637,
+          longitude: -77.19231,
+          location: "Annandale, VA"
+        }
+      };
+      console.info(marker);
+      JobController.showJobInformation(marker);
+      expect(JobController.displayedJob).to.be.an('object');
+      expect(JobController.displayedJob.glassdoorData).to.be.an('object');
     });
 
   });
