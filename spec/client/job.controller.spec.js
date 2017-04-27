@@ -112,6 +112,7 @@
       expect(mockWalkscoreService.getWalkscoreInformation.numTimesCalled).to.equal(0);
       mockWalkscoreService.getWalkscoreInformation();
       expect(mockWalkscoreService.getWalkscoreInformation.numTimesCalled).to.equal(1);
+      expect(JobController.job).length.to.equal(undefined);
     });
 
   });
