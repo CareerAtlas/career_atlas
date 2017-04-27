@@ -80,11 +80,15 @@
       expect(JobController.submit).to.be.a('function');
     });
 
-    it('should return an object', function() {
+    it('should return undefined if there is no argument', function() {
       let result = JobController.showJobInformation();
       expect(result).to.equal(undefined);
     });
 
+    it('should return undefined if there is no argument', function() {
+      let result = JobController.submit();
+      expect(result).to.equal(undefined);
+    });
 
 
 
