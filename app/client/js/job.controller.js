@@ -15,6 +15,11 @@
       vm.displayedJob = null;
 
       vm.showJobInformation = function showJobInformation(marker) {
+        if(!marker) {
+          return;
+        }
+        // code to ensure args are correct
+
         vm.displayedJob = marker.data;
         CompanyService.getGlassdoorCompanyInformation(marker.data.company)
           .then(function handleGlassdoorData(glassdoorData) {
