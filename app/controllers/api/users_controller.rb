@@ -23,10 +23,4 @@ before_action :authorize!, only: [:destroy]
   def user_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation)
   end
-
-  def authorize!
-    unless current_user
-      render json: {message: "Please log in first"}
-    end
-  end
 end

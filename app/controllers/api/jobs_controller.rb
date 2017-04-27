@@ -36,12 +36,6 @@ class Api::JobsController < ApplicationController
     params.require(:job).permit(:jobkeys)
   end
 
-  def authorize!
-    unless current_user
-      render json: {message: "Please log in", status: :unauthorized}
-    end
-  end
-
   def info_to_create_job(job)
     {
       job_key: job["jobkey"],

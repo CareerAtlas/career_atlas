@@ -44,12 +44,6 @@ class Api::SavedJobsController < ApplicationController
     }
   end
 
-  def authorize!
-    unless current_user
-      render json: {message: "Please log in", status: :unauthorized}
-    end
-  end
-
   def update_job(job_info)
     update_info = info_to_update_job(job_info)
     job = Job.find_by(job_key: update_info[:job_key])
