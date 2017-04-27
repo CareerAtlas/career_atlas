@@ -12,30 +12,8 @@ class Job < ApplicationRecord
     self.save
   end
 
-  def info_to_update_and_save_job(job)
-    {
-      job_key: job["jobkey"],
-      longitude: job["longitude"],
-      latitude: job["latitude"],
-      company: job["company"],
-      job_title: job["jobtitle"],
-      location: job["formattedLocationFull"]
-    }
-  end
-
   def update_job(job_info)
     update(job_info.except(:url, :date_posted))
     self.save
   end
-  #
-  # def info_to_update_job(job)
-  #   {
-  #     job_key: job[:job_key],
-  #     longitude: job[:longitude],
-  #     latitude: job[:latitude],
-  #     company: job[:company],
-  #     job_title: job[:job_title],
-  #     location: job[:location]
-  #   }
-  # end
 end
