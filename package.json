@@ -7,7 +7,7 @@
     "test": "test"
   },
   "scripts": {
-    "test": "grunt "
+    "postinstall": "grunt "
   },
   "repository": {
     "type": "git",
