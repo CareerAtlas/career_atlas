@@ -11,7 +11,7 @@
     function JobController($scope, JobService, CompanyService, WalkscoreService) {
       let vm = this;
       vm.jobs = [];
-
+      vm.message = null;
       vm.displayedJob = null;
 
       vm.showJobInformation = function showJobInformation(marker) {
@@ -24,6 +24,9 @@
           .then(function handleGlassdoorData(glassdoorData) {
             vm.displayedJob.glassdoorData = glassdoorData;
             console.log('data here', glassdoorData);
+          })
+          .catch(function handleError(err) {
+            vm.message = 'Something went wrong here. Error = ' + err.status;
           });
 
         vm.ObjectToSendBackEndForWalkScore = {
@@ -35,6 +38,9 @@
           .then(function handleWalkscoreData(walkscoreData) {
             vm.displayedJob.walkscoreData = walkscoreData;
             console.log('walkscore data', walkscoreData);
+          })
+          .catch(function handleError(err) {
+            vm.message = 'Something went wrong here. Error = ' + err.status;
           });
         $scope.$apply();
       };
@@ -53,6 +59,9 @@
         JobService.createJobSearch(search)
           .then(function handleData(data) {
             vm.jobs = data;
+          })
+          .catch(function handleError(err) {
+            vm.message = 'Something went wrong here. Error = ' + err.status;
           });
       };
     }
