@@ -6,6 +6,13 @@
     .run(setupAuthCheck);
 
   routerConfig.$inject = ['$stateProvider', '$urlRouterProvider'];
+
+  /**
+   * [routerConfig description]
+   * @param  {Object} $stateProvider     [description]
+   * @param  {Object} $urlRouterProvider [description]
+   * @return {void}                    [description]
+   */
   function routerConfig($stateProvider, $urlRouterProvider) {
     console.log('this is routerconfig fn');
     $urlRouterProvider.when('','/');
