@@ -7,7 +7,8 @@
     "test": "test"
   },
   "scripts": {
-    "postinstall": "grunt "
+    "postinstall": "grunt",
+    "start": "http_server ./public/ -p $PORT"
   },
   "repository": {
     "type": "git",
