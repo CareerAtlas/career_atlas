@@ -8,7 +8,26 @@ require 'webmock/rspec'
 require 'rspec/rails'
 require 'securerandom'
 # Add additional requires below this line. Rails is not loaded until this point!
+def create_john
+  User.create!(
+    name: "John",
+    email: "John@johnny.com",
+    password: "bro",
+    password_confirmation: "bro",
+    authorization_token: SecureRandom.hex(10)
+    )
+end
 
+def create_job
+  Job.create!(
+    job_key: "24c5d6db45db2b16",
+    longitude: -77.07143,
+    latitude: 38.96978,
+    company: "Precision System Design, Inc.",
+    job_title: "Apps Developer (Android/Java)",
+    location: "Chevy Chase, MD"
+    )
+end
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are
 # run as spec files by default. This means that files in spec/support that end

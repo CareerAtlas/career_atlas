@@ -8,10 +8,11 @@ class Api::SavedJobsController < ApplicationController
   end
 
   def show
-    job = IndeedApi.search_for_job(params[:job_key])
-    if job["results"]&.length == 1
-      job_output = info_for_output(job["results"][0])
-      update_job(job_output)
+    job = IndeedApi.find_job(params[:job_key])
+    if job
+      job_to_update = Job.find_by(job_key: params[:job_key])
+      job_output = info_for_output(job)
+      job_to_update.update_job(job_output)
       render json: job_output
     else
       render json: {message: "Sorry, this job is no longer available", status: :not_found}
@@ -31,24 +32,6 @@ class Api::SavedJobsController < ApplicationController
         location: job_from_indeed["formattedLocationFull"],
         date_posted: job_from_indeed["formattedRelativeTime"]
       }
-  end
-
-  def info_to_update_job(job)
-    {
-      job_key: job[:job_key],
-      longitude: job[:longitude],
-      latitude: job[:latitude],
-      company: job[:company],
-      job_title: job[:jobtitle],
-      location: job[:formattedLocationFull]
-    }
-  end
-
-  def update_job(job_info)
-    update_info = info_to_update_job(job_info)
-    job = Job.find_by(job_key: update_info[:job_key])
-    job.update(update_info)
-    job.save
   end
 
   def look_up(jobs)

@@ -9,15 +9,15 @@ RSpec.describe Api::SavedJobsController, type: :controller do
   end
 
   it "will require a user to be signed in to see a specific saved job" do
-    job = Job.create({job_key: "24c5d6db45db2b16", longitude: -77.07143, latitude: 38.96978, company: "Precision System Design, Inc.", job_title: "Apps Developer (Android/Java)", location: "Chevy Chase, MD"})
+    job = create_job
     get :show, params: {job_key: job.job_key}
     body = JSON.parse(response.body)
     expect(body["message"]).to eq("Please log in")
   end
 
   it "will send a users jobs to be displayed" do
-    john = User.create!(name: "John", email: "John@johnny.com", password: "bro", password_confirmation: "bro", authorization_token: SecureRandom.hex(10))
-    job = Job.create({job_key: "24c5d6db45db2b16", longitude: -77.07143, latitude: 38.96978, company: "Precision System Design, Inc.", job_title: "Apps Developer (Android/Java)", location: "Chevy Chase, MD"})
+    john = create_john
+    job = create_job
     SavedJob.create!(user_id: john.id, job_id: job.id)
     request.headers["HTTP_AUTHORIZATION"] = john.authorization_token
     get :index
@@ -26,8 +26,8 @@ RSpec.describe Api::SavedJobsController, type: :controller do
   end
 
   it "will send a message if the job has been removed from the site" do
-    john = User.create!(name: "John", email: "John@johnny.com", password: "bro", password_confirmation: "bro", authorization_token: SecureRandom.hex(10))
-    job = Job.create({job_key: "24c5d6db45db2b16", longitude: -77.07143, latitude: 38.96978, company: "Precision System Design, Inc.", job_title: "Apps Developer (Android/Java)", location: "Chevy Chase, MD"})
+    john = create_john
+    job = create_job
     stub_request(:get, /api.indeed.com/)
       .to_return(
         body: File.read(Rails.root.join("spec", "stubbed_requests", "no_job_back.json")),
@@ -40,8 +40,8 @@ RSpec.describe Api::SavedJobsController, type: :controller do
   end
 
   it "will send back a selected job and update it" do
-    john = User.create!(name: "John", email: "John@johnny.com", password: "bro", password_confirmation: "bro", authorization_token: SecureRandom.hex(10))
-    job = Job.create({job_key: "24c5d6db45db2b16", longitude: -77.07143, latitude: 38.96978, company: "Precision System Design, Inc.", job_title: "Apps Developer (Android/Java)", location: "Chevy Chase, MD"})
+    john = create_john
+    job = create_job
     stub_request(:get, /api.indeed.com/)
       .to_return(
         body: File.read(Rails.root.join("spec", "stubbed_requests", "single_job_search.json")),

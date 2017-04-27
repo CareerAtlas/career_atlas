@@ -22,7 +22,7 @@ RSpec.describe Api::JobsController, type: :controller do
   end
 
   it "will create new job and save it if you are logged in" do
-    john = User.create!(name: "John", email: "John@johnny.com", password: "bro", password_confirmation: "bro", authorization_token: SecureRandom.hex(10))
+    john = create_john
     job_key = { job: {jobkeys: "24c5d6db45db2b16" }}
     stub_request(:get, /api.indeed.com/)
       .to_return(
@@ -37,7 +37,7 @@ RSpec.describe Api::JobsController, type: :controller do
   end
 
   it "wont save a job if its missing core information" do
-    john = User.create!(name: "John", email: "John@johnny.com", password: "bro", password_confirmation: "bro", authorization_token: SecureRandom.hex(10))
+    john = create_john
     job_key = { job: {jobkeys: "24c5d6db45db2b16" }}
     stub_request(:get, /api.indeed.com/)
       .to_return(
@@ -51,8 +51,8 @@ RSpec.describe Api::JobsController, type: :controller do
   end
 
   it "will update job with new information" do
-    john = User.create!(name: "John", email: "John@johnny.com", password: "bro", password_confirmation: "bro", authorization_token: SecureRandom.hex(10))
-    Job.create({job_key: "24c5d6db45db2b16", longitude: -77.07143, latitude: 38.96978, company: "Precision System Design, Inc.", job_title: "Apps Developer (Android/Java)", location: "Chevy Chase, MD"})
+    john = create_john
+    create_job
     stub_request(:get, /api.indeed.com/)
       .to_return(
         body: File.read(Rails.root.join("spec", "stubbed_requests", "single_job_search.json")),

@@ -50,8 +50,8 @@ class Api::JobsController < ApplicationController
   end
 
   def create_new_job_and_save(job_key)
-    job = IndeedApi.search_for_job(job_key)
-    job_to_save = info_to_create_job(job["results"][0])
+    job = IndeedApi.find_job(job_key)
+    job_to_save = info_to_create_job(job)
     new_job = Job.new(job_to_save)
     if new_job.save
       SavedJob.create(job_id: new_job.id, user_id: current_user.id)

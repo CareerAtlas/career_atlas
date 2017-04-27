@@ -23,8 +23,8 @@ class IndeedApi
     )
   end
 
-  def self.search_for_job(search_param)
-        get("http://api.indeed.com/ads/apigetjobs?",
+  def self.find_job(search_param)
+        job_result = get("http://api.indeed.com/ads/apigetjobs?",
       {
         query:
         {
@@ -35,5 +35,6 @@ class IndeedApi
         }
       }
     )
+    job_result["results"]&.first
   end
 end
