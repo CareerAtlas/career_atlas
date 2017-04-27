@@ -96,6 +96,23 @@
       expect(JobController).to.be.an('object');
     });
 
+    it('should call function createJobSearch', function() {
+      expect(mockJobService.createJobSearch.numTimesCalled).to.equal(0);
+      mockJobService.createJobSearch();
+      expect(mockJobService.createJobSearch.numTimesCalled).to.equal(1);
+    });
+
+    it('should call function createJobSearch', function() {
+      expect(mockCompanyService.getGlassdoorCompanyInformation.numTimesCalled).to.equal(0);
+      mockCompanyService.getGlassdoorCompanyInformation();
+      expect(mockCompanyService.getGlassdoorCompanyInformation.numTimesCalled).to.equal(1);
+    });
+
+    it('should call function createJobSearch', function() {
+      expect(mockWalkscoreService.getWalkscoreInformation.numTimesCalled).to.equal(0);
+      mockWalkscoreService.getWalkscoreInformation();
+      expect(mockWalkscoreService.getWalkscoreInformation.numTimesCalled).to.equal(1);
+    });
 
   });
 }());
