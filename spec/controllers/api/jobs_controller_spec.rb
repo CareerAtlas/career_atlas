@@ -2,6 +2,10 @@ require 'rails_helper'
 
 RSpec.describe Api::JobsController, type: :controller do
 
+  def json_body
+    @body ||= JSON.parse(response.body)
+  end
+
   it "gets required params" do
     search_params = { job_title: "Ruby", location: 20011, radius: 25, job_type: "fulltime" }
 
@@ -11,14 +15,12 @@ RSpec.describe Api::JobsController, type: :controller do
         headers: {"Content-Type" => "application/json"}
       )
     get :index, params: search_params
-    body = JSON.parse(response.body)
-    expect(body[0]["company"]).to eq("VeriSign")
+    expect(json_body[0]["company"]).to eq("VeriSign")
   end
 
   it "wont save a job if your not logged in" do
     post :create
-    body = JSON.parse(response.body)
-    expect(body["message"]).to eq("Please log in")
+    expect(json_body["message"]).to eq("Please log in")
   end
 
   it "will create new job and save it if you are logged in" do
@@ -31,8 +33,7 @@ RSpec.describe Api::JobsController, type: :controller do
       )
       request.headers["HTTP_AUTHORIZATION"] = john.authorization_token
       post :create, params: job_key
-      body = JSON.parse(response.body)
-      expect(body["message"]).to eq("Job Saved")
+      expect(json_body["message"]).to eq("Job Saved")
       expect(Job.find_by(job_key: "24c5d6db45db2b16")).to be_present
   end
 
@@ -46,8 +47,7 @@ RSpec.describe Api::JobsController, type: :controller do
       )
       request.headers["HTTP_AUTHORIZATION"] = john.authorization_token
       post :create, params: job_key
-      body = JSON.parse(response.body)
-      expect(body["message"]).to eq("Problem with indeed sarch")
+      expect(json_body["message"]).to eq("Problem with indeed sarch")
   end
 
   it "will update job with new information" do
@@ -60,8 +60,7 @@ RSpec.describe Api::JobsController, type: :controller do
       )
     request.headers["HTTP_AUTHORIZATION"] = john.authorization_token
     post :create, params: {job: {key: "24c5d6db45db2b16"}}
-    body = JSON.parse(response.body)
-    expect(body["message"]).to eq("Job Saved")
+    expect(json_body["message"]).to eq("Job Saved")
     job = Job.find_by(job_key: "24c5d6db45db2b16")
     expect(job.job_title).to eq("Mobile Apps Developer (Android/Java)")
   end
