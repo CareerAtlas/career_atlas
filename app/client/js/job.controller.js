@@ -4,11 +4,11 @@
   angular.module('career_atlas')
     .controller('JobController', JobController);
 
-    JobController.$inject = ['$scope', 'JobService', 'CompanyService', 'WalkscoreService'];
+    JobController.$inject = ['$scope', '$q', 'JobService', 'CompanyService', 'WalkscoreService'];
 
     console.log('inside the form controller here');
 
-    function JobController($scope, JobService, CompanyService, WalkscoreService) {
+    function JobController($scope, $q, JobService, CompanyService, WalkscoreService) {
       let vm = this;
       vm.jobs = [];
       vm.message = null;
@@ -51,13 +51,14 @@
       };
 
       /**
-       * [submit description]
-       * @param  {[type]} search [description]
-       * @return {Promise}        [description]
+       * Submits a search to the JobService
+       * @param  {Object} search  search to send to backend to get jobs
+       * @return {Promise}        
        */
       vm.submit = function submit(search) {
         if(!search) {
-          return;
+          vm.message = 'Something went wrong here. Please add a search to your inquiry.';
+          return $q.reject('There is no search. Please try with a search.');
         }
         console.log(search);
 
@@ -67,6 +68,7 @@
           })
           .catch(function handleError(err) {
             vm.message = 'Something went wrong here. Error = ' + err.status;
+            throw new Error(vm.message);
           });
       };
     }

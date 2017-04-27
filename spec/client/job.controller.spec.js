@@ -155,12 +155,14 @@
     });
 
     describe('this should test submit', function() {
-      describe('successful', function() {
-        beforeEach(inject(function($controller, _$rootScope_, _$q_) {
-          $q = _$q_;
-          $rootScope = _$rootScope_;
-          mockJobService.createJobSearch = function createJobSearch() {
-            mockJobService.createJobSearch.numTimesCalled++;
+      beforeEach(inject(function($controller, _$rootScope_, _$q_) {
+        $q = _$q_;
+        $rootScope = _$rootScope_;
+        mockJobService.createJobSearch = function createJobSearch(search) {
+          mockJobService.createJobSearch.numTimesCalled++;
+
+          console.info('in mock service', search);
+          if (search && search.test) {
             return $q.resolve( [
               {
                 "jobtitle": "Ruby on Rails Developer",
@@ -171,64 +173,81 @@
                 "date_posted": "26 days ago"
               }
             ]);
-          };
-          mockJobService.createJobSearch.numTimesCalled = 0;
-          let scope = $rootScope.$new();
-          JobController = $controller('JobController', { $scope:scope });
-        }));
+          } else {
+            console.info('rejecting search promise');
+            return $q.reject('This is an error from the mock service');
+          }
+        };
+        mockJobService.createJobSearch.numTimesCalled = 0;
+        let scope = $rootScope.$new();
+        JobController = $controller('JobController', { $scope:scope });
+      }));
 
-        it('should return a promise when there is an argument ', function(doneCallBack) {
-          let search = {
-            test: 'test',
-            test2: 'test2'
-          };
+      it('should return a promise when there is an argument ', function(doneCallBack) {
+        let search = {
+          test: 'test'
+        };
 
-          expect(JobController.jobs.length).to.equal(0);
+        expect(JobController.jobs.length).to.equal(0);
 
-          let thePromiseWeGetBack = JobController.submit(search);
-          expect(thePromiseWeGetBack.then).to.be.a('function');
-          expect(thePromiseWeGetBack.catch).to.be.a('function');
+        let thePromiseWeGetBack = JobController.submit(search);
+        expect(thePromiseWeGetBack.then).to.be.a('function');
+        expect(thePromiseWeGetBack.catch).to.be.a('function');
 
-          thePromiseWeGetBack
-            .then(function() {
-              expect(JobController.jobs.length).to.equal(1);
-              doneCallBack();
-            })
-            .catch(function(err) {
-              doneCallBack(err);
-            });
-          $rootScope.$apply(); //this releases all the promises...this is like $http flush
-        });
-
+        thePromiseWeGetBack
+          .then(function() {
+            expect(JobController.jobs.length).to.equal(1);
+            doneCallBack();
+          })
+          .catch(function(err) {
+            doneCallBack(err);
+          });
+        $rootScope.$apply(); //this releases all the promises...this is like $http flush
       });
 
-      describe('unsuccessful', function() {
-        beforeEach(inject(function($controller, $rootScope, _$q_) {
-          $q = _$q_;
-          mockJobService.createJobSearch = function createJobSearch() {
-            mockJobService.createJobSearch.numTimesCalled++;
-            return $q.reject( [
-              {
-                "jobtitle": "Ruby on Rails Developer",
-                "company": "Metro Systems, Inc.",
-                "url": "http://www.indeed.com/viewjob?jk=6f111ea0068ecd98&…Y&indpubnum=8417063092021675&atk=1benqfrsuausg9d4",
-                "latitude": 38.862637,
-                "longitude": -77.19231,
-                "date_posted": "26 days ago"
-              }
-            ]);
-          };
-          mockJobService.createJobSearch.numTimesCalled = 0;
-          let scope = $rootScope.$new();
-          JobController = $controller('JobController', { $scope:scope });
-        }));
+      it('should catch and handle an error if no search is provided', function(doneCallBack) {
+        expect(JobController.jobs.length).to.equal(0);
+        expect(JobController.message).to.be.null;
 
-        it('should return undefined if there is no argument', function() {
-          let result = JobController.submit();
-          expect(result).to.equal(undefined);
-        });
+        let thePromiseWeGetBack = JobController.submit();
+        expect(thePromiseWeGetBack.then).to.be.a('function');
+        expect(thePromiseWeGetBack.catch).to.be.a('function');
 
+        thePromiseWeGetBack
+          .then(function() {
+            doneCallBack('this should not resolve if there is no arugment');
+          })
+          .catch(function() {
+            expect(JobController.jobs.length).to.equal(0);
+            expect(JobController.message).to.be.a('string');
+            expect(JobController.message.length).to.be.above(0);
+            doneCallBack();
+          });
+        $rootScope.$apply(); //this releases all the promises...this is like $http flush
       });
+
+      it('should catch errors from the service', function(doneCallBack) {
+        expect(JobController.jobs.length).to.equal(0);
+        expect(JobController.message).to.be.null;
+
+        let search = { foo: 'bar' };
+        let thePromiseWeGetBack = JobController.submit(search);
+        expect(thePromiseWeGetBack.then).to.be.a('function');
+        expect(thePromiseWeGetBack.catch).to.be.a('function');
+
+        thePromiseWeGetBack
+          .then(function() {
+            doneCallBack('should not resolve with bad search');
+          })
+          .catch(function(err) {
+            expect(JobController.jobs.length).to.equal(0);
+            expect(JobController.message).to.be.a('string').and.to.have.property('length').above(0);
+            doneCallBack();
+          });
+
+        $rootScope.$apply();
+      });
+
     });
 
   });
