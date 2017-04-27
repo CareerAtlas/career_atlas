@@ -8,7 +8,7 @@ class Job < ApplicationRecord
   validates :location, presence: true
 
   def update_job_and_save(job_key)
-    self.update(IndeedApi.find_job(job_key).except(:url, :date_posted))
+    update(IndeedApi.find_job(job_key).except(:url, :date_posted))
     self.save
   end
 
@@ -24,19 +24,18 @@ class Job < ApplicationRecord
   end
 
   def update_job(job_info)
-    update_info = info_to_update_job(job_info)
-    self.update(update_info)
+    update(job_info.except(:url, :date_posted))
     self.save
   end
-
-  def info_to_update_job(job)
-    {
-      job_key: job[:job_key],
-      longitude: job[:longitude],
-      latitude: job[:latitude],
-      company: job[:company],
-      job_title: job[:job_title],
-      location: job[:location]
-    }
-  end
+  #
+  # def info_to_update_job(job)
+  #   {
+  #     job_key: job[:job_key],
+  #     longitude: job[:longitude],
+  #     latitude: job[:latitude],
+  #     company: job[:company],
+  #     job_title: job[:job_title],
+  #     location: job[:location]
+  #   }
+  # end
 end
