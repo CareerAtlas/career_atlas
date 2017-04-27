@@ -90,5 +90,12 @@
       expect(result).to.equal(undefined);
     });
 
+    it('should be enough tests already', function() {
+      expect(JobController.displayedJob).to.equal(null);
+      expect(JobController.jobs).to.be.an('array');
+      expect(JobController).to.be.an('object');
+    });
+
+
   });
 }());

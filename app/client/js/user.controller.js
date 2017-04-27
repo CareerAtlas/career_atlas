@@ -11,6 +11,7 @@
 
     vm.user = {};
     vm.users = [];
+    vm.message = null;
 
     vm.createUser = function createUser(user) {
       return UserService.createUser(user)
@@ -20,6 +21,7 @@
         })
         .catch(function handleError(err) {
           console.warn(err);
+          vm.message = 'Something went wrong...Error = ' + err.status;
         });
     };
 
@@ -31,6 +33,7 @@
         })
         .catch(function handleError(err) {
           console.warn(err);
+          vm.message = 'Something went wrong...Error = ' + err.status;
         });
     };
 

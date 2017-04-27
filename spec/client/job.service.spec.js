@@ -23,31 +23,16 @@
           "latitude": "test latitude",
           "longitude": "test longitude",
           "date_posted": "30 days ago"
-        },
-        {
-          "jobtitle": "test job title",
-          "company": "test company",
-          "url": "test url",
-          "latitude": "test latitude",
-          "longitude": "test longitude",
-          "date_posted": "30 days ago"
-        }]);
+        }
+      ]);
    }));
 
    it('should expect the function to be function', function() {
      expect(JobService.createJobSearch).to.be.a('function');
    });
 
-   it('should add a job', function() {
-     let resultValue = JobService.createJobSearch([
-       {
-         "jobtitle": "test job title",
-         "company": "test company",
-         "url": "test url",
-         "latitude": "test latitude",
-         "longitude": "test longitude",
-         "date_posted": "30 days ago"
-       },
+   it('should create a job search', function() {
+     let resultValue = JobService.createJobSearch(
        {
          "jobtitle": "test job title",
          "company": "test company",
@@ -56,7 +41,7 @@
          "longitude": "test longitude",
          "date_posted": "30 days ago"
        }
-     ]);
+     );
 
      resultValue.then(function(data) {
        expect(data).to.be.an('array');
@@ -67,6 +52,7 @@
        expect(data.longitude).to.be.a('string');
        expect(data.date_posted).to.be.a('string');
      });
+      $httpBackend.flush();
    });
  });
 }());
