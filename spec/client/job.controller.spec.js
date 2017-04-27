@@ -195,13 +195,13 @@
         expect(thePromiseWeGetBack.catch).to.be.a('function');
 
         thePromiseWeGetBack
-          .then(function() {
-            expect(JobController.jobs.length).to.equal(1);
-            doneCallBack();
-          })
-          .catch(function(err) {
-            doneCallBack(err);
-          });
+        .then(function() {
+          expect(JobController.jobs.length).to.equal(1);
+          doneCallBack();
+        })
+        .catch(function(err) {
+          doneCallBack(err);
+        });
         $rootScope.$apply(); //this releases all the promises...this is like $http flush
       });
 
@@ -214,15 +214,15 @@
         expect(thePromiseWeGetBack.catch).to.be.a('function');
 
         thePromiseWeGetBack
-          .then(function() {
-            doneCallBack('this should not resolve if there is no arugment');
-          })
-          .catch(function() {
-            expect(JobController.jobs.length).to.equal(0);
-            expect(JobController.message).to.be.a('string');
-            expect(JobController.message.length).to.be.above(0);
-            doneCallBack();
-          });
+        .then(function() {
+          doneCallBack('this should not resolve if there is no arugment');
+        })
+        .catch(function() {
+          expect(JobController.jobs.length).to.equal(0);
+          expect(JobController.message).to.be.a('string');
+          expect(JobController.message.length).to.be.above(0);
+          doneCallBack();
+        });
         $rootScope.$apply(); //this releases all the promises...this is like $http flush
       });
 
@@ -236,14 +236,14 @@
         expect(thePromiseWeGetBack.catch).to.be.a('function');
 
         thePromiseWeGetBack
-          .then(function() {
-            doneCallBack('should not resolve with bad search');
-          })
-          .catch(function(err) {
-            expect(JobController.jobs.length).to.equal(0);
-            expect(JobController.message).to.be.a('string').and.to.have.property('length').above(0);
-            doneCallBack();
-          });
+        .then(function() {
+          doneCallBack('should not resolve with bad search');
+        })
+        .catch(function(err) {
+          expect(JobController.jobs.length).to.equal(0);
+          expect(JobController.message).to.be.a('string').and.to.have.property('length').above(0);
+          doneCallBack();
+        });
 
         $rootScope.$apply();
       });
