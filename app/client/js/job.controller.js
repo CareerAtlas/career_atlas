@@ -50,13 +50,18 @@
         radius: '1',
       };
 
+      /**
+       * [submit description]
+       * @param  {[type]} search [description]
+       * @return {Promise}        [description]
+       */
       vm.submit = function submit(search) {
         if(!search) {
           return;
         }
         console.log(search);
 
-        JobService.createJobSearch(search)
+        return JobService.createJobSearch(search)
           .then(function handleData(data) {
             vm.jobs = data;
           })
