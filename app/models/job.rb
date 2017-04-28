@@ -7,13 +7,22 @@ class Job < ApplicationRecord
   validates :job_title, presence: true
   validates :location, presence: true
 
-  def update_job_and_save(job_key)
-    update(IndeedApi.find_job(job_key).except(:url, :date_posted))
-    self.save
-  end
 
   def update_job(job_info)
     update(job_info.except(:url, :date_posted))
-    self.save
+  end
+
+  def self.create_or_update_job_by_key(job_key)
+    job = Job.find_or_initialize_by(job_key: job_key)
+    job.update_job_and_save(job.job_key)
+    job
+  end
+
+  def indeed_data
+    IndeedApi.find_job(self.job_key).except(:url, :date_posted)
+  end
+
+  def update_job_and_save(job_key)
+    update(indeed_data)
   end
 end
