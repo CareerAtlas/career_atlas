@@ -10,8 +10,26 @@ RSpec.describe Api::SavedJobsController, type: :controller do
     expect(json_body["message"]).to eq("Please log in")
   end
 
+  it "wont save a job if your not logged in" do
+    post :create
+    expect(json_body["message"]).to eq("Please log in")
+  end
+
+  it "will create new job and save it if you are logged in" do
+    job_key = { job: {key: "24c5d6db45db2b16" }}
+    stub_request(:get, /api.indeed.com/)
+      .to_return(
+        body: File.read(Rails.root.join("spec", "stubbed_requests", "single_job_search.json")),
+        headers: {"Content-Type" => "application/json"}
+      )
+      request.headers["HTTP_AUTHORIZATION"] = john.authorization_token
+      post :create, params: job_key
+      expect(json_body["message"]).to eq("Job Saved")
+      expect(Job.find_by(job_key: "24c5d6db45db2b16")).to be_present
+  end
+
   it "will require a user to be signed in to see a specific saved job" do
-    get :show, params: {job_key: job.job_key}
+    get :show, params: {key: "24c5d6db45db2b16" }
     expect(json_body["message"]).to eq("Please log in")
   end
 
@@ -29,18 +47,47 @@ RSpec.describe Api::SavedJobsController, type: :controller do
         headers: {"Content-Type" => "application/json"}
       )
     request.headers["HTTP_AUTHORIZATION"] = john.authorization_token
-    get :show, params: {job_key: job.job_key}
+    get :show, params: {key: "24c5d6db45db2b16" }
     expect(json_body["message"]).to eq("Sorry, this job is no longer available")
   end
 
   it "will send back a selected job and update it" do
+    create_job
     stub_request(:get, /api.indeed.com/)
       .to_return(
         body: File.read(Rails.root.join("spec", "stubbed_requests", "single_job_search.json")),
         headers: {"Content-Type" => "application/json"}
       )
     request.headers["HTTP_AUTHORIZATION"] = john.authorization_token
-    get :show, params: {job_key: job.job_key}
+    get :show, params: {key: "24c5d6db45db2b16" }
     expect(json_body["job_title"]).to eq("Mobile Apps Developer (Android/Java)")
   end
+
+  it "wont save a job if its missing core information" do
+    job_key = { job: {key: "24c5d6db45db2b16" }}
+    stub_request(:get, /api.indeed.com/)
+      .to_return(
+        body: File.read(Rails.root.join("spec", "stubbed_requests", "incomplete_single_job_search.json")),
+        headers: {"Content-Type" => "application/json"}
+      )
+      request.headers["HTTP_AUTHORIZATION"] = john.authorization_token
+      post :create, params: job_key
+      expect(json_body["message"]).to eq("Problem with indeed sarch")
+  end
+
+  it "will update job with new information" do
+    create_job
+    job_key = { job: {key: "24c5d6db45db2b16" }}
+    stub_request(:get, /api.indeed.com/)
+      .to_return(
+        body: File.read(Rails.root.join("spec", "stubbed_requests", "single_job_search.json")),
+        headers: {"Content-Type" => "application/json"}
+      )
+    request.headers["HTTP_AUTHORIZATION"] = john.authorization_token
+    post :create, params: job_key
+    expect(json_body["message"]).to eq("Job Saved")
+    job = Job.find_by(job_key: "24c5d6db45db2b16")
+    expect(job.job_title).to eq("Mobile Apps Developer (Android/Java)")
+  end
+
 end
