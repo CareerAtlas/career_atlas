@@ -15,15 +15,13 @@
     vm.savedJob = null;
     vm.displayedJob = null;
 
-    let clickedMarker;
-
     vm.showJobInformation = function showJobInformation(marker) {
       if(!marker) {
         return;
       }
-      clickedMarker = marker;
 
       vm.displayedJob = marker.data;
+      console.log('vm.displayedJob', vm.displayedJob);
       CompanyService.getGlassdoorCompanyInformation(marker.data.company)
       .then(function handleGlassdoorData(glassdoorData) {
         vm.displayedJob.glassdoorData = glassdoorData;
@@ -49,23 +47,24 @@
       $scope.$apply();
     };
 
-    vm.saveJob = function saveAJob() {
+    vm.saveJob = function saveAJob(key) {
 
       vm.ObjectToSendBackToSavedJobs ={
-        job_key: clickedMarker.data.key,
+        job_key: key,
         // longitiude: clickedMarker.data.longitiude,
         // latitude: clickedMarker.data.latitude,
         // company:clickedMarker.data.company,
         // job_title: clickedMarker.data.jobtitle,
         // location: clickedMarker.data.location
       };
-      JobService.saveJobSearch(vm.ObjectToSendBackToSavedJobs)
+      return JobService.saveJobSearch(vm.ObjectToSendBackToSavedJobs)
       .then(function handleSavedJobs(savedJobObj) {
+        vm.savedJob = {};
         vm.savedJob.savedJobObj = savedJobObj;
         console.log('savedJobObj', savedJobObj);
       })
       .catch(function handleError(err) {
-        vm.message = 'Something went wrong here. Error = ' + err.status;
+        vm.message = 'Something went wrong here. Error = ' + err.message;
         throw new Error(vm.message);
       });
 
