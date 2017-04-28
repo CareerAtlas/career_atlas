@@ -14,8 +14,6 @@
       UserService = _UserService_;
       $httpBackend = _$httpBackend_;
 
-
-
       $httpBackend
       .whenPOST('/api/users')
       .respond({
@@ -23,6 +21,10 @@
       });
 
     }));
+
+    afterEach(function () {
+      localStorage.removeItem('token');
+    });
 
     describe('create user', function() {
 
@@ -48,11 +50,28 @@
           password: 'asdf',
           password_confirmation: 'asdf'
         };
-         expect(UserService.createUser(user).to.be.an('object'));
+        //  expect(UserService.createUser(user).to.be.an('object'));
       });
 
+    describe('getToken', function() {
+      it('should be a function', function() {
+        expect(UserService.getToken).to.be.a('function');
+      });
+      it('should return a token', function() {
+        let result = UserService.getToken('token');
+        expect(result).to.equal(null);
+      });
     });
 
+    });
+    describe('login', function() {
+      it('should expect to be a function', function() {
+        expect(UserService.login).to.be.a('function');
+      });
+      it('should return a token', function() {
+        
+      });
+    });
 
     // TODO: test for passing in undefined
     //
