@@ -40,8 +40,11 @@ RSpec.configure do |config|
   # instead of true.
   config.use_transactional_fixtures = true
 
+  config.include JobFactory, type: :controller
+  config.include UserFactory, type: :controller
   config.include JsonBody, type: :controller
-  config.include AuthorizationSetup, type: :controller
+  config.include JobFactory, type: :model
+
 
 
 

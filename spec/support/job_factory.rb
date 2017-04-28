@@ -1,14 +1,4 @@
-module AuthorizationSetup
-
-  def create_john
-    User.create!(
-      name: "John",
-      email: "John@johnny.com",
-      password: "bro",
-      password_confirmation: "bro",
-      authorization_token: SecureRandom.hex(10)
-      )
-  end
+module JobFactory
 
   def create_job
     Job.create!(
@@ -20,5 +10,4 @@ module AuthorizationSetup
       location: "Chevy Chase, MD"
       )
   end
-
 end

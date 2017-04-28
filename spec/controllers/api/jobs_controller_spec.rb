@@ -2,6 +2,8 @@ require 'rails_helper'
 
 RSpec.describe Api::JobsController, type: :controller do
 
+  let(:john) { create_john }
+
   it "gets required params" do
     search_params = { job_title: "Ruby", location: 20011, radius: 25, job_type: "fulltime" }
 
@@ -20,7 +22,6 @@ RSpec.describe Api::JobsController, type: :controller do
   end
 
   it "will create new job and save it if you are logged in" do
-    john = create_john
     job_key = { job: {key: "24c5d6db45db2b16" }}
     stub_request(:get, /api.indeed.com/)
       .to_return(
@@ -34,7 +35,6 @@ RSpec.describe Api::JobsController, type: :controller do
   end
 
   it "wont save a job if its missing core information" do
-    john = create_john
     job_key = { job: {key: "24c5d6db45db2b16" }}
     stub_request(:get, /api.indeed.com/)
       .to_return(
@@ -47,7 +47,6 @@ RSpec.describe Api::JobsController, type: :controller do
   end
 
   it "will update job with new information" do
-    john = create_john
     create_job
     stub_request(:get, /api.indeed.com/)
       .to_return(
