@@ -4,9 +4,9 @@
   angular.module('career_atlas')
     .factory('UserService', UserService);
 
-  UserService.$inject = ['$http'];
+  UserService.$inject = ['$http', '$q'];
 
-  function UserService($http) {
+  function UserService($http, $q) {
     let token = localStorage.getItem('token');
 
     function getToken() {
@@ -41,7 +41,16 @@
       });
     }
 
+    /**
+     * [login description]
+     * @param  {Object} user [description]
+     * @return {Promise}      [description]
+     */
     function login(user) {
+      if (!user) {
+        return $q.reject('No user info has been provided');
+      }
+
       return $http({
         url: '/api/authorization/',
         method: 'POST',
