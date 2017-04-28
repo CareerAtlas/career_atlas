@@ -63,6 +63,10 @@
       .then(function handleSavedJobs(savedJobObj) {
         vm.savedJob.savedJobObj = savedJobObj;
         console.log('savedJobObj', savedJobObj);
+      })
+      .catch(function handleError(err) {
+        vm.message = 'Something went wrong here. Error = ' + err.status;
+        throw new Error(vm.message);
       });
 
     };
