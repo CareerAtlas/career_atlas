@@ -11,7 +11,7 @@ class Api::SavedJobsController < ApplicationController
     if @saved_job&.save
       render json: {message: "Job Saved", status: :created}
     else
-      render json: {message: "Problem with indeed sarch", status:	:failed_dependency}
+      render json: {message: "Problem with indeed sarch", status: :failed_dependency}
     end
   end
 
