@@ -20,5 +20,5 @@ module AuthorizationSetup
       location: "Chevy Chase, MD"
       )
   end
-  
+
 end
