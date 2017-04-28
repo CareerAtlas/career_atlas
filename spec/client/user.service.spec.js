@@ -20,6 +20,11 @@
         'authorization': 'jkdhfkenrsoiurfkjerhsgikherkh'
       });
 
+      $httpBackend
+        .whenPOST('/api/authorization/')
+        .respond({
+          'authorization': 'fjkheuhelfuy8u3jrhal89jhdk3wr8'
+        });
     }));
 
     afterEach(function () {
@@ -68,8 +73,19 @@
       it('should expect to be a function', function() {
         expect(UserService.login).to.be.a('function');
       });
-      it('should return a token', function() {
-        
+      it('should return a promise and put token in localStorage', function() {
+        let returnValue = UserService.login({});
+
+        expect(returnValue.then).to.be.a('function');
+        expect(returnValue.catch).to.be.a('function');
+        returnValue
+          .then(function() {
+            
+            expect(localStorage.getItem('token')).to.equal('fjkheuhelfuy8u3jrhal89jhdk3wr8');
+          })
+          .catch(function(err) {
+            done(err);
+          });
       });
     });
 
