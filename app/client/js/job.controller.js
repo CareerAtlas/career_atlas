@@ -12,12 +12,16 @@
     let vm = this;
     vm.jobs = [];
     vm.message = null;
+    vm.savedJob = null;
     vm.displayedJob = null;
+
+    let clickedMarker;
 
     vm.showJobInformation = function showJobInformation(marker) {
       if(!marker) {
         return;
       }
+      clickedMarker = marker;
 
       vm.displayedJob = marker.data;
       CompanyService.getGlassdoorCompanyInformation(marker.data.company)
@@ -43,6 +47,24 @@
         vm.message = 'Something went wrong here. Error = ' + err.status;
       });
       $scope.$apply();
+    };
+
+    vm.saveJob = function saveAJob() {
+
+      vm.ObjectToSendBackToSavedJobs ={
+        job_key: clickedMarker.data.key,
+        // longitiude: clickedMarker.data.longitiude,
+        // latitude: clickedMarker.data.latitude,
+        // company:clickedMarker.data.company,
+        // job_title: clickedMarker.data.jobtitle,
+        // location: clickedMarker.data.location
+      };
+      JobService.saveJobSearch(vm.ObjectToSendBackToSavedJobs)
+      .then(function handleSavedJobs(savedJobObj) {
+        vm.savedJob.savedJobObj = savedJobObj;
+        console.log('savedJobObj', savedJobObj);
+      });
+
     };
 
     vm.search = {

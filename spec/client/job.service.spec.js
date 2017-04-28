@@ -29,6 +29,7 @@
 
    it('should expect the function to be function', function() {
      expect(JobService.createJobSearch).to.be.a('function');
+     expect(JobService.saveJobSearch).to.be.a('function');
    });
 
    it('should create a job search', function() {

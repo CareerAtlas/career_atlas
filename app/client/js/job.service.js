@@ -47,8 +47,34 @@
       });
     }
 
+    /**
+    * Sends job information to backend to be saved in 'saved jobs'
+    * @param  {Object} job   Job to be saved
+    * @return {[Array]}      [array of objects of jobs to be saved]
+    */
+    function saveJobSearch(search) {
+
+      return $http({
+        method: 'POST',
+        url: '/api/jobs/',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        params:{
+          job: {
+            job_key: search.job_key
+          }
+        }
+      })
+      .then(function handleResponse(response) {
+        let savedJobs = response.data;
+        return savedJobs;
+      });
+    }
+
     return {
-      createJobSearch: createJobSearch
+      createJobSearch: createJobSearch,
+      saveJobSearch: saveJobSearch
     };
   }
 
