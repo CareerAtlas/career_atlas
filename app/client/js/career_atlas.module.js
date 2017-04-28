@@ -9,9 +9,9 @@
 
   /**
    * [routerConfig description]
-   * @param  {Object} $stateProvider     [description]
-   * @param  {Object} $urlRouterProvider [description]
-   * @return {void}                    [description]
+   * @param  {Object} $stateProvider
+   * @param  {Object} $urlRouterProvider
+   * @return {void}
    */
   function routerConfig($stateProvider, $urlRouterProvider) {
     console.log('this is routerconfig fn');
@@ -63,6 +63,15 @@
   }
 
   setupAuthCheck.$inject = ['$rootScope','$state', 'UserService'];
+
+
+    /**
+     * [setupAuthCheck description]
+     * @param  {[type]} $rootScope  [description]
+     * @param  {[type]} $state      [description]
+     * @param  {[type]} UserService [description]
+     * @return {[type]}             [description]
+     */
      function setupAuthCheck($rootScope, $state, UserService) {
 
 
