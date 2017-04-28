@@ -7,6 +7,7 @@
   JobService.$inject =['$http'];
 
   function JobService($http) {
+    let token = localStorage.getItem('token');
 
     /**
     * Gets information from backend after searching for a job
@@ -49,26 +50,28 @@
 
     /**
     * Sends job information to backend to be saved in 'saved jobs'
-    * @param  {Object} job   Job to be saved
+    * @param  {String} jobKey   Job to be saved
     * @return {[Array]}      [array of objects of jobs to be saved]
     */
-    function saveJobSearch(search) {
+    function saveJobSearch(jobKey) {
+      console.log('this is the jobkey', jobKey);
 
       return $http({
         method: 'POST',
-        url: '/api/jobs/',
+        url: '/api/saved_jobs/',
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
+          'Authorization': token
         },
-        params:{
+        data:{
           job: {
-            job_key: search.job_key
+            key: jobKey
           }
         }
       })
       .then(function handleResponse(response) {
-        let savedJobs = response.data;
-        return savedJobs;
+        let savedJob = response.data;
+        return savedJob;
       });
     }
 
