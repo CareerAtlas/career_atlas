@@ -55,10 +55,13 @@
   markerclicked='jobCtrl.showJobInformation'>
 </map>
 
+
+
 <article ng-show='jobCtrl.displayedJob'>
   <button href='#' ng-click='jobCtrl.displayedJob = !jobCtrl.displayedJob'>
     Back to the Map!
   </button>
+  <button type='submit' name='Save' class='btn btn-success' ng-click='jobCtrl.saveJob(jobCtrl.displayedJob.key)'>Save</button>
   <img alt='CompanyLogo' src='{{jobCtrl.displayedJob.glassdoorData.logo}}' ng-show='jobCtrl.displayedJob.glassdoorData.logo.length != null'>
   <p>Job Title: {{jobCtrl.displayedJob.jobtitle}}</p>
   <p>Company: {{jobCtrl.displayedJob.company}}</p>
