@@ -6,6 +6,6 @@ Rails.application.routes.draw do
     resources :companies, only: [:index, :show, :create]
     resources :walkscores, only: [:index]
     resource :authorization, only: [:create, :destroy], controller: :authorization
-    resources :saved_jobs, only: [:index, :show], param: :job_key 
+    resources :saved_jobs, only: [:index, :show, :create], param: :key 
   end
 end
