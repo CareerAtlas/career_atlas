@@ -2,6 +2,8 @@ require 'rails_helper'
 
 RSpec.describe Api::JobsController, type: :controller do
 
+  let(:john) { create_john }
+
   it "gets required params" do
     search_params = { job_title: "Ruby", location: 20011, radius: 25, job_type: "fulltime" }
 
@@ -11,6 +13,6 @@ RSpec.describe Api::JobsController, type: :controller do
         headers: {"Content-Type" => "application/json"}
       )
     get :index, params: search_params
-    assert response.ok?
+    expect(json_body[0]["company"]).to eq("VeriSign")
   end
 end

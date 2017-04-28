@@ -6,7 +6,8 @@ class User < ApplicationRecord
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
   validates :email, presence: true, format: { with: VALID_EMAIL_REGEX }
   validates :email, uniqueness: true
-  has_many :jobs
+  has_many :saved_jobs
+  has_many :jobs, through: :saved_jobs
 
   def secure_random
     self.authorization_token = SecureRandom.hex(64)

@@ -63,7 +63,7 @@
   </button>
   <button type='submit' name='Save' class='btn btn-success' ng-click='jobCtrl.saveJob(jobCtrl.displayedJob.key)'>Save</button>
   <img alt='CompanyLogo' src='{{jobCtrl.displayedJob.glassdoorData.logo}}' ng-show='jobCtrl.displayedJob.glassdoorData.logo.length != null'>
-  <p>Job Title: {{jobCtrl.displayedJob.jobtitle}}</p>
+  <p>Job Title: {{jobCtrl.displayedJob.job_title}}</p>
   <p>Company: {{jobCtrl.displayedJob.company}}</p>
   <p><a ng-href='{{jobCtrl.displayedJob.url}}'>{{jobCtrl.displayedJob.url}}</a></p>
   <p>Location: {{jobCtrl.displayedJob.location}}</p>
