@@ -1,5 +1,5 @@
 class Api::SavedJobsController < ApplicationController
-  before_action :authorize!, only: [:index, :show, :create]
+  before_action :authorize!, only: [:index, :show, :create, :destroy]
 
   def index
     render json: current_user.jobs
