@@ -49,15 +49,7 @@
 
     vm.saveJob = function saveAJob(key) {
 
-      vm.ObjectToSendBackToSavedJobs ={
-        job_key: key,
-        // longitiude: clickedMarker.data.longitiude,
-        // latitude: clickedMarker.data.latitude,
-        // company:clickedMarker.data.company,
-        // job_title: clickedMarker.data.jobtitle,
-        // location: clickedMarker.data.location
-      };
-      return JobService.saveJobSearch(vm.ObjectToSendBackToSavedJobs)
+      return JobService.saveJobSearch(key)
       .then(function handleSavedJobs(savedJobObj) {
         vm.savedJob = {};
         vm.savedJob.savedJobObj = savedJobObj;

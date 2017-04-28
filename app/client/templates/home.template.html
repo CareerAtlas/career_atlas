@@ -61,7 +61,7 @@
   <button href='#' ng-click='jobCtrl.displayedJob = !jobCtrl.displayedJob'>
     Back to the Map!
   </button>
-  <button type='submit' name='Save' class='btn btn-success' ng-click='jobCtrl.saveJob(jobCtrl.displayedJob.key)'>Save</button>
+  <button type='submit' name='Save' class='btn btn-success' ng-click='jobCtrl.saveJob(jobCtrl.displayedJob.job_key)'>Save</button>
   <img alt='CompanyLogo' src='{{jobCtrl.displayedJob.glassdoorData.logo}}' ng-show='jobCtrl.displayedJob.glassdoorData.logo.length != null'>
   <p>Job Title: {{jobCtrl.displayedJob.job_title}}</p>
   <p>Company: {{jobCtrl.displayedJob.company}}</p>
