@@ -14,11 +14,4 @@ class Api::AuthorizationController < ApplicationController
     current_user.logout
     render json: {message: "You are now logged out"}
   end
-
-  private
-  def authorize!
-    unless current_user
-      render json: {message: "Please log in first"}
-    end
-  end
 end

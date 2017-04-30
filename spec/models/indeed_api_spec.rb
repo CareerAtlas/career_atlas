@@ -11,8 +11,8 @@ RSpec.describe IndeedApi, type: :model do
         headers: {'Content-Type' => 'application/json'}
       )
 
-    response = IndeedApi.search_jobs(search_params)
-    expect(response).to be_truthy
-    expect(response["results"][0]["jobtitle"]).to eq "Software Engineering - University graduates"
+    first_job = IndeedApi.search_jobs(search_params).first
+    expect(first_job).to be_truthy
+    expect(first_job[:job_title]).to eq "Software Engineering - University graduates"
   end
 end

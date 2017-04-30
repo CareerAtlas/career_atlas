@@ -19,3 +19,4 @@ tmp
 log/development.log
 .DS_Store
 app/.DS_Store
+coverage

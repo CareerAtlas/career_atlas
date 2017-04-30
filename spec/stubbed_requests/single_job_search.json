@@ -1,0 +1,29 @@
+{
+  "version": 2,
+  "results": [
+    {
+      "jobtitle": "Mobile Apps Developer (Android/Java)",
+      "company": "Precision System Design, Inc.",
+      "city": "Chevy Chase",
+      "state": "MD",
+      "country": "US",
+      "language": "en",
+      "formattedLocation": "Chevy Chase, MD",
+      "source": "JobServe USA",
+      "date": "Mon, 24 Apr 2017 09:04:56 GMT",
+      "snippet": "Understand project requirements and convert functional specifications into technical designs. Develop Android mobile applications using Java. Good knowledge in Object-Oriented Design Patterns. Test and verify that the applications meet the initial functional specifications....",
+      "url": "http://www.indeed.com/rc/clk?jk=24c5d6db45db2b16&atk=",
+      "onmousedown": "indeed_clk(this,'');",
+      "latitude": 38.96978,
+      "longitude": -77.07143,
+      "jobkey": "24c5d6db45db2b16",
+      "sponsored": false,
+      "expired": false,
+      "indeedApply": false,
+      "formattedLocationFull": "Chevy Chase, MD",
+      "formattedRelativeTime": "2 days ago",
+      "stations": "",
+      "recommendations": []
+    }
+  ]
+}
