@@ -90,4 +90,11 @@ RSpec.describe Api::SavedJobsController, type: :controller do
     expect(job.job_title).to eq("Mobile Apps Developer (Android/Java)")
   end
 
+  it "will destory the relationship between user and a job" do
+    SavedJob.create!(user_id: john.id, job_id: job.id)
+    request.headers["HTTP_AUTHORIZATION"] = john.authorization_token
+    delete :destroy, params: {key: job.job_key}
+    expect(json_body["message"]).to eq("Job is no longer saved")
+  end
+
 end
