@@ -1,2 +1,8 @@
 <h1>Saved Jobs</h1>
 <p>Here is a list of your saved jobs!</p>
+
+<article ng-repeat='allSavedJobs in savedJobsCtrl.allSavedJobs'>
+  <section>
+    <h4>Job Title: {{allSavedJobs.job_title}}</h4>
+  </section>
+</article>
