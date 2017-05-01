@@ -100,7 +100,6 @@ RSpec.describe Api::SavedJobsController, type: :controller do
     it "wont destroy a SavedJob if it doesn't have all the info" do
       request.headers["HTTP_AUTHORIZATION"] = john.authorization_token
       delete :destroy, params: {key: job.job_key}
-      binding.pry
-      expect(json_body["message"]).to eq("Job is no longer saved")
+      expect(json_body["message"]).to eq("There is no saved job in the database")
     end
 end

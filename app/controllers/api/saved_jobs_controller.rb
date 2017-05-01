@@ -27,11 +27,11 @@ class Api::SavedJobsController < ApplicationController
   end
 
   def destroy
-    job_connection = SavedJob.joins(:job).find_by("jobs.job_key = ?", params[:key], "user_id = ?", current_user.id)
-    if job_connection.destroy
+    @job_connection = current_user.saved_jobs.joins(:job).find_by("jobs.job_key": params[:key])
+    if @job_connection&.destroy
       render json: {message: "Job is no longer saved", status: :ok}
     else
-      render json: {message: @job_connection.errors.full_message, status: :not_found}
+      render json: {message: "There is no saved job in the database", status: :not_found}
     end
   end
 
