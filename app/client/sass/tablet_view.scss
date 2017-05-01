@@ -3,7 +3,17 @@
    flex-direction: row;
   }
   .headshots {
-    height: 100px;
-    width: 100px;
+    height: 250px;
+    width: 250px;
+    border-radius: 1em;
+  }
+
+  .each_developer {
+    h3 {
+      padding: 0.5em;
+    }
+    .btn-social-icon {
+      size: 1em;
+    }
   }
 }
