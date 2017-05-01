@@ -6,7 +6,7 @@ class Api::AuthorizationController < ApplicationController
     if @user && @user.authenticate(params[:user][:password])
       render json: { authorization: @user.authorization_token }
     else
-      render json: { message: "Email or Password in not correct", status: :bad_request }
+      render json: { message: "Email or Password in not correct", status: :bad_request }, status: 400
     end
   end
 
