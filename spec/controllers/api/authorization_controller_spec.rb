@@ -25,7 +25,7 @@ RSpec.describe Api::AuthorizationController, type: :controller do
 
   it "wont allow someone to logout if they have not logged in first" do
     delete :destroy
-    expect(json_body["message"]).to eq("Please log in")
+    expect(json_body["message"]).to eq("Please log in first")
   end
 
   it "will allow someone to logout if they have logged in" do
@@ -41,5 +41,5 @@ RSpec.describe Api::AuthorizationController, type: :controller do
     assert response.ok?
     request.headers["HTTP_AUTHORIZATION"] = "hello"
     delete :destroy
-    expect(json_body["message"]).to eq("Please log in")  end
+    expect(json_body["message"]).to eq("Please log in first")  end
 end
