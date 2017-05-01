@@ -1,8 +1,27 @@
 <h1>Saved Jobs</h1>
 <p>Here is a list of your saved jobs!</p>
 
-<article ng-repeat='allSavedJobs in savedJobsCtrl.allSavedJobs'>
+<article ng-repeat='job in savedJobsCtrl.jobs'>
   <section>
-    <h4>Job Title: {{allSavedJobs.job_title}}</h4>
+    <h4>Job Title: {{job.job_title}}</h4>
+    <button ng-click='savedJobsCtrl.showJobInformation({ data: job })'>Get More Information</button>
+    <p>Company: {{job.company}}</p>
+    <p>Location: {{job.location}}</p>
+    <aside ng-show='savedJobsCtrl.displayedJob.id === job.id'>
+      <p>Compensation Rating: {{savedJobsCtrl.displayedJob.glassdoorData.compensation_rating}}</p>
+      <p>Date Posted: {{savedJobsCtrl.displayedJob.date_posted}}</p>
+      <p>Walk Score: {{savedJobsCtrl.displayedJob.walkscoreData.walk_score}}</p>
+      <p>{{savedJobsCtrl.displayedJob.url}}</p>
+      <p>Overall Rating: {{savedJobsCtrl.displayedJob.glassdoorData.overall_rating}}</p>
+      <p>Compensation Rating: {{savedJobsCtrl.displayedJob.glassdoorData.compensation_rating}}</p>
+      <p>Culture Rating: {{savedJobsCtrl.displayedJob.glassdoorData.culture_rating}}</p>
+      <p>Leadership Rating: {{savedJobsCtrl.displayedJob.glassdoorData.leadership_rating}}</p>
+      <p>Overall Rating: {{savedJobsCtrl.displayedJob.glassdoorData.overall_rating}}</p>
+      <p>Recommend to a Friend Rating: {{savedJobsCtrl.displayedJob.glassdoorData.recommend_to_friend_rating}}</p>
+      <p>Opportunity Rating: {{savedJobsCtrl.displayedJob.glassdoorData.opportunity_rating}}</p>
+      <p>Work Life Balance Rating: {{savedJobsCtrl.displayedJob.glassdoorData.work_life_balance_rating}}</p>
+      <p>Walk Score: {{savedJobsCtrl.displayedJob.walkscoreData.walk_score}</p>
+      <p>Description: {{savedJobsCtrl.displayedJob.walkscoreData.description}}</p>
+    </aside>
   </section>
 </article>
