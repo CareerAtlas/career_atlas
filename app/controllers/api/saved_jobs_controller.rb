@@ -1,5 +1,5 @@
 class Api::SavedJobsController < ApplicationController
-  before_action :authorize!, only: [:index, :show, :create]
+  before_action :authorize!
 
   def index
     render json: current_user.jobs
@@ -23,6 +23,15 @@ class Api::SavedJobsController < ApplicationController
       render json: job
     else
       render json: {message: "Sorry, this job is no longer available", status: :not_found}
+    end
+  end
+
+  def destroy
+    @job_connection = current_user.saved_jobs.joins(:job).find_by("jobs.job_key": params[:key])
+    if @job_connection&.destroy
+      render json: {message: "Job is no longer saved", status: :ok}
+    else
+      render json: {message: "There is no saved job in the database", status: :not_found}
     end
   end
 
