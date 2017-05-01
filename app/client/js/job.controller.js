@@ -75,7 +75,6 @@
     };
 
     vm.saveJob = function saveAJob(key) {
-
       return JobService.saveJobSearch(key)
       .then(function handleSavedJobs(savedJobObj) {
         vm.savedJob = {};
@@ -86,7 +85,6 @@
         vm.message = 'Something went wrong here. Error = ' + err.message;
         throw new Error(vm.message);
       });
-
     };
 
     vm.search = {
