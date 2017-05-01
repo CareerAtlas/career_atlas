@@ -34,7 +34,6 @@
 
     };
 
-    // TODO: only do this when we're on the saved job state
     if ($state.is('saved-jobs')) {
       vm.showListOfSavedJobs();
     }
