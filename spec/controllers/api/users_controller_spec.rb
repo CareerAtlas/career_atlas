@@ -35,8 +35,8 @@ RSpec.describe Api::UsersController, type: :controller do
     expect(json_body["message"]).to eq("Please log in")
   end
 
-  it "sends an email" do
+  it "it queus an email to be sent" do
     ActiveJob::Base.queue_adapter = :test
-    expect{post :create, params: params}.to change{ActionMailer::Base.deliveries.count}.by(1)
+    expect{post :create, params: params}.to change(ActiveJob::Base.queue_adapter.enqueued_jobs, :size).by(1)
   end
 end
