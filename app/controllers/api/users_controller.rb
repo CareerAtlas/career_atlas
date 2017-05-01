@@ -6,7 +6,7 @@ before_action :authorize!, only: [:destroy]
     @new_user.secure_random
     if @new_user.save
       render json: {authorization: @new_user.authorization_token}
-      NewUserMailer.sign_up_email(@new_user)
+      NewUserMailer.sign_up_email(@new_user).deliver_now
     else
       render json: { message: "Please enter correct information", status: :unprocessable_entity }
     end
