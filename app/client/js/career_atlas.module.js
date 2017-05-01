@@ -38,8 +38,8 @@
         name: 'saved-jobs',
         url: '/saved-jobs',
         templateUrl: 'templates/saved-jobs.template.html',
-        controller: 'UserController',
-        controllerAs: 'userCtrl'
+        controller: 'JobController',
+        controllerAs: 'savedJobsCtrl'
       })
       .state({
         name: 'about-us',

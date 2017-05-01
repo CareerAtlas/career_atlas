@@ -4,16 +4,40 @@
   angular.module('career_atlas')
   .controller('JobController', JobController);
 
-  JobController.$inject = ['$scope', '$q', 'JobService', 'CompanyService', 'WalkscoreService'];
+  JobController.$inject = ['$state', '$scope', '$q', 'JobService', 'CompanyService', 'WalkscoreService'];
 
   console.log('inside the form controller here');
 
-  function JobController($scope, $q, JobService, CompanyService, WalkscoreService) {
+  function JobController($state, $scope, $q, JobService, CompanyService, WalkscoreService) {
     let vm = this;
     vm.jobs = [];
     vm.message = null;
     vm.savedJob = null;
     vm.displayedJob = null;
+
+
+    /**
+     * Shows list of saved jobs when you click on 'saved jobs' in the navigation bar
+     * @param  {Object} authorization   Authorization token
+     * @return {Promise}
+     */
+    vm.showListOfSavedJobs = function showListOfSavedJobs(authorization) {
+      console.log('hiiiiii show list of savedjobs');
+      JobService.getAllSavedJobs()
+      .then(function handleResponse(data) {
+        vm.jobs = data;
+        console.log('data back from showListOfSavedJobs', data);
+      })
+      .catch(function handleError(err) {
+        vm.message = 'Something went wrong here. Error = ' + err.status;
+      });
+
+    };
+
+    // TODO: only do this when we're on the saved job state
+    if ($state.is('saved-jobs')) {
+      vm.showListOfSavedJobs();
+    }
 
     vm.showJobInformation = function showJobInformation(marker) {
       if(!marker) {
@@ -31,12 +55,12 @@
         vm.message = 'Something went wrong here. Error = ' + err.status;
       });
 
-      vm.ObjectToSendBackEndForWalkScore = {
+      let locationMarkerData = {
         latitude: marker.data.latitude,
         longitude: marker.data.longitude,
         address: marker.data.location
       };
-      WalkscoreService.getWalkscoreInformation(vm.ObjectToSendBackEndForWalkScore)
+      WalkscoreService.getWalkscoreInformation(locationMarkerData)
       .then(function handleWalkscoreData(walkscoreData) {
         vm.displayedJob.walkscoreData = walkscoreData;
         console.log('walkscore data', walkscoreData);
@@ -44,7 +68,10 @@
       .catch(function handleError(err) {
         vm.message = 'Something went wrong here. Error = ' + err.status;
       });
-      $scope.$apply();
+
+      if ($state.is('home')) {
+        $scope.$apply();
+      }
     };
 
     vm.saveJob = function saveAJob(key) {
