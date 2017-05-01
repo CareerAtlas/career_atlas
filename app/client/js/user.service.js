@@ -56,9 +56,14 @@
         }
       })
       .then(function handleResponse(response) {
-        localStorage.setItem('token', response.data.authorization);
-        token = response.data.authorization;
-        return token;
+        if (response.data.authorization) {
+          localStorage.setItem('token', response.data.authorization);
+          token = response.data.authorization;
+          return token;
+        } else {
+          let err = new Error('You do not have an authorization token');
+          throw err;
+        }
       });
     }
 
