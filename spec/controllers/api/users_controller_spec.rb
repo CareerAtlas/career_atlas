@@ -34,4 +34,9 @@ RSpec.describe Api::UsersController, type: :controller do
     delete :destroy, params: {id: 1}
     expect(json_body["message"]).to eq("Please log in")
   end
+
+  it "it queus an email to be sent" do
+    ActiveJob::Base.queue_adapter = :test
+    expect{post :create, params: params}.to change(ActiveJob::Base.queue_adapter.enqueued_jobs, :size).by(1)
+  end
 end

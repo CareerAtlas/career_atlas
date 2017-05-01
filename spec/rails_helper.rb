@@ -44,7 +44,7 @@ RSpec.configure do |config|
   config.include UserFactory, type: :controller
   config.include JsonBody, type: :controller
   config.include JobFactory, type: :model
-
+  config.include UserFactory, type: :mailer
 
 
 
