@@ -89,4 +89,18 @@ RSpec.describe Api::SavedJobsController, type: :controller do
     job = Job.find_by(job_key: "24c5d6db45db2b16")
     expect(job.job_title).to eq("Mobile Apps Developer (Android/Java)")
   end
+
+    it "will destroy a SavedJob" do
+      SavedJob.create!(job_id: job.id, user_id: john.id)
+      request.headers["HTTP_AUTHORIZATION"] = john.authorization_token
+      delete :destroy, params: {key: job.job_key}
+      expect(json_body["message"]).to eq("Job is no longer saved")
+    end
+
+    it "wont destroy a SavedJob if it doesn't have all the info" do
+      request.headers["HTTP_AUTHORIZATION"] = john.authorization_token
+      delete :destroy, params: {key: job.job_key}
+      binding.pry
+      expect(json_body["message"]).to eq("Job is no longer saved")
+    end
 end

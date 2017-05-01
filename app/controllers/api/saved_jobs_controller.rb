@@ -31,7 +31,7 @@ class Api::SavedJobsController < ApplicationController
     if job_connection.destroy
       render json: {message: "Job is no longer saved", status: :ok}
     else
-      render json: {message: @job_connection.errors.full_messages, status: :not_found}
+      render json: {message: @job_connection.errors.full_message, status: :not_found}
     end
   end
 
