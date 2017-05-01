@@ -36,7 +36,7 @@ RSpec.describe Api::UsersController, type: :controller do
   end
 
   it "sends an email" do
-    params = {user: { name: "John", email: "John@johnny.com", password: "bro", password_confirmation: "bro" }}
+    ActiveJob::Base.queue_adapter = :test
     expect{post :create, params: params}.to change{ActionMailer::Base.deliveries.count}.by(1)
   end
 end
