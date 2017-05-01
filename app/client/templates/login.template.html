@@ -1,10 +1,10 @@
 
-<form class='form-inline' name='login' ng-submit='userCtrl.login(userCtrl.user)'>
+<form class='form-inline search_form panel-default' name='login' ng-submit='userCtrl.login(userCtrl.user)'>
   <label for='email'>Email</label>
   <input name='email' type='text' class='form-control' placeholder='User Email' ng-model='userCtrl.user.email'>
 
   <label for='password'>Password</label>
   <input name='password' type='password' class='form-control' placeholder='********' ng-model='userCtrl.user.password'>
 
-  <button type='submit' class='form-control btn btn-primary' value='Log In'>Log In</button>
+  <input type='submit' class='form_submit_button' value='Login'>
 </form>
