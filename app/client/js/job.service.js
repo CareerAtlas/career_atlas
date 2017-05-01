@@ -79,7 +79,6 @@
     * @return {Promise}
     */
     function getAllSavedJobs() {
-      console.log('hiiiiiiiiiii get into job service get all saved jobs');
 
       return $http({
         method: 'GET',
