@@ -1,8 +1,7 @@
 class Api::JobsController < ApplicationController
-  before_action :authorize!, only: [:create, :show]
 
   def index
-    jobs = IndeedApi.search_jobs(params)
-    render json: jobs
+    jobs_from_indeed = IndeedApi.search_jobs(params)
+    render json: SavedJob.check_for_current_user(jobs_from_indeed, current_user)
   end
 end

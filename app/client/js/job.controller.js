@@ -16,6 +16,7 @@
     vm.deletedJob = null;
     vm.displayedJob = null;
     vm.hideSearch = false;
+    vm.notification = null;
 
     /**
      * Shows or hides search form in home page
@@ -88,6 +89,7 @@
         vm.savedJob = {};
         vm.savedJob.savedJobObj = savedJobObj;
         console.log('savedJobObj', savedJobObj);
+        vm.notification = 'This job has been saved!';
       })
       .catch(function handleError(err) {
         vm.message = 'Something went wrong here. Error = ' + err.message;

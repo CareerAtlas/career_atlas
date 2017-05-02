@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Api::CompaniesController, type: :controller do
-  it "gets required params" do
+  it "gets requested companies information" do
     search_params = { company: "Verisign"}
 
     stub_request(:get, /api.glassdoor.com/)
@@ -11,6 +11,7 @@ RSpec.describe Api::CompaniesController, type: :controller do
     )
 
     get :index, params: search_params
-    assert response.ok? 
+    expect(json_body[0]["company"]).to eq("Verisign")
+    expect(json_body[0]["compensation_rating"]).to eq("4.3")
   end
 end
