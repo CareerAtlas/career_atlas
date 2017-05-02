@@ -7,7 +7,8 @@ module JobFactory
       latitude: 38.96978,
       company: "Precision System Design, Inc.",
       job_title: "Apps Developer (Android/Java)",
-      location: "Chevy Chase, MD"
+      location: "Chevy Chase, MD",
+      url: "www.Indeed.com"
       )
   end
 end
