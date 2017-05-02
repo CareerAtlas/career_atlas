@@ -61,55 +61,57 @@
 
 
 <article ng-show='jobCtrl.displayedJob'>
-  <button href='#' ng-click='jobCtrl.displayedJob = !jobCtrl.displayedJob' class='form_submit_button'>
+  <button href='#' ng-click='jobCtrl.displayedJob = !jobCtrl.displayedJob' class='form_submit_button back_to_the_map'>
     Back to the Map
   </button>
   <input type='submit' name='Save' class='form_submit_button' ng-click='jobCtrl.saveJob(jobCtrl.displayedJob.job_key)' value='Save Job'>
   <img alt='CompanyLogo' src='{{jobCtrl.displayedJob.glassdoorData.logo}}' ng-show='jobCtrl.displayedJob.glassdoorData.logo.length != null'>
   <p>Job Title: {{jobCtrl.displayedJob.job_title}}</p>
   <p>Company: {{jobCtrl.displayedJob.company}}</p>
-  <p><button class='form_submit_button' ng-href='{{jobCtrl.displayedJob.url}}'>Apply Here!</button></p>
+  <p><button class='apply_here' ng-href='{{jobCtrl.displayedJob.url}}'>Apply Here!</button></p>
   <p>Location: {{jobCtrl.displayedJob.location}}</p>
   <p>Posted: {{jobCtrl.displayedJob.date_posted}}</p>
-  <aside ng-show='jobCtrl.displayedJob.glassdoorData.overall_rating.length != null'>
-    <h5>Overall Rating</h5>
-    <a class='glyphicon glyphicon-star' aria-hidden='true'></a>
-    <a class='badge badge-notify' aria-hidden='true'>{{jobCtrl.displayedJob.glassdoorData.overall_rating}}</a>
-  </aside>
-  <aside ng-show='jobCtrl.displayedJob.glassdoorData.compensation_rating.length != null'>
-    <h5>Compensation Rating</h5>
-    <a class='glyphicon glyphicon-usd' aria-hidden='true'></a>
-    <a class='badge badge-notify' aria-hidden='true'>{{jobCtrl.displayedJob.glassdoorData.compensation_rating}}</a>
-  </aside>
-  <aside ng-show='jobCtrl.displayedJob.glassdoorData.culture_rating.length != null'>
-    <h5>Culture Rating</h5>
-    <a class='glyphicon glyphicon-heart' aria-hidden='true'></a>
-    <a class='badge badge-notify' aria-hidden='true'>{{jobCtrl.displayedJob.glassdoorData.culture_rating}}</a>
-  </aside>
-  <aside ng-show='jobCtrl.displayedJob.glassdoorData.leadership_rating.length != null'>
-    <h5>Leadership Rating</h5>
-    <a class='glyphicon glyphicon-user' aria-hidden='true'></a>
-    <a class='badge badge-notify' aria-hidden='true'>{{jobCtrl.displayedJob.glassdoorData.leadership_rating}}</a>
-  </aside>
-  <aside ng-show='jobCtrl.displayedJob.glassdoorData.recommend_to_friend_rating.length != null'>
-    <h5>Recommend to a Friend Rating</h5>
-    <a class='glyphicon glyphicon-sunglasses' aria-hidden='true'></a>
-    <a class='badge badge-notify' aria-hidden='true'>{{jobCtrl.displayedJob.glassdoorData.recommend_to_friend_rating}}</a>
-  </aside>
-  <aside ng-show='jobCtrl.displayedJob.glassdoorData.opportunity_rating.length != null'>
-    <h5>Opportunity Rating</h5>
-    <a class='glyphicon glyphicon-briefcase' aria-hidden='true'></a>
-    <a class='badge badge-notify' aria-hidden='true'>{{jobCtrl.displayedJob.glassdoorData.opportunity_rating}}</a>
-  </aside>
-  <aside ng-show='jobCtrl.displayedJob.glassdoorData.work_life_balance_rating.length != null'>
-    <h5>Work Life Balance Rating</h5>
-    <a class='glyphicon glyphicon-home' aria-hidden='true'></a>
-    <a class='badge badge-notify' aria-hidden='true'>{{jobCtrl.displayedJob.glassdoorData.work_life_balance_rating}}</a>
-  </aside>
-  <aside>
-    <h5>Walk Score</h5>
-    <a class='glyphicon glyphicon-cog' aria-hidden='true'></a>
-    <a class='badge badge-notify' aria-hidden='true'>{{jobCtrl.displayedJob.walkscoreData.walk_score}}</a>
-    <p ng-show='jobCtrl.displayedJob.walkscoreData.description.length != null'>{{jobCtrl.displayedJob.walkscoreData.description}}</p>
-  </aside>
+  <section class='glyphicon-list'>
+    <aside ng-show='jobCtrl.displayedJob.glassdoorData.overall_rating.length != null'>
+      <h5>Overall Rating</h5>
+      <a class='glyphicon glyphicon-star' aria-hidden='true'></a>
+      <a class='badge badge-notify' aria-hidden='true'>{{jobCtrl.displayedJob.glassdoorData.overall_rating}}</a>
+    </aside>
+    <aside ng-show='jobCtrl.displayedJob.glassdoorData.compensation_rating.length != null'>
+      <h5>Compensation Rating</h5>
+      <a class='glyphicon glyphicon-usd' aria-hidden='true'></a>
+      <a class='badge badge-notify' aria-hidden='true'>{{jobCtrl.displayedJob.glassdoorData.compensation_rating}}</a>
+    </aside>
+    <aside ng-show='jobCtrl.displayedJob.glassdoorData.culture_rating.length != null'>
+      <h5>Culture Rating</h5>
+      <a class='glyphicon glyphicon-heart' aria-hidden='true'></a>
+      <a class='badge badge-notify' aria-hidden='true'>{{jobCtrl.displayedJob.glassdoorData.culture_rating}}</a>
+    </aside>
+    <aside ng-show='jobCtrl.displayedJob.glassdoorData.leadership_rating.length != null'>
+      <h5>Leadership Rating</h5>
+      <a class='glyphicon glyphicon-user' aria-hidden='true'></a>
+      <a class='badge badge-notify' aria-hidden='true'>{{jobCtrl.displayedJob.glassdoorData.leadership_rating}}</a>
+    </aside>
+    <aside ng-show='jobCtrl.displayedJob.glassdoorData.recommend_to_friend_rating.length != null'>
+      <h5>Recommend to a Friend Rating</h5>
+      <a class='glyphicon glyphicon-sunglasses' aria-hidden='true'></a>
+      <a class='badge badge-notify' aria-hidden='true'>{{jobCtrl.displayedJob.glassdoorData.recommend_to_friend_rating}}</a>
+    </aside>
+    <aside ng-show='jobCtrl.displayedJob.glassdoorData.opportunity_rating.length != null'>
+      <h5>Opportunity Rating</h5>
+      <a class='glyphicon glyphicon-briefcase' aria-hidden='true'></a>
+      <a class='badge badge-notify' aria-hidden='true'>{{jobCtrl.displayedJob.glassdoorData.opportunity_rating}}</a>
+    </aside>
+    <aside ng-show='jobCtrl.displayedJob.glassdoorData.work_life_balance_rating.length != null'>
+      <h5>Work Life Balance Rating</h5>
+      <a class='glyphicon glyphicon-home' aria-hidden='true'></a>
+      <a class='badge badge-notify' aria-hidden='true'>{{jobCtrl.displayedJob.glassdoorData.work_life_balance_rating}}</a>
+    </aside>
+    <aside>
+      <h5>Walk Score</h5>
+      <a class='glyphicon glyphicon-cog' aria-hidden='true'></a>
+      <a class='badge badge-notify' aria-hidden='true'>{{jobCtrl.displayedJob.walkscoreData.walk_score}}</a>
+      <p class='walk-score-description' ng-show='jobCtrl.displayedJob.walkscoreData.description.length != null'>{{jobCtrl.displayedJob.walkscoreData.description}}</p>
+    </aside>
+  </section>
 </article>
