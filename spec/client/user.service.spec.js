@@ -50,16 +50,6 @@
         UserService.createUser(user);
       });
 
-      it('should return new user object', function() {
-        let user = {
-          name: 'tom',
-          email: 'tom@gmail.com',
-          password: 'asdf',
-          password_confirmation: 'asdf'
-        };
-        //  expect(UserService.createUser(user).to.be.an('object'));
-      });
-
     describe('getToken', function() {
       it('should be a function', function() {
         expect(UserService.getToken).to.be.a('function');
@@ -114,7 +104,7 @@
 
     });
 
-    
+
   });
 
 
