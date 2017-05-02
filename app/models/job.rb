@@ -6,10 +6,11 @@ class Job < ApplicationRecord
   validates :company, presence: true
   validates :job_title, presence: true
   validates :location, presence: true
+  validates :url, presence: true
 
 
   def update_job(job_info)
-    update(job_info.except(:url, :date_posted))
+    update(job_info.except(:date_posted))
   end
 
   def self.create_or_update_job_by_key(job_key)
@@ -19,7 +20,7 @@ class Job < ApplicationRecord
   end
 
   def indeed_data
-    IndeedApi.find_job(self.job_key).except(:url, :date_posted)
+    IndeedApi.find_job(self.job_key).except(:date_posted)
   end
 
   def update_job_and_save(job_key)
