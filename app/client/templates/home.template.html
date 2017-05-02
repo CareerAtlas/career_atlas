@@ -60,17 +60,19 @@
 
 
 
-<article ng-show='jobCtrl.displayedJob'>
-  <button href='#' ng-click='jobCtrl.displayedJob = !jobCtrl.displayedJob' class='form_submit_button back_to_the_map'>
-    Back to the Map
-  </button>
-  <input type='submit' name='Save' class='form_submit_button' ng-click='jobCtrl.saveJob(jobCtrl.displayedJob.job_key)' value='Save Job'>
-  <img alt='CompanyLogo' src='{{jobCtrl.displayedJob.glassdoorData.logo}}' ng-show='jobCtrl.displayedJob.glassdoorData.logo.length != null'>
-  <p>Job Title: {{jobCtrl.displayedJob.job_title}}</p>
-  <p>Company: {{jobCtrl.displayedJob.company}}</p>
-  <p><button class='apply_here apply_here_button'><a class='apply_here' ng-href="{{jobCtrl.displayedJob.url}}">Apply Here</a></button></p>
-  <p>Location: {{jobCtrl.displayedJob.location}}</p>
-  <p>Posted: {{jobCtrl.displayedJob.date_posted}}</p>
+<article ng-show='jobCtrl.displayedJob' class='jumbotron'>
+  <section>
+    <button href='#' ng-click='jobCtrl.displayedJob = !jobCtrl.displayedJob' class='form_submit_button back_to_the_map'>
+      Back to the Map
+    </button>
+    <input type='submit' name='Save' class='form_submit_button' ng-click='jobCtrl.saveJob(jobCtrl.displayedJob.job_key)' value='Save Job'>
+    <img alt='CompanyLogo' src='{{jobCtrl.displayedJob.glassdoorData.logo}}' ng-show='jobCtrl.displayedJob.glassdoorData.logo.length != null'>
+    <p>{{jobCtrl.displayedJob.job_title}}</p>
+    <p>{{jobCtrl.displayedJob.company}}</p>
+    <p><button class='apply_here apply_here_button'><a class='apply_here' ng-href="{{jobCtrl.displayedJob.url}}">Apply Here</a></button></p>
+    <p><i class='fa fa-map-marker' aria-hidden='true'></i> {{jobCtrl.displayedJob.location}}</p>
+    <p>Posted {{jobCtrl.displayedJob.date_posted}}</p>
+  </section>
   <section class='icon-section'>
     <aside ng-show='jobCtrl.displayedJob.glassdoorData.overall_rating.length != null'>
       <h5>Overall Rating</h5>
