@@ -18,7 +18,7 @@ RSpec.describe WalkscoreApi, type: :model do
         headers: {"Content-Type" => "application/json"}
       )
       answer = WalkscoreApi.search_walkscore(params)
-      expect(answer["walkscore"]).to eq 100
+      expect(answer[:walk_score]).to eq 100
 
   end
 end

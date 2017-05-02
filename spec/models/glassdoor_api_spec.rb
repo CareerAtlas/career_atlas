@@ -10,7 +10,7 @@ RSpec.describe GlassdoorApi, type: :model do
         headers: {"Content-Type" => "application/json"}
       )
       answer = GlassdoorApi.search_company(params)
-      expect(answer["response"]["employers"][0]["website"]).to eq "www.verisign.com"
+      expect(answer[0][:recommend_to_friend_rating]).to eq 64
   end
 
 end
