@@ -41,4 +41,23 @@
       font-weight: normal;
     }
   }
+
+  .job-info-button {
+    width: 25%;
+    margin: 0.25em;
+    display: inline-block;
+    float: right;
+  }
+
+  .job-information {
+    section {
+      display: inline;
+    }
+  }
+
+  .thumbnail {
+    margin: 1.5em;
+    height: 200px;
+    width: 200px;
+  }
 }
