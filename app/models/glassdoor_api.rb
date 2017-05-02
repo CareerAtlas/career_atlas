@@ -10,8 +10,8 @@ class GlassdoorApi
           format: "json",
           "t.p": ENV["GLASSDOORID"],
           "t.k": ENV["GLASSDOORAPIKEY"],
-          # userip: search_params["ipaddress"],
-          # useragent: search_params["browser"],
+          userip: search_params["ipaddress"],
+          useragent: search_params["browser"],
           action: "employers",
           q: search_params["company"]
         }
