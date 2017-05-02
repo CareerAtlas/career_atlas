@@ -28,7 +28,6 @@
   h4, p, button {
     padding: 0.5em;
   }
-
 }
 
 .more-information-section {
@@ -38,4 +37,24 @@
   .walkscore-description {
     font-size: 1.5em;
   }
+}
+
+.saved-jobs-apply-here-button {
+  border-radius: 0.5em ;
+  border-color: $DreamThemeColorFour;
+  background-color: $ThemeColorOne;
+  text-color: $DreamThemeColorFive;
+  color: $ThemeColorFour;
+  padding: 1em 2em;
+  margin-top: 1em;
+  text-decoration: none;
+}
+
+.saved-jobs-apply-here-button:hover,
+.saved-jobs-apply-here-button.active,
+.saved-jobs-apply-here-button:active:focus,
+.saved-jobs-apply-here-button:focus {
+  background-color: $DreamThemeColorThree;
+  color: $ThemeColorEight;
+  text-decoration: none;
 }

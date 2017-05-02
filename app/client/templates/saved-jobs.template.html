@@ -6,7 +6,7 @@
     <p><i class='fa fa-map-marker' aria-hidden='true'></i> {{job.location}}</p>
     <button ng-click='savedJobsCtrl.showJobInformation({ data: job })' class='form_submit_button'>More Information</button>
     <aside class='more-information-section' ng-show='savedJobsCtrl.displayedJob.id === job.id'>
-      <p><a ng-href="{{savedJobsCtrl.displayedJob.url}}">Apply Here</a></p>
+      <p><button class='saved-jobs-apply-here-button'><a ng-href="{{savedJobsCtrl.displayedJob.url}}">Apply Here</a></button></p>
       <p>Compensation Rating <a class='badge badge-pill badge-info'>{{savedJobsCtrl.displayedJob.glassdoorData.compensation_rating}}</a></p>
       <p>Overall Rating <a class='badge badge-pill badge-info'>{{savedJobsCtrl.displayedJob.glassdoorData.overall_rating}}</a></p>
       <p>Compensation Rating <a class='badge badge-pill badge-info'>{{savedJobsCtrl.displayedJob.glassdoorData.compensation_rating}}</a></p>
