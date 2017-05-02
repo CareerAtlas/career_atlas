@@ -1,15 +1,15 @@
 .glyphicon-heart, .glyphicon-usd, .glyphicon-user, .glyphicon-sunglasses, .glyphicon-star, .glyphicon-briefcase, .glyphicon-home, .glyphicon-cog {
-  font-size: 4em;
+  font-size: 3.25em;
   color: $DreamThemeColorFour;
 }
 
 .badge-notify {
-  font-size: 2em;
+  font-size: 2.75em;
   background-color: $ThemeColorEight;
   color: $ThemeColorFive;
   position: relative;
-  top: -20px;
-  left: -10px;
+  top: -18px;
+  left: 2px;
 }
 
 .apply_here {
@@ -38,10 +38,15 @@
   flex-direction: row;
   justify-content: space-around;
   width: 90%;
+  h5 {
+    font-size: 1.15em;
+  }
 }
 
 .thumbnail {
   margin: 1em;
+  height: 120px;
+  width: 120px;
 }
 
 .jumbotron {
@@ -105,7 +110,7 @@
   border: 1px solid $DreamThemeColorThree;
   border-radius: 0.25em;
   p {
-    margin: 1em;
+    margin: 0.5em;
     text-align: center;
     font-weight: bold;
   }
