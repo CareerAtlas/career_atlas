@@ -23,6 +23,7 @@ class IndeedApi
         }
       }
     )
+    Rails.logger.info "response from indeed \n#{jobs.to_json}"
     format_jobs(jobs["results"])
   end
 
