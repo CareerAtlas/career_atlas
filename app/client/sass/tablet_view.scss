@@ -2,10 +2,15 @@
   .developer_section {
    flex-direction: row;
   }
+
+  .search_form {
+    width: 65%;
+  }
+
   .headshots {
     height: 250px;
     width: 250px;
-    border-radius: 1em;
+    border-radius: 0.5em;
   }
 
   .each_developer {

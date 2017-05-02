@@ -19,7 +19,7 @@
   margin: auto;
   background-color: $ThemeColorTwo;
   padding: 2em;
-  border-radius: 3em;
+  border-radius: 0.5em;
   display: flex;
   flex-direction: column;
   font-weight: bold;
@@ -44,15 +44,21 @@
 .panel-default {
   display: flex;
   flex-direction: column;
-  .form-control:hover {
-    color: $ThemeColorThree;
-  }
   .panel_heading {
     text-align: center;
     width: 100%;
     color: $ThemeColorFour;
+    font-size: 1.75em;
+    padding: 0em;
+    small {
+      font-size: 0.5em;
+      position: relative;
+      top: -8px;
+      right: 5px;
+    }
   }
-  .label {
+  label {
     color: $ThemeColorFour;
+    padding: 0.25em;
   }
 }

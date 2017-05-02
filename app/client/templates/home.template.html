@@ -4,7 +4,7 @@
   </p>
   <section class='search_form' ng-hide='jobCtrl.hideSearch'>
     <form class='panel-default' ng-submit='jobCtrl.submit(jobCtrl.search)'>
-      <p class='panel_heading'>Please fill out all search fields.</p>
+      <p class='panel_heading'>Make your next career move <small>&reg</small></p>
 
       <label for='jobtitle'>Job Title</label>
       <input
@@ -48,7 +48,7 @@
         autocomplete='off'
         ng-model='jobCtrl.search.location'
         required>
-        <input type='submit' class='form_submit_button' value='Search'>
+        <input type='submit' class='form_submit_button' value='find jobs'>
       </form>
     </section>
     <section></section>
@@ -64,7 +64,7 @@
 
 <article ng-show='jobCtrl.displayedJob' class='jumbotron'>
   <section class='job-information'>
-    <img alt='CompanyLogo' src='{{jobCtrl.displayedJob.glassdoorData.logo}}' ng-show='jobCtrl.displayedJob.glassdoorData.logo.length != 0'>
+    <img class='thumbnail' alt='CompanyLogo' src='{{jobCtrl.displayedJob.glassdoorData.logo}}' ng-show='jobCtrl.displayedJob.glassdoorData.logo.length != 0'>
     <button href='#' ng-click='jobCtrl.displayedJob = !jobCtrl.displayedJob' class='form_submit_button back_to_the_map'>
       Back to the Map
     </button>
