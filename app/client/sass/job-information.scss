@@ -14,14 +14,24 @@
 
 .apply_here {
   font-size: 2em;
+  text-decoration: none;
   font-weight: bold;
-  background-color: $ThemeColorNine;
   border-radius: 0.5em;
   color: $ThemeColorSix;
   padding: 0.5em;
 }
 
-.glyphicon-list {
+.apply_here_button {
+  background-color: $ThemeColorNine;
+}
+
+.apply_here:hover, .apply_here:active, .apply_here:link, .apply_here:visited {
+  text-decoration: none;
+  cursor: pointer;
+  color: $ThemeColorFive;
+}
+
+.icon-section {
   margin: 1em auto;
   display: flex;
   flex-direction: column;
