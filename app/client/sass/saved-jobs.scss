@@ -14,6 +14,7 @@
     border-radius: 1em;
     padding: 1em;
     border: 3px solid $ThemeColorTwo;
+    transition:.5s;
     &:hover {
       background-color: $DreamThemeColorTwo;
     }
@@ -49,6 +50,7 @@
   margin-top: 1em;
   font-weight: bold;
   text-decoration: none;
+  transition:.5s;
   a {
     text-decoration: none;
     font-weight: bold;
