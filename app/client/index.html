@@ -24,54 +24,65 @@
       <p>Mapping your future career move</p>
     </section>
     <nav ng-controller='NavController as navCtrl' class='navbar navbar-default navbar-static-top'>
-      <ul class='nav navbar-nav'>
-        <li><a ui-sref='home'>home</a></li>
-        <li><a ui-sref='about-us'>about us</a></li>
-        <li ng-show='navCtrl.isLoggedIn()'><a ui-sref='saved-jobs'>saved jobs</a></li>
-        <li ng-hide='navCtrl.isLoggedIn()'><a ui-sref='create-user'>create user</a></li>
-        <li ng-hide='navCtrl.isLoggedIn()'><a ui-sref='login'>login</a></li>
-        <li ng-show='navCtrl.isLoggedIn()'><a href='#' ng-click='navCtrl.logout()'>logout</a></li>
-      </ul>
-    </nav>
-  </header>
+      <section class='container-fluid'>
+        <aside class='navbar-header'>
+          <button type='button' class='navbar-toggle collapsed' data-toggle='collapse' data-target='#expand-nav' aria-expanded='false'>
+            <i class='sr-only'>Toggle navigation</i>
+            <i class='icon-bar'></i>
+            <i class='icon-bar'></i>
+            <i class='icon-bar'></i>
+          </button>
+        </aside>
+        <section class='collapse navbar-collapse' id='expand-nav'>
+          <ul class='nav navbar-nav'>
+            <li><a ui-sref='home'>home</a></li>
+            <li><a ui-sref='about-us'>about us</a></li>
+            <li ng-show='navCtrl.isLoggedIn()'><a ui-sref='saved-jobs'>saved jobs</a></li>
+            <li ng-hide='navCtrl.isLoggedIn()'><a ui-sref='create-user'>create user</a></li>
+            <li ng-hide='navCtrl.isLoggedIn()'><a ui-sref='login'>login</a></li>
+            <li ng-show='navCtrl.isLoggedIn()'><a href='#' ng-click='navCtrl.logout()'>logout</a></li>
+          </ul>
+        </section>
+      </nav>
+    </header>
 
 
-  <main ui-view></main>
+    <main ui-view></main>
 
-  <footer>
-    <section>
-      <p id='indeed_at'>
-        <a title='Job Search' href='https://www.indeed.com' rel='nofollow'>
-          jobs by
-          <img alt=Indeed src='/img/indeed-logo.gif' style='border: 0; vertical-align: middle;'>
-        </a>
-      </p>
-      <p id='glassdoor_at'>
-        <a href='https://www.glassdoor.com/index.htm'>
-          powered by
-          <img src='/img/glassdoor-logo.png' title='Job Search'>
-        </a>
-      </p>
-      <p id='walkscore_at'>
-        <a href='https://www.walkscore.com/'>
-          powered by
-          <img src='/img/walkscore-logo.png'>
-        </a>
-      </p>
-      <p id='transit_at'>
-        <a href='https://www.walkscore.com/'>
-          powered by
-          <img src='/img/transit-score-logo.png'>
-        </a>
-      </p>
-    </section>
-  </footer>
+    <footer>
+      <section>
+        <p id='indeed_at'>
+          <a title='Job Search' href='https://www.indeed.com' rel='nofollow'>
+            jobs by
+            <img alt=Indeed src='/img/indeed-logo.gif' style='border: 0; vertical-align: middle;'>
+          </a>
+        </p>
+        <p id='glassdoor_at'>
+          <a href='https://www.glassdoor.com/index.htm'>
+            powered by
+            <img src='/img/glassdoor-logo.png' title='Job Search'>
+          </a>
+        </p>
+        <p id='walkscore_at'>
+          <a href='https://www.walkscore.com/'>
+            powered by
+            <img src='/img/walkscore-logo.png'>
+          </a>
+        </p>
+        <p id='transit_at'>
+          <a href='https://www.walkscore.com/'>
+            powered by
+            <img src='/img/transit-score-logo.png'>
+          </a>
+        </p>
+      </section>
+    </footer>
 
-  <script src='https://code.jquery.com/jquery-3.1.0.min.js'></script>
-  <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.min.js'></script>
-  <script src='//unpkg.com/angular-ui-router/release/angular-ui-router.min.js'></script>
-  <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script>
-  <script src='https://maps.googleapis.com/maps/api/js?key=AIzaSyAEOLCSL6sCtgUKIL90lPCxzyYFScVezUM'></script>
-  <script src='/js/app.js'></script>
-</body>
-</html>
+    <script src='https://code.jquery.com/jquery-3.1.0.min.js'></script>
+    <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.min.js'></script>
+    <script src='//unpkg.com/angular-ui-router/release/angular-ui-router.min.js'></script>
+    <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script>
+    <script src='https://maps.googleapis.com/maps/api/js?key=AIzaSyAEOLCSL6sCtgUKIL90lPCxzyYFScVezUM'></script>
+    <script src='/js/app.js'></script>
+  </body>
+  </html>
