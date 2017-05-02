@@ -18,8 +18,6 @@ class IndeedApi
           highlight: 1,
           latlong: 1,
           v: 2,
-          userip: search_params["ipaddress"],
-          useragent: search_params["browser"]
         }
       }
     )
