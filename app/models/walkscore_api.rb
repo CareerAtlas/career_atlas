@@ -18,8 +18,14 @@ class WalkscoreApi
 
     )
 
-    results
+    output(results)
   end
 
+  def self.output(search)
+    {
+      walk_score: search["walkscore"],
+      description: search["description"]
+    }
+  end
 
 end
