@@ -83,6 +83,11 @@
       }
     };
 
+    /**
+     * [saveJob description]
+     * @param  {String} key [description]
+     * @return {Promise}     [description]
+     */
     vm.saveJob = function saveAJob(key) {
       return JobService.saveJobSearch(key)
       .then(function handleSavedJobs(savedJobObj) {
@@ -90,6 +95,16 @@
         vm.savedJob.savedJobObj = savedJobObj;
         console.log('savedJobObj', savedJobObj);
         vm.notification = 'This job has been saved!';
+
+        // find the job that was saved, and flip its switch
+        let foundJob = vm.jobs.find(function findJob(job) {
+          return job.job_key === key;
+        });
+
+        if(foundJob) {
+          
+        }
+
       })
       .catch(function handleError(err) {
         vm.message = 'Something went wrong here. Error = ' + err.message;
