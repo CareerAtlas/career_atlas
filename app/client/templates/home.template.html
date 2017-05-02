@@ -69,6 +69,7 @@
       Back to the Map
     </button>
     <input type='submit' name='Save' class='form_submit_button' ng-click='jobCtrl.saveJob(jobCtrl.displayedJob.job_key)' value='Save Job'>
+    <p ng-show='jobCtrl.notification'>{{jobCtrl.notification}}</p>
     <p>{{jobCtrl.displayedJob.job_title}}</p>
     <p>{{jobCtrl.displayedJob.company}}</p>
     <p><button class='apply_here apply_here_button'><a class='apply_here' ng-href="{{jobCtrl.displayedJob.url}}">Apply Here</a></button></p>
