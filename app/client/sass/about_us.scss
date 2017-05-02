@@ -7,22 +7,50 @@
 }
 
 .each_developer {
-  padding: 3em;
+  padding: 2em;
   background-color: $ThemeColorOne;
   margin: 1em;
   color: $ThemeColorFour;
   box-sizing: border-box;
+  border-radius: 1em;
+  height: 400px;
+  width: 400px;
   .btn-social-icon {
     color: $ThemeColorFour;
   }
 }
 
 .headshots {
-  height: 200px;
-  width: 200px;
+  height: 400px;
+  width: 400px;
+}
+
+.wrapper_about_us_section {
+  background-image: url('/img/mapTwo.jpeg');
+  background-size: 100% auto;
 }
 
 .about_us_section {
-  background-image: url('/img/mapTwo.jpeg');
-  background-size: 100% auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  h2 {
+    font-weight: bold;
+  }
+  section h2 {
+      font-weight: bold;
+    }
+}
+
+.summary {
+  background-color: $ThemeColorOne;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-self: flex-start;
+  margin: 0 15%;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5em;
+  border-radius: 1em;
 }

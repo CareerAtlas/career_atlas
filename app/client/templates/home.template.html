@@ -1,53 +1,56 @@
-<section class='search_form'>
-  <form class='panel-default' ng-submit='jobCtrl.submit(jobCtrl.search)'>
-    <p class='panel_heading'>Please fill out all search fields.</p>
+<article class='search-page'>
+  <p></p>
+  <section class='search_form'>
+    <form class='panel-default' ng-submit='jobCtrl.submit(jobCtrl.search)'>
+      <p class='panel_heading'>Please fill out all search fields.</p>
 
-    <label for='jobtitle'>Job Title</label>
-    <input
-    type='text'
-    class='form-control'
-    placeholder='Job Title'
-    required
-    name='job_title'
-    ng-model='jobCtrl.search.job_title'
-    id='jobtitle'>
-
-    <label for='jobtype'>Job Type</label>
-    <select name='job_type' id='job_type' required class='form-control' ng-model='jobCtrl.search.job_type' type='option'>
-      <option value='All job types'>All job types</option>
-      <option value='Temporary'>Temporary</option>
-      <option value='Part-time'>Part-time</option>
-      <option value='Internship'>Internship</option>
-      <option value='Contract'>Contract</option>
-      <option value='Full-Time'>Full-Time</option>
-    </select>
-
-    <label for='radius'>Location</label>
-    <select name='radius' id='radius' required class='form-control' ng-model='jobCtrl.search.radius' type='option'>
-      <option value='0'>only within</option>
-      <option value='1'>within 1 mile of</option>
-      <option value='5'>within 5 miles of</option>
-      <option value='10'>within 10 miles of</option>
-      <option value='15'>within 15 miles of</option>
-      <option value='20'>within 20 miles of</option>
-      <option value='25'>within 25 miles of</option>
-      <option value='50'>within 50 miles of</option>
-
-      <label for='location'>(city, state, or zipcode)</label>
+      <label for='jobtitle'>Job Title</label>
       <input
       type='text'
-      id='location'
-      name='location'
-      size='28'
-      maxlength='250'
-      placeholder='  Arlington, VA'
-      autocomplete='off'
-      ng-model='jobCtrl.search.location'
-      required>
-      <input type='submit' class='form_submit_button' value='Search'>
-    </form>
-  </section>
+      class='form-control'
+      placeholder='Job Title'
+      required
+      name='job_title'
+      ng-model='jobCtrl.search.job_title'
+      id='jobtitle'>
 
+      <label for='jobtype'>Job Type</label>
+      <select name='job_type' id='job_type' required class='form-control' ng-model='jobCtrl.search.job_type' type='option'>
+        <option value='All job types'>All job types</option>
+        <option value='Temporary'>Temporary</option>
+        <option value='Part-time'>Part-time</option>
+        <option value='Internship'>Internship</option>
+        <option value='Contract'>Contract</option>
+        <option value='Full-Time'>Full-Time</option>
+      </select>
+
+      <label for='radius'>Location</label>
+      <select name='radius' id='radius' required class='form-control' ng-model='jobCtrl.search.radius' type='option'>
+        <option value='0'>only within</option>
+        <option value='1'>within 1 mile of</option>
+        <option value='5'>within 5 miles of</option>
+        <option value='10'>within 10 miles of</option>
+        <option value='15'>within 15 miles of</option>
+        <option value='20'>within 20 miles of</option>
+        <option value='25'>within 25 miles of</option>
+        <option value='50'>within 50 miles of</option>
+
+        <label for='location'>(city, state, or zipcode)</label>
+        <input
+        type='text'
+        id='location'
+        name='location'
+        size='28'
+        maxlength='250'
+        placeholder='  Arlington, VA'
+        autocomplete='off'
+        ng-model='jobCtrl.search.location'
+        required>
+        <input type='submit' class='form_submit_button' value='Search'>
+      </form>
+    </section>
+    <section></section>
+  </article>
   <map
   ng-show='!jobCtrl.displayedJob'
   center='{lat: 38.904149, lng: -77.017094}'
@@ -57,45 +60,60 @@
 
 
 
-<article ng-show='jobCtrl.displayedJob'>
-  <button href='#' ng-click='jobCtrl.displayedJob = !jobCtrl.displayedJob'>
-    Back to the Map!
-  </button>
-  <button type='submit' name='Save' class='btn btn-success' ng-click='jobCtrl.saveJob(jobCtrl.displayedJob.job_key)'>Save</button>
-  <img alt='CompanyLogo' src='{{jobCtrl.displayedJob.glassdoorData.logo}}' ng-show='jobCtrl.displayedJob.glassdoorData.logo.length != null'>
-  <p>Job Title: {{jobCtrl.displayedJob.job_title}}</p>
-  <p>Company: {{jobCtrl.displayedJob.company}}</p>
-  <p><a ng-href='{{jobCtrl.displayedJob.url}}'>{{jobCtrl.displayedJob.url}}</a></p>
-  <p>Location: {{jobCtrl.displayedJob.location}}</p>
-  <p>Date Posted: {{jobCtrl.displayedJob.date_posted}}
-    <p ng-show='jobCtrl.displayedJob.glassdoorData.overall_rating.length != null'>
-      Overall Rating: {{jobCtrl.displayedJob.glassdoorData.overall_rating}}
-    </p>
-    <p ng-show='jobCtrl.displayedJob.glassdoorData.compensation_rating.length != null'>
-      Compensation Rating: {{jobCtrl.displayedJob.glassdoorData.compensation_rating}}
-    </p>
-    <p ng-show='jobCtrl.displayedJob.glassdoorData.culture_rating.length != null'>
-      Culture Rating: {{jobCtrl.displayedJob.glassdoorData.culture_rating}}
-    </p>
-    <p ng-show='jobCtrl.displayedJob.glassdoorData.leadership_rating.length != null'>
-      Leadership Rating: {{jobCtrl.displayedJob.glassdoorData.leadership_rating}}
-    </p>
-    <p ng-show='jobCtrl.displayedJob.glassdoorData.overall_rating.length != null'>
-      Overall Rating: {{jobCtrl.displayedJob.glassdoorData.overall_rating}}
-    </p>
-    <p ng-show='jobCtrl.displayedJob.glassdoorData.recommend_to_friend_rating.length != null'>
-      Recommend to a Friend Rating: {{jobCtrl.displayedJob.glassdoorData.recommend_to_friend_rating}}
-    </p>
-    <p ng-show='jobCtrl.displayedJob.glassdoorData.opportunity_rating.length != null'>
-      Opportunity Rating: {{jobCtrl.displayedJob.glassdoorData.opportunity_rating}}
-    </p>
-    <p ng-show='jobCtrl.displayedJob.glassdoorData.work_life_balance_rating.length != null'>
-      Work Life Balance Rating: {{jobCtrl.displayedJob.glassdoorData.work_life_balance_rating}}
-    </p>
-    <p>
-      Walk Score: {{jobCtrl.displayedJob.walkscoreData.walk_score}}
-    </p>
-    <p ng-show='jobCtrl.displayedJob.walkscoreData.description.length != null'>
-      Description: {{jobCtrl.displayedJob.walkscoreData.description}}
-    </p>
-  </article>
+<article ng-show='jobCtrl.displayedJob' class='jumbotron'>
+  <section class='job-information'>
+    <img alt='CompanyLogo' src='{{jobCtrl.displayedJob.glassdoorData.logo}}' ng-show='jobCtrl.displayedJob.glassdoorData.logo.length != null'>
+    <button href='#' ng-click='jobCtrl.displayedJob = !jobCtrl.displayedJob' class='form_submit_button back_to_the_map'>
+      Back to the Map
+    </button>
+    <input type='submit' name='Save' class='form_submit_button' ng-click='jobCtrl.saveJob(jobCtrl.displayedJob.job_key)' value='Save Job'>
+    <p>{{jobCtrl.displayedJob.job_title}}</p>
+    <p>{{jobCtrl.displayedJob.company}}</p>
+    <p><button class='apply_here apply_here_button'><a class='apply_here' ng-href="{{jobCtrl.displayedJob.url}}">Apply Here</a></button></p>
+    <p><i class='fa fa-map-marker' aria-hidden='true'></i> {{jobCtrl.displayedJob.location}}</p>
+    <p>Posted {{jobCtrl.displayedJob.date_posted}}</p>
+  </section>
+  <section class='icon-section'>
+    <aside ng-show='jobCtrl.displayedJob.glassdoorData.overall_rating.length != null'>
+      <h5>Overall Rating</h5>
+      <a class='glyphicon glyphicon-star' aria-hidden='true'></a>
+      <a class='badge badge-notify' aria-hidden='true'>{{jobCtrl.displayedJob.glassdoorData.overall_rating}}</a>
+    </aside>
+    <aside ng-show='jobCtrl.displayedJob.glassdoorData.compensation_rating.length != null'>
+      <h5>Compensation Rating</h5>
+      <a class='glyphicon glyphicon-usd' aria-hidden='true'></a>
+      <a class='badge badge-notify' aria-hidden='true'>{{jobCtrl.displayedJob.glassdoorData.compensation_rating}}</a>
+    </aside>
+    <aside ng-show='jobCtrl.displayedJob.glassdoorData.culture_rating.length != null'>
+      <h5>Culture Rating</h5>
+      <a class='glyphicon glyphicon-heart' aria-hidden='true'></a>
+      <a class='badge badge-notify' aria-hidden='true'>{{jobCtrl.displayedJob.glassdoorData.culture_rating}}</a>
+    </aside>
+    <aside ng-show='jobCtrl.displayedJob.glassdoorData.leadership_rating.length != null'>
+      <h5>Leadership Rating</h5>
+      <a class='glyphicon glyphicon-user' aria-hidden='true'></a>
+      <a class='badge badge-notify' aria-hidden='true'>{{jobCtrl.displayedJob.glassdoorData.leadership_rating}}</a>
+    </aside>
+    <aside ng-show='jobCtrl.displayedJob.glassdoorData.recommend_to_friend_rating.length != null'>
+      <h5>Recommend to a Friend Rating</h5>
+      <a class='glyphicon glyphicon-sunglasses' aria-hidden='true'></a>
+      <a class='badge badge-notify' aria-hidden='true'>{{jobCtrl.displayedJob.glassdoorData.recommend_to_friend_rating}}</a>
+    </aside>
+    <aside ng-show='jobCtrl.displayedJob.glassdoorData.opportunity_rating.length != null'>
+      <h5>Opportunity Rating</h5>
+      <a class='glyphicon glyphicon-briefcase' aria-hidden='true'></a>
+      <a class='badge badge-notify' aria-hidden='true'>{{jobCtrl.displayedJob.glassdoorData.opportunity_rating}}</a>
+    </aside>
+    <aside ng-show='jobCtrl.displayedJob.glassdoorData.work_life_balance_rating.length != null'>
+      <h5>Work Life Balance Rating</h5>
+      <a class='glyphicon glyphicon-home' aria-hidden='true'></a>
+      <a class='badge badge-notify' aria-hidden='true'>{{jobCtrl.displayedJob.glassdoorData.work_life_balance_rating}}</a>
+    </aside>
+    <aside>
+      <h5>Walk Score</h5>
+      <a class='glyphicon glyphicon-cog' aria-hidden='true'></a>
+      <a class='badge badge-notify' aria-hidden='true'>{{jobCtrl.displayedJob.walkscoreData.walk_score}}</a>
+      <p class='walk-score-description' ng-show='jobCtrl.displayedJob.walkscoreData.description.length != null'>{{jobCtrl.displayedJob.walkscoreData.description}}</p>
+    </aside>
+  </section>
+</article>

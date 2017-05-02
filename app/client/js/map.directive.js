@@ -21,14 +21,15 @@
       function initMap(scope, element, attributes, controller) {
         let mapOptions = new google.maps.Map(document.querySelector('.showmap'), {
           center: scope.center,
-          zoom: 12
+          zoom: 12,
+          scrollwheel: false
         });
 
         let markers = [];
         scope.$watch('pindrops', function makePins() {
           let bounds = new google.maps.LatLngBounds();
           clearMarkers();
-          
+
           scope.pindrops.forEach(function getPinDetails(pinDetails) {
             console.log("details", pinDetails);
             let marker = new google.maps.Marker({
