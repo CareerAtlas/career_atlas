@@ -1,3 +1,19 @@
+.search-page-form-hidden {
+  height: 75px;
+  background-color: $ThemeColorSix;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  p {
+    padding: 1em;
+    button {
+      padding: 0.5em 2em;
+      font-weight: bold;
+      font-size: 1.5em;
+    }
+  }
+}
+
 .search_form {
   width: 88%;
   margin: auto;

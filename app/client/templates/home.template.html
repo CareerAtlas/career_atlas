@@ -1,6 +1,8 @@
-<article class='search-page'>
-  <p></p>
-  <section class='search_form'>
+<article class='search-page' ng-class='{"search-page-form-hidden": jobCtrl.hideSearch}'>
+  <p>
+    <button ng-click='jobCtrl.toggleSearchForm()' ng-show='jobCtrl.hideSearch' class='form_submit_button'>Search Again</button>
+  </p>
+  <section class='search_form' ng-hide='jobCtrl.hideSearch'>
     <form class='panel-default' ng-submit='jobCtrl.submit(jobCtrl.search)'>
       <p class='panel_heading'>Please fill out all search fields.</p>
 
@@ -67,6 +69,7 @@
       Back to the Map
     </button>
     <input type='submit' name='Save' class='form_submit_button' ng-click='jobCtrl.saveJob(jobCtrl.displayedJob.job_key)' value='Save Job'>
+    <p ng-show='jobCtrl.notification'>{{jobCtrl.notification}}</p>
     <p>{{jobCtrl.displayedJob.job_title}}</p>
     <p>{{jobCtrl.displayedJob.company}}</p>
     <p><button class='apply_here apply_here_button'><a class='apply_here' ng-href="{{jobCtrl.displayedJob.url}}">Apply Here</a></button></p>
