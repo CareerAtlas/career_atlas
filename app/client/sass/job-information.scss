@@ -1,0 +1,49 @@
+.glyphicon-heart, .glyphicon-usd, .glyphicon-user, .glyphicon-sunglasses, .glyphicon-star, .glyphicon-briefcase, .glyphicon-home, .glyphicon-cog {
+  font-size: 4em;
+  color: $DreamThemeColorFour;
+}
+
+.badge-notify {
+  font-size: 2em;
+  background-color: $ThemeColorEight;
+  color: $ThemeColorFive;
+  position: relative;
+  top: -20px;
+  left: -10px;
+}
+
+.apply_here {
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 0.5em;
+  color: $ThemeColorSix;
+  padding: 0.5em;
+}
+
+.apply_here_button {
+  background-color: $ThemeColorNine;
+}
+
+.apply_here:hover, .apply_here:active, .apply_here:link, .apply_here:visited {
+  text-decoration: none;
+  cursor: pointer;
+  color: $ThemeColorFive;
+}
+
+.icon-section {
+  margin: 1em auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 90%;
+}
+
+.jumbotron {
+  margin: 2em;
+  box-sizing: border-box;
+  border-radius: 2em;
+}
+
+.job-information {
+  margin: 2em;
+}

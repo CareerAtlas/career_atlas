@@ -34,7 +34,6 @@
 
     };
 
-    // TODO: only do this when we're on the saved job state
     if ($state.is('saved-jobs')) {
       vm.showListOfSavedJobs();
     }
@@ -75,7 +74,6 @@
     };
 
     vm.saveJob = function saveAJob(key) {
-
       return JobService.saveJobSearch(key)
       .then(function handleSavedJobs(savedJobObj) {
         vm.savedJob = {};
@@ -86,7 +84,6 @@
         vm.message = 'Something went wrong here. Error = ' + err.message;
         throw new Error(vm.message);
       });
-
     };
 
     vm.search = {

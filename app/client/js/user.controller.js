@@ -29,7 +29,7 @@
       return UserService.login(user)
 
         .then(function goToSavedJobs(loggedInUser) {
-          $state.go('saved-jobs');
+          $state.go('home');
         })
         .catch(function handleError(err) {
           console.warn(err);
