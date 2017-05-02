@@ -1,0 +1,13 @@
+.glyphicon-heart, .glyphicon-usd, .glyphicon-user, .glyphicon-sunglasses, .glyphicon-star, .glyphicon-briefcase, .glyphicon-home, .glyphicon-cog {
+  font-size: 4em;
+  color: $DreamThemeColorFour;
+}
+
+.badge-notify {
+  font-size: 2em;
+  background-color: $ThemeColorFive;
+  color: $ThemeColorEight;
+  position: relative;
+  top: -20px;
+  left: -10px;
+}
