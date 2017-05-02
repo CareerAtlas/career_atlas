@@ -14,6 +14,8 @@
   }
 }
 
+
+
 .search_form {
   width: 88%;
   margin: auto;
@@ -23,6 +25,9 @@
   display: flex;
   flex-direction: column;
   font-weight: bold;
+  input::placeholder {
+    color: $ThemeColorFour;
+  }
 }
 
 .form_submit_button {
