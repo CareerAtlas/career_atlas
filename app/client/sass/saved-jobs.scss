@@ -47,7 +47,12 @@
   color: $ThemeColorFour;
   padding: 1em 2em;
   margin-top: 1em;
+  font-weight: bold;
   text-decoration: none;
+  a {
+    text-decoration: none;
+    font-weight: bold;
+  }
 }
 
 .saved-jobs-apply-here-button:hover,
@@ -55,6 +60,9 @@
 .saved-jobs-apply-here-button:active:focus,
 .saved-jobs-apply-here-button:focus {
   background-color: $DreamThemeColorThree;
-  color: $ThemeColorEight;
+  a {
+    color: $ThemeColorFive;
+  }
+  font-weight: bold;
   text-decoration: none;
 }
