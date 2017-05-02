@@ -1,0 +1,27 @@
+.saved-jobs {
+  padding: 1em 2em;
+  section {
+    background-color: $ThemeColorSix;
+    box-sizing: border-box;
+    border-radius: 1em;
+    padding: 1em;
+    button {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+    }
+  }
+  h4, p, button {
+    padding: 0.5em;
+  }
+
+}
+
+.more-information-section {
+  .form_submit_button {
+    margin: 1em;
+  }
+  .walkscore-description {
+    font-size: 1.5em;
+  }
+}
