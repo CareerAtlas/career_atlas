@@ -79,12 +79,13 @@
     </section>
     <p class='job-location'><i class='fa fa-map-marker' aria-hidden='true'></i> {{jobCtrl.displayedJob.location}}</p>
   </section>
+
+  <aside class='walk-score-information'>
+    <img src='/img/left-foot.svg' alt='Photo of left foot' class='foot-image'>
+    <p>Walkscore {{jobCtrl.displayedJob.walkscoreData.walk_score}}</p>
+    <p>{{jobCtrl.displayedJob.walkscoreData.description}}</p>
+  </aside>
   <section class='icon-section'>
-    <aside class='walk-score-information'>
-      <img src='/img/left-foot.svg' alt='Photo of left foot' class='foot-image'>
-      <p>Walkscore {{jobCtrl.displayedJob.walkscoreData.walk_score}}</p>
-      <p>{{jobCtrl.displayedJob.walkscoreData.description}}</p>
-    </aside>
     <aside ng-show='jobCtrl.displayedJob.glassdoorData.overall_rating.length != null'>
       <h5>Overall Rating</h5>
       <a class='glyphicon glyphicon-star' aria-hidden='true'></a>
