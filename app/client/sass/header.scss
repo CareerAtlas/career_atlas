@@ -1,12 +1,21 @@
 .career-atlas-header {
   background-color: $ThemeColorOne;
   padding: 1em;
+  h1 {
+    font-size: 3.5em;
+  }
+  p {
+    font-size: 1.5em;
+    i {
+      font-size: 1.75em;
+    }
+  }
 }
 
 header section  {
   color: $ThemeColorFour;
   h1,
   p {
-    padding: 0.5em 0em;
+    padding: 0.15em 0em;
   }
 }

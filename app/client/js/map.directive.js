@@ -27,6 +27,7 @@
 
         let markers = [];
         scope.$watch('pindrops', function makePins() {
+
           let bounds = new google.maps.LatLngBounds();
           clearMarkers();
 
@@ -85,6 +86,8 @@
             console.log("center point", newCenterPinPoint);
             mapOptions.setCenter(newCenterPinPoint);
           }
+
+          // google.maps.event.trigger(mapOptions, 'resize');
         });
 
 
