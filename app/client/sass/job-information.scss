@@ -15,7 +15,7 @@
 .apply_here {
   text-decoration: none;
   font-weight: bold;
-  border-radius: 0.5em;
+  border-radius: 0.25em;
   color: $ThemeColorSix;
   padding: 0.5em;
 }
@@ -38,12 +38,72 @@
   width: 90%;
 }
 
+.thumbnail {
+  margin: 1em;
+}
+
 .jumbotron {
   margin: 2em;
   box-sizing: border-box;
   border-radius: 0.5em;
+  padding-top: 0em;
+  p:first-child {
+    font-weight: bold;
+  }
+}
+
+.job-location {
+  margin-left: 1em;
 }
 
 .job-information {
-  margin: 2em;
+  padding: 0.25em;
+  section {
+    display: flex;
+    aside {
+      align-self: center;
+      margin: 1em;
+    }
+  }
+}
+
+.job-info-button {
+  width: 80%;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5em;
+  font-weight: bold;
+  margin-top: 0.5em;
+  border-radius: 0.25em;
+  background-color: $ThemeColorOne;
+  color: $ThemeColorFour;
+  transition:.5s;
+}
+
+.job-info-button:hover,
+.job-info-button.active,
+.job-info-button:active:focus,
+.job-info-button:focus {
+  background-color: $ThemeColorThree;
+  color: $ThemeColorFive;
+}
+
+.walk-score-information {
+  display: flex;
+  p {
+    font-weight: bold;
+    font-style: italic;
+    background-color: $DreamThemeColorFive;
+    box-sizing: border-box;
+    padding: 1em 0.75em;
+    border: 1px solid $DreamThemeColorThree;
+    border-radius: 0.25em;
+  }
+}
+
+.foot-image {
+  height: 60px;
+  width: 70px;
 }
