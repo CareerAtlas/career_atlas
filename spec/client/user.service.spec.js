@@ -114,11 +114,7 @@
 
     });
 
-    // TODO: test for passing in undefined
-    //
-    // it('should create user when given correct info', function() {
-    //
-    // });
+    
   });
 
 
