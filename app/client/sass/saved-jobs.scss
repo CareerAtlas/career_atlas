@@ -18,15 +18,8 @@
     &:hover {
       background-color: $DreamThemeColorTwo;
     }
-    button {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      padding-right: 2em;
-      padding-left: 2em;
-    }
   }
-  h4, p, button {
+  h4, p {
     padding: 0.5em;
   }
 }
@@ -38,6 +31,41 @@
   .walkscore-description {
     font-size: 1.5em;
   }
+}
+
+.more-information-button, .delete-job-button {
+  font-size: 1em;
+  margin-top: 0.5em;
+  border-radius: 0.25em;
+  padding-right: 2em;
+  padding-left: 2em;
+  background-color: $ThemeColorOne;
+  color: $ThemeColorFour;
+  transition:.5s;
+}
+
+.more-information-button:hover,
+.more-information-button.active,
+.more-information-button:active:focus,
+.more-information-button:focus {
+  background-color: $ThemeColorThree;
+  color: $ThemeColorFive;
+}
+
+.delete-job-button {
+  font-size: 1em;
+  font-weight: bold;
+  float: right;
+  padding: 0.25em 0.5em;
+  border-radius: 0.25em;
+  background-color: $ThemeColorSix;
+}
+.delete-job-button:hover,
+.delete-job-button:active,
+.delete-job-button:active:focus,
+.delete-job-button:focus {
+  background-color: $ThemeColorThree;
+  color: $ThemeColorFive;
 }
 
 .saved-jobs-apply-here-button {
