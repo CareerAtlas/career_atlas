@@ -13,6 +13,7 @@
     vm.jobs = [];
     vm.message = null;
     vm.savedJob = null;
+    vm.deletedJob = null;
     vm.displayedJob = null;
 
 
@@ -109,6 +110,31 @@
       })
       .catch(function handleError(err) {
         vm.message = 'Something went wrong here. Error = ' + err.status;
+        throw new Error(vm.message);
+      });
+    };
+
+    /**
+     * [deleteJob description]
+     * @param  {[type]} key [description]
+     * @return {Promise}     [description]
+     */
+    vm.deleteJob = function deleteJob(key) {
+      console.log('this is key', key);
+      if(!key) {
+        vm.message = 'Something went wrong! You are missing a job key';
+        return Promise.reject(vm.message);
+      }
+
+      return JobService.deleteSavedJob(key)
+      .then(function handleDeletedJob(deletedJobObj) {
+        vm.deletedJob = {};
+        vm.deletedJob.deletedJobObj = deletedJobObj;
+        console.log('deletedJobObj', deletedJobObj);
+        vm.showListOfSavedJobs();
+      })
+      .catch(function handleError(err) {
+        vm.message = 'Something went wrong here. Error = ' + err.message;
         throw new Error(vm.message);
       });
     };
