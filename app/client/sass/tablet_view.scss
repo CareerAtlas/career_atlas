@@ -34,4 +34,11 @@
   .saved-jobs-section {
     flex-direction: row;
   }
+
+  .panel-default {
+    label {
+      font-size: 1.5em;
+      font-weight: normal;
+    }
+  }
 }

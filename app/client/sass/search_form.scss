@@ -9,7 +9,7 @@
     button {
       padding: 0.5em 2em;
       font-weight: bold;
-      font-size: 1.5em;
+      font-size: 1em;
     }
   }
 }
@@ -26,6 +26,8 @@
 }
 
 .form_submit_button {
+  font-size: 2em;
+  margin-top: 0.5em;
   border-radius: 0.5em;
   background-color: $ThemeColorOne;
   color: $ThemeColorFour;
