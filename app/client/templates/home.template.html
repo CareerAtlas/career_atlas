@@ -68,7 +68,7 @@
   <img alt='CompanyLogo' src='{{jobCtrl.displayedJob.glassdoorData.logo}}' ng-show='jobCtrl.displayedJob.glassdoorData.logo.length != null'>
   <p>Job Title: {{jobCtrl.displayedJob.job_title}}</p>
   <p>Company: {{jobCtrl.displayedJob.company}}</p>
-  <p><button class='apply_here' ng-href='{{jobCtrl.displayedJob.url}}'>Apply Here!</button></p>
+  <p><button class='apply_here'><a ng-href="{{jobCtrl.displayedJob.url}}">Apply Here!</a></button></p>
   <p>Location: {{jobCtrl.displayedJob.location}}</p>
   <p>Posted: {{jobCtrl.displayedJob.date_posted}}</p>
   <section class='glyphicon-list'>
