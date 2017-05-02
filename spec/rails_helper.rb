@@ -9,6 +9,7 @@ require 'rspec/rails'
 require 'securerandom'
 # Add additional requires below this line. Rails is not loaded until this point!
 
+
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are
 # run as spec files by default. This means that files in spec/support that end
@@ -28,6 +29,8 @@ require 'securerandom'
 # If you are not using ActiveRecord, you can remove this line.
 ActiveRecord::Migration.maintain_test_schema!
 
+Dir.glob(Rails.root.join("spec", "support", "*.rb")) { |f| require f  }
+
 RSpec.configure do |config|
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
@@ -37,19 +40,14 @@ RSpec.configure do |config|
   # instead of true.
   config.use_transactional_fixtures = true
 
-  # RSpec Rails can automatically mix in different behaviours to your tests
-  # based on their file location, for example enabling you to call `get` and
-  # `post` in specs under `spec/controllers`.
-  #
-  # You can disable this behaviour by removing the line below, and instead
-  # explicitly tag your specs with their type, e.g.:
-  #
-  #     RSpec.describe UsersController, :type => :controller do
-  #       # ...
-  #     end
-  #
-  # The different available types are documented in the features, such as in
-  # https://relishapp.com/rspec/rspec-rails/docs
+  config.include JobFactory, type: :controller
+  config.include UserFactory, type: :controller
+  config.include JsonBody, type: :controller
+  config.include JobFactory, type: :model
+  config.include UserFactory, type: :mailer
+
+
+
   config.infer_spec_type_from_file_location!
 
   # Filter lines from Rails gems in backtraces.

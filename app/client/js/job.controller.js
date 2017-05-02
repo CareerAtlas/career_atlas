@@ -4,16 +4,40 @@
   angular.module('career_atlas')
   .controller('JobController', JobController);
 
-  JobController.$inject = ['$scope', '$q', 'JobService', 'CompanyService', 'WalkscoreService'];
+  JobController.$inject = ['$state', '$scope', '$q', 'JobService', 'CompanyService', 'WalkscoreService'];
 
   console.log('inside the form controller here');
 
-  function JobController($scope, $q, JobService, CompanyService, WalkscoreService) {
+  function JobController($state, $scope, $q, JobService, CompanyService, WalkscoreService) {
     let vm = this;
     vm.jobs = [];
     vm.message = null;
     vm.savedJob = null;
+    vm.deletedJob = null;
     vm.displayedJob = null;
+
+
+    /**
+     * Shows list of saved jobs when you click on 'saved jobs' in the navigation bar
+     * @param  {Object} authorization   Authorization token
+     * @return {Promise}
+     */
+    vm.showListOfSavedJobs = function showListOfSavedJobs(authorization) {
+      console.log('hiiiiii show list of savedjobs');
+      JobService.getAllSavedJobs()
+      .then(function handleResponse(data) {
+        vm.jobs = data;
+        console.log('data back from showListOfSavedJobs', data);
+      })
+      .catch(function handleError(err) {
+        vm.message = 'Something went wrong here. Error = ' + err.status;
+      });
+
+    };
+
+    if ($state.is('saved-jobs')) {
+      vm.showListOfSavedJobs();
+    }
 
     vm.showJobInformation = function showJobInformation(marker) {
       if(!marker) {
@@ -31,12 +55,12 @@
         vm.message = 'Something went wrong here. Error = ' + err.status;
       });
 
-      vm.ObjectToSendBackEndForWalkScore = {
+      let locationMarkerData = {
         latitude: marker.data.latitude,
         longitude: marker.data.longitude,
         address: marker.data.location
       };
-      WalkscoreService.getWalkscoreInformation(vm.ObjectToSendBackEndForWalkScore)
+      WalkscoreService.getWalkscoreInformation(locationMarkerData)
       .then(function handleWalkscoreData(walkscoreData) {
         vm.displayedJob.walkscoreData = walkscoreData;
         console.log('walkscore data', walkscoreData);
@@ -44,20 +68,14 @@
       .catch(function handleError(err) {
         vm.message = 'Something went wrong here. Error = ' + err.status;
       });
-      $scope.$apply();
+
+      if ($state.is('home')) {
+        $scope.$apply();
+      }
     };
 
     vm.saveJob = function saveAJob(key) {
-
-      vm.ObjectToSendBackToSavedJobs ={
-        job_key: key,
-        // longitiude: clickedMarker.data.longitiude,
-        // latitude: clickedMarker.data.latitude,
-        // company:clickedMarker.data.company,
-        // job_title: clickedMarker.data.jobtitle,
-        // location: clickedMarker.data.location
-      };
-      return JobService.saveJobSearch(vm.ObjectToSendBackToSavedJobs)
+      return JobService.saveJobSearch(key)
       .then(function handleSavedJobs(savedJobObj) {
         vm.savedJob = {};
         vm.savedJob.savedJobObj = savedJobObj;
@@ -67,7 +85,6 @@
         vm.message = 'Something went wrong here. Error = ' + err.message;
         throw new Error(vm.message);
       });
-
     };
 
     vm.search = {
@@ -93,6 +110,31 @@
       })
       .catch(function handleError(err) {
         vm.message = 'Something went wrong here. Error = ' + err.status;
+        throw new Error(vm.message);
+      });
+    };
+
+    /**
+     * [deleteJob description]
+     * @param  {[type]} key [description]
+     * @return {Promise}     [description]
+     */
+    vm.deleteJob = function deleteJob(key) {
+      console.log('this is key', key);
+      if(!key) {
+        vm.message = 'Something went wrong! You are missing a job key';
+        return Promise.reject(vm.message);
+      }
+
+      return JobService.deleteSavedJob(key)
+      .then(function handleDeletedJob(deletedJobObj) {
+        vm.deletedJob = {};
+        vm.deletedJob.deletedJobObj = deletedJobObj;
+        console.log('deletedJobObj', deletedJobObj);
+        vm.showListOfSavedJobs();
+      })
+      .catch(function handleError(err) {
+        vm.message = 'Something went wrong here. Error = ' + err.message;
         throw new Error(vm.message);
       });
     };

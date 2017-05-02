@@ -1,0 +1,38 @@
+.saved-jobs-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.saved-jobs {
+  display: block;
+  margin: 0.5em;
+  section {
+    background-color: $ThemeColorSix;
+    box-sizing: border-box;
+    border-radius: 1em;
+    padding: 1em;
+    border: 3px solid $ThemeColorTwo;
+    button {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      padding-right: 2em;
+      padding-left: 2em;
+    }
+  }
+  h4, p, button {
+    padding: 0.5em;
+  }
+
+}
+
+.more-information-section {
+  .form_submit_button {
+    margin: 1em;
+  }
+  .walkscore-description {
+    font-size: 1.5em;
+  }
+}

@@ -6,6 +6,7 @@ before_action :authorize!, only: [:destroy]
     @new_user.secure_random
     if @new_user.save
       render json: {authorization: @new_user.authorization_token}
+      NewUserMailer.sign_up_email(@new_user).deliver_later
     else
       render json: { message: "Please enter correct information", status: :unprocessable_entity }
     end
@@ -22,11 +23,5 @@ before_action :authorize!, only: [:destroy]
   private
   def user_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation)
-  end
-
-  def authorize!
-    unless current_user
-      render json: {message: "Please log in first"}
-    end
   end
 end
