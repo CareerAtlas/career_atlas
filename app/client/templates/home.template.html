@@ -81,12 +81,9 @@
   </section>
   <section class='icon-section'>
     <aside class='walk-score-information'>
-      <h5>Walk Score</h5>
-      <a class='badge badge-notify' aria-hidden='true'>{{jobCtrl.displayedJob.walkscoreData.walk_score}}</a>
-      <p class='walk-score-description' ng-show='jobCtrl.displayedJob.walkscoreData.description.length != 0'>
-        <img src='/img/left-foot.svg' alt='Photo of left foot' class='foot-image'>
-        {{jobCtrl.displayedJob.walkscoreData.description}}
-      </p>
+      <img src='/img/left-foot.svg' alt='Photo of left foot' class='foot-image'>
+      <p>Walkscore {{jobCtrl.displayedJob.walkscoreData.walk_score}}</p>
+      <p>{{jobCtrl.displayedJob.walkscoreData.description}}</p>
     </aside>
     <aside ng-show='jobCtrl.displayedJob.glassdoorData.overall_rating.length != null'>
       <h5>Overall Rating</h5>

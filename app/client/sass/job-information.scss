@@ -49,11 +49,13 @@
   padding-top: 0em;
   p:first-child {
     font-weight: bold;
+    margin-bottom: 0px;
   }
 }
 
 .job-location {
-  margin-left: 1em;
+  margin: 0em;
+  padding-left: 1em;
 }
 
 .job-information {
@@ -91,19 +93,24 @@
 }
 
 .walk-score-information {
+  margin: 0em;
+  padding: 0em;
   display: flex;
+  font-style: italic;
+  background-color: $DreamThemeColorFive;
+  box-sizing: border-box;
+  padding: 0.25em 0.5em 0.25em 0.25em;
+  border: 1px solid $DreamThemeColorThree;
+  border-radius: 0.25em;
   p {
+    margin: 1em;
+    text-align: center;
     font-weight: bold;
-    font-style: italic;
-    background-color: $DreamThemeColorFive;
-    box-sizing: border-box;
-    padding: 0.25em 0.5em 0.25em 0.25em;
-    border: 1px solid $DreamThemeColorThree;
-    border-radius: 0.25em;
   }
 }
 
 .foot-image {
-  height: 60px;
-  width: 70px;
+  height: 80px;
+  width: 90px;
+  margin: auto;
 }
