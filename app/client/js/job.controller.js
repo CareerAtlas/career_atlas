@@ -15,7 +15,15 @@
     vm.savedJob = null;
     vm.deletedJob = null;
     vm.displayedJob = null;
+    vm.hideSearch = false;
 
+    /**
+     * Shows or hides search form in home page
+     * @return {Boolean}
+     */
+    vm.toggleSearchForm = function toggleSearchForm() {
+      vm.hideSearch = !vm.hideSearch;
+    };
 
     /**
      * Shows list of saved jobs when you click on 'saved jobs' in the navigation bar
@@ -107,6 +115,10 @@
       return JobService.createJobSearch(search)
       .then(function handleData(data) {
         vm.jobs = data;
+
+        if (vm.jobs.length > 0) {
+          vm.hideSearch = true;
+        }
       })
       .catch(function handleError(err) {
         vm.message = 'Something went wrong here. Error = ' + err.status;
