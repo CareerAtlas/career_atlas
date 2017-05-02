@@ -107,10 +107,30 @@
       });
     }
 
+    function deleteSavedJob(jobKey) {
+      return $http({
+        method: 'DELETE',
+        url: '/api/saved_jobs/' + jobKey,
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': localStorage.getItem('token')
+        }        
+      })
+      .then(function handleResponse(response) {
+        let deletedJob = response.data;
+        console.log('delete job data', deletedJob);
+        return deletedJob;
+      })
+      .catch(function(err) {
+        console.warn(err);
+      });
+    }
+
     return {
       createJobSearch: createJobSearch,
       saveJobSearch: saveJobSearch,
-      getAllSavedJobs: getAllSavedJobs
+      getAllSavedJobs: getAllSavedJobs,
+      deleteSavedJob: deleteSavedJob
     };
   }
 

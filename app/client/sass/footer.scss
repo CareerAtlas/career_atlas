@@ -2,6 +2,10 @@ footer {
   background-color: $ThemeColorSix;
   padding: 2em;
   color: $ThemeColorFour;
+  section {
+    display: flex;
+    justify-content: flex-end;
+  }
   p {
     display: inline-block;
     padding: 1em;
