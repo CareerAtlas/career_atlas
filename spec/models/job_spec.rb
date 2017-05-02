@@ -7,7 +7,6 @@ RSpec.describe Job, type: :model do
   end
 
   it "can be created" do
-    developer_job = create_job
-    expect(developer_job).to be_instance_of(Job)
+    expect(create_job).to be_instance_of(Job)
   end
 end
