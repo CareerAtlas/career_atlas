@@ -65,11 +65,13 @@
 <article ng-show='jobCtrl.displayedJob' class='jumbotron'>
   <section class='job-information'>
     <img alt='CompanyLogo' src='{{jobCtrl.displayedJob.glassdoorData.logo}}' ng-show='jobCtrl.displayedJob.glassdoorData.logo.length != null'>
-    <button href='#' ng-click='jobCtrl.displayedJob = !jobCtrl.displayedJob' class='form_submit_button back_to_the_map'>
+    <button href='#' ng-click='jobCtrl.displayedJob = !jobCtrl.displayedJob; jobCtrl.notification=null' class='form_submit_button back_to_the_map'>
       Back to the Map
     </button>
-    <input type='submit' name='Save' class='form_submit_button' ng-click='jobCtrl.saveJob(jobCtrl.displayedJob.job_key)' value='Save Job'>
+    <input type='submit' name='Save' class='form_submit_button' ng-click='jobCtrl.saveJob(jobCtrl.displayedJob.job_key)' ng-hide='jobCtrl.displayedJob.saved' value='Save Job'>
+
     <p ng-show='jobCtrl.notification'>{{jobCtrl.notification}}</p>
+
     <p>{{jobCtrl.displayedJob.job_title}}</p>
     <p>{{jobCtrl.displayedJob.company}}</p>
     <p><button class='apply_here apply_here_button'><a class='apply_here' ng-href="{{jobCtrl.displayedJob.url}}">Apply Here</a></button></p>
