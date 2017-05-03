@@ -1,6 +1,6 @@
 languange: ruby
 rvm:
-  - 2.4.1-p111
+  - 2.4.0
 run:
   - "npm install"
   - "bin/setup"
