@@ -27,7 +27,7 @@ module.exports = function(grunt) {
         files: [
           {
             cwd: 'app/client/img/',
-            src: ['*.jpg', '*.png', '*.jpeg', '*.gif'],
+            src: ['*.jpg', '*.png', '*.jpeg', '*.gif', '*.svg'],
             dest: 'public/img/',
             expand: true
           }
