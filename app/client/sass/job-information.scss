@@ -18,6 +18,8 @@
   border-radius: 0.25em;
   color: $ThemeColorSix;
   padding: 0.5em;
+  float: right;
+  padding: 0.5em 2em;
 }
 
 .apply_here_button {
@@ -62,7 +64,6 @@
 
 .job-location {
   margin: 0em;
-  padding-left: 1em;
 }
 
 .job-information {
@@ -72,6 +73,7 @@
     aside {
       align-self: center;
       margin: 1em;
+      width: 100%;
     }
   }
 }
