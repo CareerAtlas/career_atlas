@@ -11,21 +11,17 @@
   section {
     background-color: $ThemeColorSix;
     box-sizing: border-box;
-    border-radius: 1em;
+    border-radius: 0.5em;
     padding: 1em;
     border: 3px solid $ThemeColorTwo;
-    button {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      padding-right: 2em;
-      padding-left: 2em;
+    transition:.5s;
+    &:hover {
+      background-color: $DreamThemeColorTwo;
     }
   }
-  h4, p, button {
+  h4, p {
     padding: 0.5em;
   }
-
 }
 
 .more-information-section {
@@ -35,4 +31,68 @@
   .walkscore-description {
     font-size: 1.5em;
   }
+}
+
+.more-information-button, .delete-job-button {
+  font-size: 1em;
+  margin-top: 0.5em;
+  border-radius: 0.25em;
+  padding-right: 2em;
+  padding-left: 2em;
+  background-color: $ThemeColorOne;
+  color: $ThemeColorFour;
+  transition:.5s;
+}
+
+.more-information-button:hover,
+.more-information-button.active,
+.more-information-button:active:focus,
+.more-information-button:focus {
+  background-color: $ThemeColorThree;
+  color: $ThemeColorFive;
+}
+
+.delete-job-button {
+  font-size: 1em;
+  font-weight: bold;
+  float: right;
+  padding: 0.25em 0.5em;
+  border-radius: 0.25em;
+  background-color: $ThemeColorSix;
+}
+.delete-job-button:hover,
+.delete-job-button:active,
+.delete-job-button:active:focus,
+.delete-job-button:focus {
+  background-color: $ThemeColorThree;
+  color: $ThemeColorFive;
+}
+
+.saved-jobs-apply-here-button {
+  border-radius: 0.25em ;
+  border-color: $DreamThemeColorFour;
+  background-color: $ThemeColorOne;
+  text-color: $DreamThemeColorFive;
+  color: $ThemeColorFour;
+  padding: 1em 2em;
+  margin-top: 1em;
+  font-weight: bold;
+  text-decoration: none;
+  transition:.5s;
+  a {
+    text-decoration: none;
+    font-weight: bold;
+  }
+}
+
+.saved-jobs-apply-here-button:hover,
+.saved-jobs-apply-here-button.active,
+.saved-jobs-apply-here-button:active:focus,
+.saved-jobs-apply-here-button:focus {
+  background-color: $DreamThemeColorThree;
+  a {
+    color: $ThemeColorFive;
+  }
+  font-weight: bold;
+  text-decoration: none;
 }

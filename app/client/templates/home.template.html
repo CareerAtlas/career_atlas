@@ -4,7 +4,7 @@
   </p>
   <section class='search_form' ng-hide='jobCtrl.hideSearch'>
     <form class='panel-default' ng-submit='jobCtrl.submit(jobCtrl.search)'>
-      <p class='panel_heading'>Please fill out all search fields.</p>
+      <p class='panel_heading'>Make your next career move <small>&reg</small></p>
 
       <label for='jobtitle'>Job Title</label>
       <input
@@ -39,6 +39,7 @@
 
         <label for='location'>(city, state, or zipcode)</label>
         <input
+        class='form-control'
         type='text'
         id='location'
         name='location'
@@ -48,7 +49,7 @@
         autocomplete='off'
         ng-model='jobCtrl.search.location'
         required>
-        <input type='submit' class='form_submit_button' value='Search'>
+        <input type='submit' class='form_submit_button' value='find jobs'>
       </form>
     </section>
     <section></section>
@@ -64,18 +65,27 @@
 
 <article ng-show='jobCtrl.displayedJob' class='jumbotron'>
   <section class='job-information'>
-    <img alt='CompanyLogo' src='{{jobCtrl.displayedJob.glassdoorData.logo}}' ng-show='jobCtrl.displayedJob.glassdoorData.logo.length != null'>
-    <button href='#' ng-click='jobCtrl.displayedJob = !jobCtrl.displayedJob' class='form_submit_button back_to_the_map'>
+<button href='#' ng-click='jobCtrl.displayedJob = !jobCtrl.displayedJob; jobCtrl.notification=null' class='job-info-button'>
       Back to the Map
     </button>
-    <input type='submit' name='Save' class='form_submit_button' ng-click='jobCtrl.saveJob(jobCtrl.displayedJob.job_key)' value='Save Job'>
+    <input type='submit' name='Save' class='job-info-button' ng-click='jobCtrl.saveJob(jobCtrl.displayedJob.job_key)' ng-hide='jobCtrl.displayedJob.saved' value='Save Job'>
     <p ng-show='jobCtrl.notification'>{{jobCtrl.notification}}</p>
-    <p>{{jobCtrl.displayedJob.job_title}}</p>
-    <p>{{jobCtrl.displayedJob.company}}</p>
-    <p><button class='apply_here apply_here_button'><a class='apply_here' ng-href="{{jobCtrl.displayedJob.url}}">Apply Here</a></button></p>
-    <p><i class='fa fa-map-marker' aria-hidden='true'></i> {{jobCtrl.displayedJob.location}}</p>
-    <p>Posted {{jobCtrl.displayedJob.date_posted}}</p>
+    <section>
+      <img class='thumbnail' alt='CompanyLogo' src='{{jobCtrl.displayedJob.glassdoorData.logo}}' ng-show='jobCtrl.displayedJob.glassdoorData.logo.length != 0'>
+      <aside>
+        <p>{{jobCtrl.displayedJob.job_title}}</p>
+        <p>{{jobCtrl.displayedJob.company}}</p>
+        <button class='apply_here apply_here_button'><a class='apply_here' ng-href="{{jobCtrl.displayedJob.url}}">Apply Here</a></button>
+      </aside>
+    </section>
+    <p class='job-location'><i class='fa fa-map-marker' aria-hidden='true'></i> {{jobCtrl.displayedJob.location}}</p>
   </section>
+
+  <aside class='walk-score-information'>
+    <img src='/img/left-foot.svg' alt='Photo of left foot' class='foot-image'>
+    <p>Walkscore {{jobCtrl.displayedJob.walkscoreData.walk_score}}</p>
+    <p>{{jobCtrl.displayedJob.walkscoreData.description}}</p>
+  </aside>
   <section class='icon-section'>
     <aside ng-show='jobCtrl.displayedJob.glassdoorData.overall_rating.length != null'>
       <h5>Overall Rating</h5>
@@ -112,11 +122,6 @@
       <a class='glyphicon glyphicon-home' aria-hidden='true'></a>
       <a class='badge badge-notify' aria-hidden='true'>{{jobCtrl.displayedJob.glassdoorData.work_life_balance_rating}}</a>
     </aside>
-    <aside>
-      <h5>Walk Score</h5>
-      <a class='glyphicon glyphicon-cog' aria-hidden='true'></a>
-      <a class='badge badge-notify' aria-hidden='true'>{{jobCtrl.displayedJob.walkscoreData.walk_score}}</a>
-      <p class='walk-score-description' ng-show='jobCtrl.displayedJob.walkscoreData.description.length != null'>{{jobCtrl.displayedJob.walkscoreData.description}}</p>
-    </aside>
   </section>
+  <p class='date-posted'>Posted {{jobCtrl.displayedJob.date_posted}}</p>
 </article>
