@@ -72,7 +72,7 @@
       Back to the Map
     </button>
     <input type='submit' name='Save' class='job-info-button' ng-click='jobCtrl.saveJob(jobCtrl.displayedJob.job_key)' ng-hide='jobCtrl.displayedJob.saved' value='Save Job'>
-    <p ng-show='jobCtrl.notification'>{{jobCtrl.notification}}</p>
+    <p ng-show='jobCtrl.notification' class='job-saved-notification-message'>{{jobCtrl.notification}}</p>
     <section>
       <img class='thumbnail' alt='CompanyLogo' src='{{jobCtrl.displayedJob.glassdoorData.logo}}' ng-show='jobCtrl.displayedJob.glassdoorData.logo.length != 0'>
       <aside>

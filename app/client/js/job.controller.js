@@ -94,7 +94,7 @@
         vm.savedJob = {};
         vm.savedJob.savedJobObj = savedJobObj;
         console.log('savedJobObj', savedJobObj);
-        vm.notification = 'This job has been saved!';
+        vm.notification = 'Job saved!';
 
         // find the job that was saved, and flip its switch
         let foundJob = vm.jobs.find(function findJob(job) {

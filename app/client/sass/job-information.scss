@@ -100,7 +100,7 @@
   border-radius: 0.25em;
   background-color: $ThemeColorOne;
   color: $ThemeColorFour;
-  transition:.5s;
+  transition:.25s;
 }
 
 .job-info-button:hover,
@@ -138,4 +138,11 @@
 
 .date-posted {
   text-align: center;
+}
+
+.job-saved-notification-message {
+  text-align: center;
+  font-style: italic;
+  margin: 0em;
+  color: red;
 }
