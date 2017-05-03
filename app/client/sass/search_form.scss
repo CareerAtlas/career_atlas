@@ -1,5 +1,5 @@
 .search-page-form-hidden {
-  height: 75px;
+  height: 1px;
   background-color: $ThemeColorSix;
   display: flex;
   flex-direction: row;
@@ -10,6 +10,9 @@
       padding: 0.5em 2em;
       font-weight: bold;
       font-size: 1em;
+      position: absolute;
+      top: -2px;
+      right: 0;
     }
   }
 }
@@ -17,7 +20,7 @@
 .search_form {
   width: 88%;
   margin: auto;
-  background-color: $ThemeColorTwo;
+  background-color: $ThemeColorSix;
   padding: 2em;
   border-radius: 0.5em;
   display: flex;
