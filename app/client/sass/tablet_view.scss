@@ -1,4 +1,7 @@
 @media screen and (min-width: $TabletBreakPoint) {
+  .jumbotron {
+    padding: 0em;
+  }
   .developer_section {
    flex-direction: row;
   }
@@ -26,6 +29,8 @@
     display: flex;
     justify-content: space-around;
     width: 90%;
+    position: relative;
+    top: -125px;
   }
 
   .saved-jobs {
@@ -76,15 +81,16 @@
   }
 
   .job-info-button {
-    width: 25%;
+    width: 15%;
     margin: 0.25em;
     display: inline-block;
     float: right;
+    font-size: 1.15em;
   }
 
   .job-information {
     section {
-      display: inline;
+      display: flex;
     }
   }
 
@@ -92,5 +98,18 @@
     margin: 1.5em;
     height: 200px;
     width: 200px;
+  }
+
+  .walk-score-information {
+    width: 40%;
+    display: flex;
+    float: right;
+    position: relative;
+    top: -125px;
+  }
+
+  .date-posted {
+    position: relative;
+    top: -125px;
   }
 }
