@@ -99,7 +99,7 @@
 
     vm.search = {
       job_type: 'Full-Time',
-      radius: '1',
+      radius: '10'
     };
 
     /**

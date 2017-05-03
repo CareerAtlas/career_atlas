@@ -2,10 +2,15 @@
   .developer_section {
    flex-direction: row;
   }
+
+  .search_form {
+    width: 65%;
+  }
+
   .headshots {
     height: 250px;
     width: 250px;
-    border-radius: 1em;
+    border-radius: 0.5em;
   }
 
   .each_developer {
@@ -25,8 +30,67 @@
 
   .saved-jobs {
     width: 45%;
+    h4 {
+      font-size: 2em;
+    }
+    p {
+      font-size: 1.5em;
+    }
   }
   .saved-jobs-section {
     flex-direction: row;
+  }
+
+  .saved-jobs-apply-here-button {
+    font-size: .75em;
+  }
+
+  .more-information-section
+    .walkscore-description {
+      font-size: .75em;
+      margin: 0em;
+    }
+
+  .saved-jobs {
+    h4, p {
+      padding: 0.25em;
+    }
+  }
+
+  .more-information-section {
+    .walkscore-description {
+      padding: 1em;
+      margin-top: 0.5em;
+    }
+  }
+
+  .badge-info {
+    font-size: 1.15em;
+  }
+
+  .panel-default {
+    label {
+      font-size: 1.5em;
+      font-weight: normal;
+    }
+  }
+
+  .job-info-button {
+    width: 25%;
+    margin: 0.25em;
+    display: inline-block;
+    float: right;
+  }
+
+  .job-information {
+    section {
+      display: inline;
+    }
+  }
+
+  .thumbnail {
+    margin: 1.5em;
+    height: 200px;
+    width: 200px;
   }
 }
