@@ -69,7 +69,7 @@
 <article ng-show='jobCtrl.displayedJob' class='jumbotron'>
   <section class='job-information'>
 <button href='#' ng-click='jobCtrl.displayedJob = !jobCtrl.displayedJob; jobCtrl.notification=null' class='job-info-button'>
-      Back to the Map
+      Back to Map
     </button>
     <input type='submit' name='Save' class='job-info-button' ng-click='jobCtrl.saveJob(jobCtrl.displayedJob.job_key)' ng-hide='jobCtrl.displayedJob.saved' value='Save Job'>
     <p ng-show='jobCtrl.notification' class='job-saved-notification-message'>{{jobCtrl.notification}}</p>
