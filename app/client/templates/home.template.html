@@ -2,12 +2,12 @@
   <p>
     <button
       ng-click='jobCtrl.toggleSearchForm()'
-      ng-show='jobCtrl.hideSearch && !jobCtrl.displayedJob' 
+      ng-show='jobCtrl.hideSearch && !jobCtrl.displayedJob'
       class='form_submit_button'>Search Again</button>
   </p>
   <section class='search_form' ng-hide='jobCtrl.hideSearch'>
     <form class='panel-default' ng-submit='jobCtrl.submit(jobCtrl.search)'>
-      <p class='panel_heading'>Make your next career move <small>&reg</small></p>
+      <p class='panel_heading'>Map your next career move <small>&reg</small></p>
 
       <label for='jobtitle'>Job Title</label>
       <input
