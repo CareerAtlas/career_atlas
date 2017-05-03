@@ -14,8 +14,6 @@
   }
 }
 
-
-
 .search_form {
   width: 88%;
   margin: auto;
@@ -26,7 +24,7 @@
   flex-direction: column;
   font-weight: bold;
   input::placeholder {
-    color: $ThemeColorFour;
+    color: $DreamThemeColorOne;
   }
 }
 
