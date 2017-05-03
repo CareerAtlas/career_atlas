@@ -9,27 +9,35 @@
     button {
       padding: 0.5em 2em;
       font-weight: bold;
-      font-size: 1.5em;
+      font-size: 1em;
     }
   }
 }
+
+
 
 .search_form {
   width: 88%;
   margin: auto;
   background-color: $ThemeColorTwo;
   padding: 2em;
-  border-radius: 3em;
+  border-radius: 0.5em;
   display: flex;
   flex-direction: column;
   font-weight: bold;
+  input::placeholder {
+    color: $ThemeColorFour;
+  }
 }
 
 .form_submit_button {
-  border-radius: 0.5em;
+  font-size: 2em;
+  margin-top: 0.5em;
+  border-radius: 0.25em;
   background-color: $ThemeColorOne;
   color: $ThemeColorFour;
   padding: 0.5em;
+  transition:.5s;
 }
 
 .form_submit_button:hover,
@@ -43,15 +51,21 @@
 .panel-default {
   display: flex;
   flex-direction: column;
-  .form-control:hover {
-    color: $ThemeColorThree;
-  }
   .panel_heading {
     text-align: center;
     width: 100%;
     color: $ThemeColorFour;
+    font-size: 1.75em;
+    padding: 0em;
+    small {
+      font-size: 0.5em;
+      position: relative;
+      top: -8px;
+      right: 5px;
+    }
   }
-  .label {
+  label {
     color: $ThemeColorFour;
+    padding: 0.25em;
   }
 }

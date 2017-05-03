@@ -1,11 +1,21 @@
 @media screen and (min-width: $TabletBreakPoint) {
+  .jumbotron {
+    padding: 0em;
+    height: 470px;
+    margin: 2em;
+  }
   .developer_section {
    flex-direction: row;
   }
+
+  .search_form {
+    width: 65%;
+  }
+
   .headshots {
     height: 250px;
     width: 250px;
-    border-radius: 1em;
+    border-radius: 0.5em;
   }
 
   .each_developer {
@@ -20,13 +30,95 @@
     flex-direction: row;
     display: flex;
     justify-content: space-around;
-    width: 90%;
+    width: 95%;
+    position: relative;
+    top: -125px;
+    margin: 0em;
+    aside {
+      margin: 1em;
+      h5 {
+        font-size: 1.25em;
+      }
+    }
   }
 
   .saved-jobs {
     width: 45%;
+    h4 {
+      font-size: 2em;
+    }
+    p {
+      font-size: 1.5em;
+    }
   }
   .saved-jobs-section {
     flex-direction: row;
+  }
+
+  .saved-jobs-apply-here-button {
+    font-size: .75em;
+  }
+
+  .more-information-section
+    .walkscore-description {
+      font-size: .75em;
+      margin: 0em;
+    }
+
+  .saved-jobs {
+    h4, p {
+      padding: 0.25em;
+    }
+  }
+
+  .more-information-section {
+    .walkscore-description {
+      padding: 1em;
+      margin-top: 0.5em;
+    }
+  }
+
+  .badge-info {
+    font-size: 1.15em;
+  }
+
+  .panel-default {
+    label {
+      font-size: 1.5em;
+      font-weight: normal;
+    }
+  }
+
+  .job-info-button {
+    width: 15%;
+    margin: 0.25em;
+    display: inline-block;
+    float: right;
+    font-size: 1.15em;
+  }
+
+  .job-information {
+    section {
+      display: flex;
+    }
+  }
+
+  .thumbnail {
+    margin: 1.5em;
+    height: 200px;
+    width: 200px;
+  }
+
+  .walk-score-information {
+    width: 40%;
+    display: flex;
+    float: right;
+    position: relative;
+    top: -125px;
+  }
+
+  .date-posted {
+    position: relative;
+    top: -125px;
   }
 }
