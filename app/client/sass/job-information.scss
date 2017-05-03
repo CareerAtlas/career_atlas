@@ -1,10 +1,14 @@
 .glyphicon-heart, .glyphicon-usd, .glyphicon-user, .glyphicon-sunglasses, .glyphicon-star, .glyphicon-briefcase, .glyphicon-home, .glyphicon-cog {
   font-size: 3.25em;
-  color: $DreamThemeColorFour;
+  color: $DreamThemeColorOne;
+}
+.glyphicon-heart:hover, .glyphicon-usd:hover, .glyphicon-user:hover, .glyphicon-sunglasses:hover, .glyphicon-star:hover, .glyphicon-briefcase:hover, .glyphicon-home:hover, .glyphicon-cog:hover {
+  text-decoration: none;
 }
 
 .badge-notify {
-  font-size: 2.75em;
+  font-size: 2.45em;
+  padding: 0.2em;
   background-color: $ThemeColorEight;
   color: $ThemeColorFive;
   position: relative;
@@ -16,20 +20,21 @@
   text-decoration: none;
   font-weight: bold;
   border-radius: 0.25em;
-  color: $ThemeColorSix;
+  color: $ThemeColorFour;
   padding: 0.5em;
   float: right;
   padding: 0.5em 2em;
 }
 
 .apply_here_button {
-  background-color: $ThemeColorNine;
+  background-color: $ThemeColorOne;
 }
 
-.apply_here:hover, .apply_here:active, .apply_here:link, .apply_here:visited {
+.apply_here:hover, .apply_here.active, .apply_here:active:focus, .apply_here:focus {
   text-decoration: none;
   cursor: pointer;
-  color: $ThemeColorFive;
+  color: $ThemeColorFour;
+  background-color: $ThemeColorTwo;
 }
 
 .icon-section {
@@ -41,7 +46,10 @@
   justify-content: space-around;
   width: 90%;
   h5 {
-    font-size: 1.15em;
+    font-size: 1.45em;
+  }
+  aside {
+    padding: 1em;
   }
 }
 
@@ -49,6 +57,7 @@
   margin-top: 1em;
   height: 140px;
   width: 140px;
+  border: 2px solid $DreamThemeColorTwo;
 }
 
 .jumbotron {
@@ -64,6 +73,7 @@
 
 .job-location {
   margin: 0em;
+  display: inline;
 }
 
 .job-information {
@@ -80,7 +90,7 @@
 
 .job-info-button {
   width: 100%;
-  padding: 0.5em;
+  padding: 0.65em;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -102,26 +112,28 @@
 }
 
 .walk-score-information {
-  margin: 0em 1em 1em 1em;
   padding: 0em;
   display: flex;
-  font-style: italic;
   background-color: $DreamThemeColorFive;
   box-sizing: border-box;
-  padding: 0.25em 0.5em 0.25em 0.25em;
-  border: 1px solid $DreamThemeColorThree;
+  border: 8px solid $DreamThemeColorTwo;
   border-radius: 0.25em;
   p {
-    margin: 0.5em;
+    margin: 0em;
     text-align: center;
     font-weight: bold;
+    padding: 1em;
   }
+}
+
+.walk-score-description {
+  font-style: italic;
 }
 
 .foot-image {
   height: 80px;
   width: 90px;
-  margin: auto;
+  transform: rotate(30deg);
 }
 
 .date-posted {
