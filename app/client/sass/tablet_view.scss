@@ -28,13 +28,14 @@
     flex-direction: row;
     display: flex;
     justify-content: space-around;
-    width: 90%;
+    width: 95%;
     position: relative;
     top: -125px;
+    margin: 0em;
     aside {
-      margin: 1.75em;
+      margin: 1em;
       h5 {
-        font-size: 1.75em;
+        font-size: 1.25em;
       }
     }
   }
