@@ -1,6 +1,8 @@
 @media screen and (min-width: $TabletBreakPoint) {
   .jumbotron {
     padding: 0em;
+    height: 470px;
+    margin: 2em;
   }
   .developer_section {
    flex-direction: row;
