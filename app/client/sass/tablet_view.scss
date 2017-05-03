@@ -31,6 +31,12 @@
     width: 90%;
     position: relative;
     top: -125px;
+    aside {
+      margin: 1.75em;
+      h5 {
+        font-size: 1.75em;
+      }
+    }
   }
 
   .saved-jobs {
