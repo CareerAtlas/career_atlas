@@ -17,7 +17,7 @@
     vm.displayedJob = null;
     vm.hideSearch = false;
     vm.notification = null;
-
+    vm.getAToken = {};
     /**
      * Shows or hides search form in home page
      * @return {Boolean}
@@ -167,6 +167,9 @@
         vm.message = 'Something went wrong here. Error = ' + err.message;
         throw new Error(vm.message);
       });
+    };
+    vm.getAToken = function getAToken() {
+      return localStorage.getItem('token');
     };
   }
 }());
