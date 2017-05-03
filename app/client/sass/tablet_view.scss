@@ -1,11 +1,15 @@
 @media screen and (min-width: $TabletBreakPoint) {
   .jumbotron {
-    padding: 0em;
-    height: 470px;
-    margin: 2em;
+    // .jumbotron p:first-child {
+    //   font-size: 2.5em;
+    // }
+    // padding: 0em;
+    // height: 470px;
+    // margin: 2em;
   }
+
   .developer_section {
-   flex-direction: row;
+  //  flex-direction: row;
   }
 
   .search_form {
@@ -27,12 +31,12 @@
     }
   }
   .icon-section {
-    flex-direction: row;
-    display: flex;
-    justify-content: space-around;
+    // flex-direction: row;
+    // display: flex;
+    // justify-content: space-around;
     width: 95%;
-    position: relative;
-    top: -125px;
+    // position: relative;
+    // top: -125px;
     margin: 0em;
     aside {
       margin: 1em;
@@ -52,7 +56,7 @@
     }
   }
   .saved-jobs-section {
-    flex-direction: row;
+    // flex-direction: row;
   }
 
   .saved-jobs-apply-here-button {
@@ -94,31 +98,39 @@
     margin: 0.25em;
     display: inline-block;
     float: right;
+    clear: both;
     font-size: 1.15em;
   }
 
   .job-information {
     section {
-      display: flex;
+      aside {
+        margin: 0em;
+        padding: 0em 1em;
+      }
     }
   }
 
   .thumbnail {
-    margin: 1.5em;
+    // margin: 1.5em;
     height: 200px;
     width: 200px;
   }
 
   .walk-score-information {
-    width: 40%;
-    display: flex;
-    float: right;
-    position: relative;
-    top: -125px;
+    // width: 40%;
+    // display: flex;
+    // float: right;
+    // position: relative;
+    // top: -125px;
   }
 
   .date-posted {
-    position: relative;
-    top: -125px;
+    // position: relative;
+    // top: -125px;
+  }
+
+  #job-title {
+    font-size: 2em;
   }
 }

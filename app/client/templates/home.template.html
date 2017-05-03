@@ -64,8 +64,6 @@
   markerclicked='jobCtrl.showJobInformation'>
 </map>
 
-
-
 <article ng-show='jobCtrl.displayedJob' class='jumbotron'>
   <section class='job-information'>
 <button href='#' ng-click='jobCtrl.displayedJob = !jobCtrl.displayedJob; jobCtrl.notification=null' class='job-info-button'>
@@ -76,10 +74,9 @@
     <section>
       <img class='thumbnail' alt='CompanyLogo' src='{{jobCtrl.displayedJob.glassdoorData.logo}}' ng-show='jobCtrl.displayedJob.glassdoorData.logo.length != 0'>
       <aside>
-        <p>{{jobCtrl.displayedJob.job_title}}</p>
+        <p class='job-title' id='job-title'>{{jobCtrl.displayedJob.job_title}}</p>
         <p class='company-name'>{{jobCtrl.displayedJob.company}}</p>
         <p class='job-location'><i class='fa fa-map-marker' aria-hidden='true'></i> {{jobCtrl.displayedJob.location}}</p>
-        <button class='apply_here apply_here_button'><a class='apply_here' ng-href="{{jobCtrl.displayedJob.url}}">Apply Here</a></button>
       </aside>
     </section>
   </section>
@@ -127,4 +124,5 @@
     </aside>
   </section>
   <p class='date-posted'>Posted {{jobCtrl.displayedJob.date_posted}}</p>
+  <button class='apply_here apply_here_button'><a class='apply_here' ng-href="{{jobCtrl.displayedJob.url}}">Apply Here</a></button>
 </article>
