@@ -1,0 +1,8 @@
+languange: ruby
+rvm:
+  - 2.4.1-p111
+run:
+  - "npm install"
+  - "bin/setup"
+  - "rails generate rspec:install"
+  - "bundle exec rspec"
