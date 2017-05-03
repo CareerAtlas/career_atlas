@@ -102,7 +102,8 @@
         });
 
         if(foundJob) {
-          
+          foundJob.saved = true;
+          vm.displayedJob.saved = true;
         }
 
       })
