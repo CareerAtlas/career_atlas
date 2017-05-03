@@ -1,6 +1,9 @@
 <article class='search-page' ng-class='{"search-page-form-hidden": jobCtrl.hideSearch}'>
   <p>
-    <button ng-click='jobCtrl.toggleSearchForm()' ng-show='jobCtrl.hideSearch' class='form_submit_button'>Search Again</button>
+    <button
+      ng-click='jobCtrl.toggleSearchForm()'
+      ng-show='jobCtrl.hideSearch && !jobCtrl.displayedJob' 
+      class='form_submit_button'>Search Again</button>
   </p>
   <section class='search_form' ng-hide='jobCtrl.hideSearch'>
     <form class='panel-default' ng-submit='jobCtrl.submit(jobCtrl.search)'>
