@@ -14,7 +14,7 @@
     border-radius: 0.5em;
     padding: 1em;
     border: 3px solid $ThemeColorTwo;
-    transition:.5s;
+    transition:.25s;
     &:hover {
       background-color: $DreamThemeColorTwo;
     }
@@ -41,7 +41,7 @@
   padding-left: 2em;
   background-color: $ThemeColorOne;
   color: $ThemeColorFour;
-  transition:.5s;
+  transition:.25s;
 }
 
 .more-information-button:hover,
@@ -78,7 +78,7 @@
   margin-top: 1em;
   font-weight: bold;
   text-decoration: none;
-  transition:.5s;
+  transition:.25s;
   a {
     text-decoration: none;
     font-weight: bold;
