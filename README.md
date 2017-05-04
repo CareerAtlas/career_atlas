@@ -1,10 +1,10 @@
-# [![map-marker-grey-icon.png](https://s15.postimg.org/p2cn1j797/map-marker-grey-icon.png)](https://postimg.org/image/zcf20rx4n/) [CareerAtlas](https://careeratlas.herokuapp.com/) 
+# [![map-marker-grey-icon.png](https://s15.postimg.org/p2cn1j797/map-marker-grey-icon.png)](https://postimg.org/image/zcf20rx4n/) [CareerAtlas](https://careeratlas.herokuapp.com/)
 
-## What is CareerAtlas? ##
+## What is [CareerAtlas](https://careeratlas.herokuapp.com/)? ##
 
-CareerAtlas, a location-based resource for jobs, uses WalkScore, GlassDoor, Indeed, and Google Maps APIs to provide job seekers a unique user experience and data set. The interface includes the ability to search for jobs via custom parameters, see job results populated on a map, and save jobs for future reference.
+[CareerAtlas](https://careeratlas.herokuapp.com/), a location-based resource for jobs, uses WalkScore, GlassDoor, Indeed, and Google Maps APIs to provide job seekers a unique user experience and data set. The interface includes the ability to search for jobs via custom parameters, see job results populated on a map, and save jobs for future reference.
 
-## How CareerAtlas works ##
+## How [CareerAtlas](https://careeratlas.herokuapp.com/) works ##
 
 *Describe how the app works and what things you can do here.*
 
@@ -16,15 +16,15 @@ Content Provided By:
 * [Walk Score](https://www.walkscore.com/)
 * [Google Maps](http://www.googlemaps.com)
 
-### How CareerAtlas was made ###
+### How [CareerAtlas](https://careeratlas.herokuapp.com/) was made ###
 
 This project was built using [AngularJS](https://angularjs.org/) and [Sass](http://sass-lang.com/). [Grunt](http://gruntjs.com/) was used to automate the build process. Testing was done using [Mocha](https://mochajs.org/), [Chai](http://chaijs.com/) and [Karma](https://karma-runner.github.io/0.13/index.html). The database was built using [Ruby on Rails](http://rubyonrails.org/).
 
-### Contributing to CareerAtlas ###
+### Contributing to [CareerAtlas](https://careeratlas.herokuapp.com/) ###
 
 If you fork this project to work on your own version, you will find that the frontend files are in the app folder, nested in the client folder. The backend files are in **insert file here**.
 
-To get CareerAtlas running, please follow the steps below.<br>
+To get [CareerAtlas](https://careeratlas.herokuapp.com/) running, please follow the steps below.<br>
 1. [Install git](http://git-scm.com)
 2. [Install Ruby On Rails](http://rubyonrails.org/)
 3. [Install Grunt](http://gruntjs.com)
