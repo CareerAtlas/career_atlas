@@ -115,6 +115,7 @@
 .walk-score-information {
   padding: 0em;
   display: flex;
+  justify-content: space-around;
   background-color: $DreamThemeColorFive;
   box-sizing: border-box;
   border: 8px solid $DreamThemeColorTwo;
