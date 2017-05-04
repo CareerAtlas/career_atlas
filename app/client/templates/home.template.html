@@ -107,10 +107,10 @@
       <a class='glyphicon glyphicon-user' aria-hidden='true'></a>
       <a class='badge badge-notify' aria-hidden='true'>{{jobCtrl.displayedJob.glassdoorData.leadership_rating}}</a>
     </aside>
-    <aside ng-show='jobCtrl.displayedJob.glassdoorData.recommend_to_friend_rating.length != null'>
+    <aside>
       <h5>Recommend to a Friend</h5>
       <a class='glyphicon glyphicon-sunglasses' aria-hidden='true'></a>
-      <a class='badge badge-notify' aria-hidden='true'>{{jobCtrl.displayedJob.glassdoorData.recommend_to_friend_rating}}</a>
+      <a class='badge badge-notify' aria-hidden='true'>{{jobCtrl.displayedJob.glassdoorData.recommend_to_friend_rating}}%</a>
     </aside>
     <aside ng-show='jobCtrl.displayedJob.glassdoorData.opportunity_rating.length != null'>
       <h5>Opportunity</h5>
