@@ -1,7 +1,5 @@
 # [![map-marker-grey-icon.png](https://s15.postimg.org/p2cn1j797/map-marker-grey-icon.png)](https://postimg.org/image/zcf20rx4n/) [CareerAtlas](https://careeratlas.herokuapp.com/)
 
-## What is [CareerAtlas](https://careeratlas.herokuapp.com/)? ##
-
 [CareerAtlas](https://careeratlas.herokuapp.com/), a location-based resource for jobs, uses WalkScore, GlassDoor, Indeed, and Google Maps APIs to provide job seekers a unique user experience and data set. The interface includes the ability to search for jobs via custom parameters, see job results populated on a map, and save jobs for future reference.
 
 ### How [CareerAtlas](https://careeratlas.herokuapp.com/) works ###
