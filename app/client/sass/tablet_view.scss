@@ -1,4 +1,8 @@
 @media screen and (min-width: $TabletBreakPoint) {
+  .navbar {
+    font-size: 1.15em;
+  }
+
   .glyphicon-heart, .glyphicon-usd, .glyphicon-user, .glyphicon-sunglasses, .glyphicon-star, .glyphicon-briefcase, .glyphicon-home, .glyphicon-cog {
     font-size: 5em;
   }
@@ -38,15 +42,6 @@
 
   .badge-notify {
     font-size: 3em;
-  }
-
-  .jumbotron {
-    // .jumbotron p:first-child {
-    //   font-size: 2.5em;
-    // }
-    // padding: 0em;
-    // height: 470px;
-    // margin: 2em;
   }
 
   .apply_here {
@@ -107,7 +102,7 @@
     }
   }
   .saved-jobs-section {
-    // flex-direction: row;
+    flex-direction: row;
   }
 
   .saved-jobs-apply-here-button {
