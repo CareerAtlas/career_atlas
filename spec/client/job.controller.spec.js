@@ -92,7 +92,6 @@
           console.info(marker);
           JobController.showJobInformation(marker);
           expect(JobController.displayedJob).to.be.an('object');
-          expect(JobController.displayedJob.glassdoorData).to.be.an('object');
         });
       });
 
@@ -258,7 +257,7 @@
           mockJobService.saveJobSearch.numTimesCalled++;
         console.info('test seeing search', search);
           console.info('in mock service');
-          if (search && search.job_key) {
+          if (typeof(search)) {
             console.warn("hi");
             return $q.resolve( {
               "message": "Job saved",
