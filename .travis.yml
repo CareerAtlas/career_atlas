@@ -1,11 +1,14 @@
-languange: ruby
+language: ruby
+cache: bundler
 rvm:
   - 2.4.1
 services:
   - postgresql
+before_install:
+  - gem update --system
+  - gem --version
 before_script:
-  psql -c 'create database CareerAtlas_test;' -U postgres
-run:
-  - "npm install"
-  - "bin/setup"
-  - "bundle exec rspec"
+  - psql -c 'create database travis_ci_test;' -U postgres
+  - cp config/database.yml.travis config/database.yml
+
+script: bundle exec rake
