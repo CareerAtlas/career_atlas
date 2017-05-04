@@ -1,4 +1,4 @@
-# [CareerAtlas](https://careeratlas.herokuapp.com/) [![map-marker-grey-icon.png](https://s15.postimg.org/p2cn1j797/map-marker-grey-icon.png)](https://postimg.org/image/zcf20rx4n/)
+# [![map-marker-grey-icon.png](https://s15.postimg.org/p2cn1j797/map-marker-grey-icon.png)](https://postimg.org/image/zcf20rx4n/) [CareerAtlas](https://careeratlas.herokuapp.com/) 
 
 ## What is CareerAtlas? ##
 
