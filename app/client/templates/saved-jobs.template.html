@@ -7,7 +7,7 @@
     <p><i class='fa fa-map-marker' aria-hidden='true'></i> {{job.location}}</p>
     <button ng-click='savedJobsCtrl.showJobInformation({ data: job })' class='more-information-button'>More Information</button>
     <aside class='more-information-section' ng-show='savedJobsCtrl.displayedJob.id === job.id'>
-      <p><a class='badge badge-info walkscore-description'>{{savedJobsCtrl.displayedJob.walkscoreData.description}}</a></p>
+      <p><a class='walkscore-description'>{{savedJobsCtrl.displayedJob.walkscoreData.description}}</a></p>
       <p>Walk Score <a class='badge badge-pill badge-info'>{{savedJobsCtrl.displayedJob.walkscoreData.walk_score}}</a></p>
       <p>Compensation <a class='badge badge-pill badge-info'>{{savedJobsCtrl.displayedJob.glassdoorData.compensation_rating}}</a></p>
       <p>Overall <a class='badge badge-pill badge-info'>{{savedJobsCtrl.displayedJob.glassdoorData.overall_rating}}</a></p>
@@ -17,7 +17,7 @@
       <p>Recommend to a Friend <a class='badge badge-pill badge-info'>{{savedJobsCtrl.displayedJob.glassdoorData.recommend_to_friend_rating}}%</a></p>
       <p>Opportunity <a class='badge badge-pill badge-info'>{{savedJobsCtrl.displayedJob.glassdoorData.opportunity_rating}}</a></p>
       <p>Work Life Balance <a class='badge badge-pill badge-info'>{{savedJobsCtrl.displayedJob.glassdoorData.work_life_balance_rating}}</a></p>
-      <p><button class='saved-jobs-apply-here-button'><a ng-href="{{savedJobsCtrl.displayedJob.url}}">Apply Here</a></button></p>
+      <p class='apply-button-on-saved-jobs'><button class='saved-jobs-apply-here-button'><a ng-href="{{savedJobsCtrl.displayedJob.url}}">Apply Here</a></button></p>
     </aside>
   </section>
 </article>
