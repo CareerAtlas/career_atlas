@@ -3,9 +3,8 @@ rvm:
   - 2.4.1
 services:
   - postgresql
-test:
-  adapter: postgresql
-  database: travis_ci_test
+before_script:
+  - psql -c 'create database travis_ci_test;' -U postgres
 run:
   - "npm install"
   - "bin/setup"
