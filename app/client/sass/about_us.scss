@@ -1,9 +1,9 @@
 .developer_section {
- display: flex;
- flex-direction: column;
- justify-content: flex-start;
- text-align: center;
- box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  text-align: center;
+  box-sizing: border-box;
 }
 
 .each_developer {
@@ -36,8 +36,8 @@
     font-weight: bold;
   }
   section h2 {
-      font-weight: bold;
-    }
+    font-weight: bold;
+  }
 }
 
 .summary {

@@ -2,7 +2,7 @@
   'use strict';
 
   angular.module('career_atlas')
-    .controller('NavController', NavController);
+  .controller('NavController', NavController);
 
   NavController.$inject = ['UserService'];
   function NavController(UserService) {
@@ -16,5 +16,4 @@
       return !!UserService.getToken();
     };
   }
-
 }());
