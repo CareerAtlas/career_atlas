@@ -1,24 +1,24 @@
 <section class='saved-jobs-section'>
-<article class='saved-jobs' ng-repeat='job in savedJobsCtrl.jobs'>
-  <section>
-    <button ng-click='savedJobsCtrl.deleteJob(job.job_key)' class='delete-job-button'>X</button>
-    <h4></i> {{job.job_title}}</h4>
-    <p><i class='fa fa-building' aria-hidden='true'></i> {{job.company}}</p>
-    <p><i class='fa fa-map-marker' aria-hidden='true'></i> {{job.location}}</p>
-    <button ng-click='savedJobsCtrl.showJobInformation({ data: job })' class='more-information-button'>More Information</button>
-    <aside class='more-information-section' ng-show='savedJobsCtrl.displayedJob.id === job.id'>
-      <p><a class='walkscore-description'>{{savedJobsCtrl.displayedJob.walkscoreData.description}}</a></p>
-      <p>Walk Score <a class='badge badge-pill badge-info'>{{savedJobsCtrl.displayedJob.walkscoreData.walk_score}}</a></p>
-      <p>Compensation <a class='badge badge-pill badge-info'>{{savedJobsCtrl.displayedJob.glassdoorData.compensation_rating}}</a></p>
-      <p>Overall <a class='badge badge-pill badge-info'>{{savedJobsCtrl.displayedJob.glassdoorData.overall_rating}}</a></p>
-      <p>Compensation <a class='badge badge-pill badge-info'>{{savedJobsCtrl.displayedJob.glassdoorData.compensation_rating}}</a></p>
-      <p>Culture <a class='badge badge-pill badge-info'>{{savedJobsCtrl.displayedJob.glassdoorData.culture_rating}}</a></p>
-      <p>Leadership <a class='badge badge-pill badge-info'>{{savedJobsCtrl.displayedJob.glassdoorData.leadership_rating}}</a></p>
-      <p>Recommend to a Friend <a class='badge badge-pill badge-info'>{{savedJobsCtrl.displayedJob.glassdoorData.recommend_to_friend_rating}}%</a></p>
-      <p>Opportunity <a class='badge badge-pill badge-info'>{{savedJobsCtrl.displayedJob.glassdoorData.opportunity_rating}}</a></p>
-      <p>Work Life Balance <a class='badge badge-pill badge-info'>{{savedJobsCtrl.displayedJob.glassdoorData.work_life_balance_rating}}</a></p>
-      <p class='apply-button-on-saved-jobs'><button class='saved-jobs-apply-here-button'><a ng-href="{{savedJobsCtrl.displayedJob.url}}">Apply Here</a></button></p>
-    </aside>
-  </section>
-</article>
+  <article class='saved-jobs' ng-repeat='job in savedJobsCtrl.jobs'>
+    <section>
+      <button ng-click='savedJobsCtrl.deleteJob(job.job_key)' class='delete-job-button'>X</button>
+      <h4></i> {{job.job_title}}</h4>
+      <p><i class='fa fa-building' aria-hidden='true'></i> {{job.company}}</p>
+      <p><i class='fa fa-map-marker' aria-hidden='true'></i> {{job.location}}</p>
+      <button ng-click='savedJobsCtrl.showJobInformation({ data: job })' class='more-information-button'>More Information</button>
+      <aside class='more-information-section' ng-show='savedJobsCtrl.displayedJob.id === job.id'>
+        <p><a class='walkscore-description'>{{savedJobsCtrl.displayedJob.walkscoreData.description}}</a></p>
+        <p>Walk Score <a class='badge badge-pill badge-info'>{{savedJobsCtrl.displayedJob.walkscoreData.walk_score}}</a></p>
+        <p>Compensation <a class='badge badge-pill badge-info'>{{savedJobsCtrl.displayedJob.glassdoorData.compensation_rating}}</a></p>
+        <p>Overall <a class='badge badge-pill badge-info'>{{savedJobsCtrl.displayedJob.glassdoorData.overall_rating}}</a></p>
+        <p>Compensation <a class='badge badge-pill badge-info'>{{savedJobsCtrl.displayedJob.glassdoorData.compensation_rating}}</a></p>
+        <p>Culture <a class='badge badge-pill badge-info'>{{savedJobsCtrl.displayedJob.glassdoorData.culture_rating}}</a></p>
+        <p>Leadership <a class='badge badge-pill badge-info'>{{savedJobsCtrl.displayedJob.glassdoorData.leadership_rating}}</a></p>
+        <p>Recommend to a Friend <a class='badge badge-pill badge-info'>{{savedJobsCtrl.displayedJob.glassdoorData.recommend_to_friend_rating}}%</a></p>
+        <p>Opportunity <a class='badge badge-pill badge-info'>{{savedJobsCtrl.displayedJob.glassdoorData.opportunity_rating}}</a></p>
+        <p>Work Life Balance <a class='badge badge-pill badge-info'>{{savedJobsCtrl.displayedJob.glassdoorData.work_life_balance_rating}}</a></p>
+        <p class='apply-button-on-saved-jobs'><button class='saved-jobs-apply-here-button'><a ng-href="{{savedJobsCtrl.displayedJob.url}}">Apply Here</a></button></p>
+      </aside>
+    </section>
+  </article>
 </section>

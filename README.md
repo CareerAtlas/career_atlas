@@ -43,4 +43,4 @@ To get CareerAtlas running, please follow the steps below.<br>
 
 ### Acknowledgements ###
 
-We would also like to thank our fellow classmates at the Iron Yard for their continued support throughout the cohort. We would like to thank our instructors who guided us through the course and the final project.
+We would also like to thank our fellow classmates at the Iron Yard for their continued support throughout the cohort. We would also like to thank our instructors who guided us through the course and the final project.

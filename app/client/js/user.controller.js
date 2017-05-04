@@ -2,7 +2,7 @@
   'use strict';
 
   angular.module('career_atlas')
-    .controller('UserController', UserController);
+  .controller('UserController', UserController);
 
   UserController.$inject = ['$state', 'UserService'];
 
@@ -16,30 +16,25 @@
     vm.createUser = function createUser(user) {
       return UserService.createUser(user)
 
-        .then(function goToSavedJobs(createdUser) {
-          $state.go('login');
-        })
-        .catch(function handleError(err) {
-          console.warn(err);
-          vm.message = 'Something went wrong...Error = ' + err.status;
-        });
+      .then(function goToSavedJobs(createdUser) {
+        $state.go('login');
+      })
+      .catch(function handleError(err) {
+        console.warn(err);
+        vm.message = 'Something went wrong...Error = ' + err.status;
+      });
     };
 
     vm.login = function login(user) {
       return UserService.login(user)
 
-        .then(function goToSavedJobs(loggedInUser) {
-          $state.go('home');
-        })
-        .catch(function handleError(err) {
-          console.warn(err);
-          vm.message = 'Something went wrong...Error = ' + err.status;
-        });
+      .then(function goToSavedJobs(loggedInUser) {
+        $state.go('home');
+      })
+      .catch(function handleError(err) {
+        console.warn(err);
+        vm.message = 'Something went wrong...Error = ' + err.status;
+      });
     };
-
   }
-
-
-
-
 }());

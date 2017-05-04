@@ -1,9 +1,9 @@
 <article class='search-page' ng-class='{"search-page-form-hidden": jobCtrl.hideSearch}'>
   <p>
     <button
-      ng-click='jobCtrl.toggleSearchForm()'
-      ng-show='jobCtrl.hideSearch && !jobCtrl.displayedJob'
-      class='form_submit_button'>Search</button>
+    ng-click='jobCtrl.toggleSearchForm()'
+    ng-show='jobCtrl.hideSearch && !jobCtrl.displayedJob'
+    class='form_submit_button'>Search</button>
   </p>
   <section class='search_form' ng-hide='jobCtrl.hideSearch'>
     <form class='panel-default' ng-submit='jobCtrl.submit(jobCtrl.search)'>
@@ -20,7 +20,13 @@
       id='jobtitle'>
 
       <label for='jobtype'>Job Type</label>
-      <select name='job_type' id='job_type' required class='form-control' ng-model='jobCtrl.search.job_type' type='option'>
+      <select
+        name='job_type'
+        id='job_type'
+        required
+        class='form-control'
+        ng-model='jobCtrl.search.job_type'
+        type='option'>
         <option value='All job types'>All job types</option>
         <option value='Temporary'>Temporary</option>
         <option value='Part-time'>Part-time</option>
@@ -30,7 +36,13 @@
       </select>
 
       <label for='radius'>Location</label>
-      <select name='radius' id='radius' required class='form-control' ng-model='jobCtrl.search.radius' type='option'>
+      <select
+        name='radius'
+        id='radius'
+        required
+        class='form-control'
+        ng-model='jobCtrl.search.radius'
+        type='option'>
         <option value='0'>only within</option>
         <option value='1'>within 1 mile of</option>
         <option value='5'>within 5 miles of</option>
@@ -42,16 +54,16 @@
 
         <label for='location'>(city, state, or zipcode)</label>
         <input
-        class='form-control'
-        type='text'
-        id='location'
-        name='location'
-        size='28'
-        maxlength='250'
-        placeholder='  Arlington, VA'
-        autocomplete='off'
-        ng-model='jobCtrl.search.location'
-        required>
+          class='form-control'
+          type='text'
+          id='location'
+          name='location'
+          size='28'
+          maxlength='250'
+          placeholder='  Arlington, VA'
+          autocomplete='off'
+          ng-model='jobCtrl.search.location'
+          required>
         <input type='submit' class='form_submit_button' value='find jobs'>
       </form>
     </section>
@@ -66,10 +78,16 @@
 
 <article ng-show='jobCtrl.displayedJob' class='jumbotron'>
   <section class='job-information'>
-<button href='#' ng-click='jobCtrl.displayedJob = !jobCtrl.displayedJob; jobCtrl.notification=null' class='job-info-button'>
+    <button href='#' ng-click='jobCtrl.displayedJob = !jobCtrl.displayedJob; jobCtrl.notification=null' class='job-info-button'>
       Back to Map
     </button>
-    <input type='submit' name='Save' class='job-info-button' ng-click='jobCtrl.saveJob(jobCtrl.displayedJob.job_key)' ng-hide='jobCtrl.displayedJob.saved' value='Save Job'>
+    <input
+      type='submit'
+      name='Save'
+      class='job-info-button'
+      ng-click='jobCtrl.saveJob(jobCtrl.displayedJob.job_key)'
+      ng-hide='jobCtrl.displayedJob.saved'
+      value='Save Job'>
     <p ng-show='jobCtrl.notification' class='job-saved-notification-message'>{{jobCtrl.notification}}</p>
     <section>
       <img class='thumbnail' alt='CompanyLogo' src='{{jobCtrl.displayedJob.glassdoorData.logo}}' ng-show='jobCtrl.displayedJob.glassdoorData.logo.length != 0'>

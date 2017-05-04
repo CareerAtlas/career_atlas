@@ -114,7 +114,7 @@
         headers: {
           'Content-Type': 'application/json',
           'Authorization': localStorage.getItem('token')
-        }        
+        }
       })
       .then(function handleResponse(response) {
         let deletedJob = response.data;
@@ -133,6 +133,4 @@
       deleteSavedJob: deleteSavedJob
     };
   }
-
-
 }());
