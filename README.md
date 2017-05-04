@@ -4,7 +4,7 @@
 
 [CareerAtlas](https://careeratlas.herokuapp.com/), a location-based resource for jobs, uses WalkScore, GlassDoor, Indeed, and Google Maps APIs to provide job seekers a unique user experience and data set. The interface includes the ability to search for jobs via custom parameters, see job results populated on a map, and save jobs for future reference.
 
-## How [CareerAtlas](https://careeratlas.herokuapp.com/) works ##
+### How [CareerAtlas](https://careeratlas.herokuapp.com/) works ###
 
 *Describe how the app works and what things you can do here.*
 
