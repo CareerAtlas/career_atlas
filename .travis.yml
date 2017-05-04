@@ -3,13 +3,10 @@ rvm:
   - 2.4.1
 services:
   - postgresql
-before_script:
-  - psql -c 'create database travis_ci_test;' -U postgres
 test:
   adapter: postgresql
   database: travis_ci_test
 run:
   - "npm install"
   - "bin/setup"
-  - "rails generate rspec:install"
   - "bundle exec rspec"
