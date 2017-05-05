@@ -1,6 +1,10 @@
 @media screen and (min-width: $DesktopBreakPoint) {
   .developer_section {
-   flex-direction: row;
+    flex-direction: row;
+  }
+
+  .headshots {
+    width: 300px;
   }
 
   .search_form {

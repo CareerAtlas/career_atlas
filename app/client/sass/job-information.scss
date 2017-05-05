@@ -1,10 +1,14 @@
 .glyphicon-heart, .glyphicon-usd, .glyphicon-user, .glyphicon-sunglasses, .glyphicon-star, .glyphicon-briefcase, .glyphicon-home, .glyphicon-cog {
   font-size: 3.25em;
-  color: $DreamThemeColorFour;
+  color: $DreamThemeColorOne;
+}
+.glyphicon-heart:hover, .glyphicon-usd:hover, .glyphicon-user:hover, .glyphicon-sunglasses:hover, .glyphicon-star:hover, .glyphicon-briefcase:hover, .glyphicon-home:hover, .glyphicon-cog:hover {
+  text-decoration: none;
 }
 
 .badge-notify {
-  font-size: 2.75em;
+  font-size: 2.45em;
+  padding: 0.2em;
   background-color: $ThemeColorEight;
   color: $ThemeColorFive;
   position: relative;
@@ -14,20 +18,24 @@
 
 .apply_here {
   text-decoration: none;
+  padding: 0em;
   font-weight: bold;
   border-radius: 0.25em;
-  color: $ThemeColorSix;
-  padding: 0.5em;
+  color: $ThemeColorFour;
+  width: 100%;
+  font-size: 1.5em;
 }
 
 .apply_here_button {
-  background-color: $ThemeColorNine;
+  background-color: $ThemeColorOne;
+  padding: 0.65em;
 }
 
-.apply_here:hover, .apply_here:active, .apply_here:link, .apply_here:visited {
+.apply_here:hover, .apply_here.active, .apply_here:active:focus, .apply_here:focus {
   text-decoration: none;
   cursor: pointer;
-  color: $ThemeColorFive;
+  color: $ThemeColorFour;
+  background-color: $ThemeColorTwo;
 }
 
 .icon-section {
@@ -39,21 +47,24 @@
   justify-content: space-around;
   width: 90%;
   h5 {
-    font-size: 1.15em;
+    font-size: 1.45em;
+  }
+  aside {
+    padding: 1em;
   }
 }
 
 .thumbnail {
-  margin: 1em;
-  height: 120px;
-  width: 120px;
+  margin-top: 1em;
+  width: 140px;
+  border: 2px solid $DreamThemeColorTwo;
 }
 
 .jumbotron {
   margin: 2em;
   box-sizing: border-box;
   border-radius: 0.5em;
-  padding-top: 0em;
+  padding: 1em;
   p:first-child {
     font-weight: bold;
     margin-bottom: 0px;
@@ -62,7 +73,7 @@
 
 .job-location {
   margin: 0em;
-  padding-left: 1em;
+  display: inline;
 }
 
 .job-information {
@@ -72,23 +83,24 @@
     aside {
       align-self: center;
       margin: 1em;
+      width: 100%;
     }
   }
 }
 
 .job-info-button {
-  width: 80%;
-  margin: auto;
+  width: 100%;
+  padding: 0.65em;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 1.5em;
   font-weight: bold;
-  margin-top: 0.5em;
+  margin-top: 0.75em;
   border-radius: 0.25em;
   background-color: $ThemeColorOne;
   color: $ThemeColorFour;
-  transition:.5s;
+  transition:.25s;
 }
 
 .job-info-button:hover,
@@ -100,28 +112,33 @@
 }
 
 .walk-score-information {
-  margin: 0em 1em 1em 1em;
   padding: 0em;
   display: flex;
-  font-style: italic;
+  justify-content: space-around;
   background-color: $DreamThemeColorFive;
   box-sizing: border-box;
-  padding: 0.25em 0.5em 0.25em 0.25em;
-  border: 1px solid $DreamThemeColorThree;
+  border: 8px solid $DreamThemeColorTwo;
   border-radius: 0.25em;
   p {
-    margin: 0.5em;
+    margin: 0em;
     text-align: center;
     font-weight: bold;
+    padding: 1em 0em;
   }
 }
 
 .foot-image {
-  height: 80px;
+  height: 90px;
   width: 90px;
-  margin: auto;
+  transform: rotate(30deg);
 }
 
 .date-posted {
   text-align: center;
+}
+
+.job-saved-notification-message {
+  text-align: center;
+  margin: 0em;
+  color: red;
 }
