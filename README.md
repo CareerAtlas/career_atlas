@@ -1,28 +1,21 @@
 # [![map-marker-grey-icon.png](https://s15.postimg.org/p2cn1j797/map-marker-grey-icon.png)](https://postimg.org/image/zcf20rx4n/) [CareerAtlas](https://careeratlas.herokuapp.com/)
 
-## What is [CareerAtlas](https://careeratlas.herokuapp.com/)? ##
-
 [CareerAtlas](https://careeratlas.herokuapp.com/), a location-based resource for jobs, uses WalkScore, GlassDoor, Indeed, and Google Maps APIs to provide job seekers a unique user experience and data set. The interface includes the ability to search for jobs via custom parameters, see job results populated on a map, and save jobs for future reference.
 
-### How [CareerAtlas](https://careeratlas.herokuapp.com/) works ###
-
-*Describe how the app works and what things you can do here.*
+This project was built using [AngularJS](https://angularjs.org/) and [Sass](http://sass-lang.com/). [Grunt](http://gruntjs.com/) was used to automate the build process. Testing was done using [Mocha](https://mochajs.org/), [Chai](http://chaijs.com/) and [Karma](https://karma-runner.github.io/0.13/index.html). The database was built using [Ruby on Rails](http://rubyonrails.org/).
 
 The live site for CareerAtlas can be found at [CareerAtlas](https://careeratlas.herokuapp.com/). This application was built as a capstone project for an engineering immersive bootcamp at [The Iron Yard](https://www.theironyard.com/) in Washington, DC.
 
-Content Provided By:
-* [Indeed](https://www.indeed.com)
-* [Glassdoor](http://www.glassdoor.com)
-* [Walk Score](https://www.walkscore.com/)
-* [Google Maps](http://www.googlemaps.com)
+[![CA_movie.gif](https://s1.postimg.org/jq6a5t3u7/CA_movie.gif)](https://postimg.org/image/av5fvaf1n/)
 
-### How [CareerAtlas](https://careeratlas.herokuapp.com/) was made ###
+## How to get [CareerAtlas](https://careeratlas.herokuapp.com/) running on your local machine ##
 
-This project was built using [AngularJS](https://angularjs.org/) and [Sass](http://sass-lang.com/). [Grunt](http://gruntjs.com/) was used to automate the build process. Testing was done using [Mocha](https://mochajs.org/), [Chai](http://chaijs.com/) and [Karma](https://karma-runner.github.io/0.13/index.html). The database was built using [Ruby on Rails](http://rubyonrails.org/).
 
 ### Contributing to [CareerAtlas](https://careeratlas.herokuapp.com/) ###
 
 If you fork this project to work on your own version, you will find that the frontend files are in the app folder, nested in the client folder. The backend files are in **insert file here**.
+
+**need to insert authentication commands for google maps api**
 
 To get [CareerAtlas](https://careeratlas.herokuapp.com/) running, please follow the steps below.<br>
 1. [Install git](http://git-scm.com)
@@ -44,3 +37,5 @@ To get [CareerAtlas](https://careeratlas.herokuapp.com/) running, please follow 
 ### Acknowledgements ###
 
 We would also like to thank our fellow classmates at the Iron Yard for their continued support throughout the cohort. We would also like to thank our instructors who guided us through the course and the final project.
+
+Content Provided By: [Indeed](https://www.indeed.com), [Glassdoor](http://www.glassdoor.com), [Walk Score](https://www.walkscore.com/) and [Google Maps](http://www.googlemaps.com).
