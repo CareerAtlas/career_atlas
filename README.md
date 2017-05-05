@@ -2,6 +2,8 @@
 
 [CareerAtlas](https://careeratlas.herokuapp.com/), a location-based resource for jobs, uses WalkScore, GlassDoor, Indeed, and Google Maps APIs to provide job seekers a unique user experience and data set. The interface includes the ability to search for jobs via custom parameters, see job results populated on a map, and save jobs for future reference.
 
+[![CA_movie.gif](https://s1.postimg.org/jq6a5t3u7/CA_movie.gif)](https://postimg.org/image/av5fvaf1n/)
+
 ### How [CareerAtlas](https://careeratlas.herokuapp.com/) works ###
 
 *Describe how the app works and what things you can do here.*
@@ -21,6 +23,8 @@ This project was built using [AngularJS](https://angularjs.org/) and [Sass](http
 ### Contributing to [CareerAtlas](https://careeratlas.herokuapp.com/) ###
 
 If you fork this project to work on your own version, you will find that the frontend files are in the app folder, nested in the client folder. The backend files are in **insert file here**.
+
+**need to insert authentication commands for google maps api**
 
 To get [CareerAtlas](https://careeratlas.herokuapp.com/) running, please follow the steps below.<br>
 1. [Install git](http://git-scm.com)
