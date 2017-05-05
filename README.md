@@ -6,7 +6,7 @@ This project was built using [AngularJS](https://angularjs.org/) and [Sass](http
 
 The live site for CareerAtlas can be found at [CareerAtlas](https://careeratlas.herokuapp.com/). This application was built as a capstone project for an engineering immersive bootcamp at [The Iron Yard](https://www.theironyard.com/) in Washington, DC.
 
-[![CA_movie.gif](https://s1.postimg.org/jq6a5t3u7/CA_movie.gif)](https://postimg.org/image/av5fvaf1n/)
+[![CA_movie.gif](https://s1.postimg.org/jq6a5t3u7/CA_movie.gif)
 
 ## How to get [CareerAtlas](https://careeratlas.herokuapp.com/) running on your local machine ##
 
