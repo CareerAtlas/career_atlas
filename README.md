@@ -2,7 +2,7 @@
 
 [CareerAtlas](https://careeratlas.herokuapp.com/), a location-based resource for jobs, uses WalkScore, GlassDoor, Indeed, and Google Maps APIs to provide job seekers a unique user experience. The interface includes the ability to search for jobs via custom parameters, see job results populated on a map, and save jobs for future reference.
 
-This project was built using [AngularJS](https://angularjs.org/), HTML5, CSS3, and [Sass](http://sass-lang.com/). One the front end, [Grunt](http://gruntjs.com/) was used to automate the build process and testing was done using [Mocha](https://mochajs.org/), [Chai](http://chaijs.com/), and [Karma](https://karma-runner.github.io/0.13/index.html). Testing on the back end was done using [RSpec](https://github.com/rspec/rspec) and the entire database was built using [Ruby on Rails](http://rubyonrails.org/).
+This project was built using [AngularJS](https://angularjs.org/), HTML5, CSS3, and [Sass](http://sass-lang.com/). On the front end, [Grunt](http://gruntjs.com/) was used to automate the build process and testing was done using [Mocha](https://mochajs.org/), [Chai](http://chaijs.com/), and [Karma](https://karma-runner.github.io/0.13/index.html). Testing on the back end was done using [RSpec](https://github.com/rspec/rspec) and the entire database was built using [Ruby on Rails](http://rubyonrails.org/).
 
 The live site for CareerAtlas can be found at [CareerAtlas](https://careeratlas.herokuapp.com/). This application was built as a capstone project for an engineering immersive bootcamp at [The Iron Yard](https://www.theironyard.com/) in Washington, DC.
 
