@@ -2,7 +2,7 @@
 
 [CareerAtlas](https://careeratlas.herokuapp.com/), a location-based resource for jobs, uses WalkScore, GlassDoor, Indeed, and Google Maps APIs to provide job seekers a unique user experience and data set. The interface includes the ability to search for jobs via custom parameters, see job results populated on a map, and save jobs for future reference.
 
-This project was built using [AngularJS](https://angularjs.org/) and [Sass](http://sass-lang.com/). [Grunt](http://gruntjs.com/) was used to automate the build process. Testing was done using [Mocha](https://mochajs.org/), [Chai](http://chaijs.com/) and [Karma](https://karma-runner.github.io/0.13/index.html). The database was built using [Ruby on Rails](http://rubyonrails.org/).
+This project was built using [AngularJS](https://angularjs.org/) and [Sass](http://sass-lang.com/). [Grunt](http://gruntjs.com/) was used to automate the build process. Testing was done using [Mocha](https://mochajs.org/), [Chai](http://chaijs.com/), [Karma](https://karma-runner.github.io/0.13/index.html) and [RSpec](https://github.com/rspec/rspec). The database was built using [Ruby on Rails](http://rubyonrails.org/).
 
 The live site for CareerAtlas can be found at [CareerAtlas](https://careeratlas.herokuapp.com/). This application was built as a capstone project for an engineering immersive bootcamp at [The Iron Yard](https://www.theironyard.com/) in Washington, DC.
 
@@ -10,12 +10,6 @@ The live site for CareerAtlas can be found at [CareerAtlas](https://careeratlas.
 
 ## How to get [CareerAtlas](https://careeratlas.herokuapp.com/) running on your local machine ##
 
-
-### Contributing to [CareerAtlas](https://careeratlas.herokuapp.com/) ###
-
-If you fork this project to work on your own version, you will find that the frontend files are in the app folder, nested in the client folder. The backend files are in **insert file here**.
-
-**need to insert authentication commands for google maps api**
 
 To get [CareerAtlas](https://careeratlas.herokuapp.com/) running, please follow the steps below.<br>
 1. [Install git](http://git-scm.com)
@@ -33,6 +27,12 @@ To get [CareerAtlas](https://careeratlas.herokuapp.com/) running, please follow 
 * [Christine Ash](https://www.linkedin.com/in/christine-ash-5a21743b/) (Frontend - Angular)
 * [Robby Dore](https://www.linkedin.com/in/robby-dore-61b88910b/) (Backend - Ruby On Rails)
 * [Jennifer Oakes](https://www.linkedin.com/in/jennifernicoleoakes/) (Frontend - Angular)
+
+### Contributing to [CareerAtlas](https://careeratlas.herokuapp.com/) ###
+
+If you fork this project to work on your own version, you will find that the frontend files are in the app folder, nested in the client folder. The backend files are in **insert file here**.
+
+**need to insert authentication commands for google maps api**
 
 ### Acknowledgements ###
 
