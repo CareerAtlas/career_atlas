@@ -28,6 +28,9 @@ To get [CareerAtlas](https://careeratlas.herokuapp.com/) running, please follow 
 8. Navigate to the root directory of your clone, and run `grunt && grunt watch` to build your changes from whatever file you changed into the build directory.
 9. Note: The `index.html` file in the build directory is the main html file for this site.
 
+### Setting up your authorization for Google Maps API ###
+This project utilizes the Google Maps API to show a map on the home site, and drop markers where jobs are located. You will need to put your own authorization script tag in order for the application to work. Request an API key from Google maps by following the directions [here](https://support.google.com/googleapi/answer/6158862). For more information on how to add a script tag to your project, check out this [link](https://developers.google.com/maps/documentation/javascript/adding-a-google-map). Once you have your own authorization key script tag, insert it into the `index.html` file at the bottom of the page. You will find a script tag that starts with the following `<script src='https://maps.googleapis.com/maps/api/`. Delete that particular line, and insert your own tag. 
+
 ### [CareerAtlas](https://careeratlas.herokuapp.com/) was built by the following developers:
 
 * [Christine Ash](https://www.linkedin.com/in/christine-ash-5a21743b/) (Frontend - Angular)
