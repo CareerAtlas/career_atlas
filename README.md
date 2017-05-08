@@ -2,7 +2,7 @@
 
 [CareerAtlas](https://careeratlas.herokuapp.com/), a location-based resource for jobs, uses WalkScore, GlassDoor, Indeed, and Google Maps APIs to provide job seekers a unique user experience. The interface includes the ability to search for jobs via custom parameters, see job results populated on a map, and save jobs for future reference.
 
-This project was built using [AngularJS](https://angularjs.org/), HTML5, CSS3, and [Sass](http://sass-lang.com/). On the front end, [Grunt](http://gruntjs.com/) was used to automate the build process and testing was done using [Mocha](https://mochajs.org/), [Chai](http://chaijs.com/), and [Karma](https://karma-runner.github.io/0.13/index.html). Testing on the back end was done using [RSpec](https://github.com/rspec/rspec) and the entire database was built using [Ruby on Rails](http://rubyonrails.org/).
+This project was built using [AngularJS](https://angularjs.org/), HTML5, CSS3, and [Sass](http://sass-lang.com/). On the front end, [Grunt](http://gruntjs.com/) was used to automate the build process and testing was done using [Mocha](https://mochajs.org/), [Chai](http://chaijs.com/), and [Karma](https://karma-runner.github.io/0.13/index.html). Testing on the back end was done using [RSpec](https://github.com/rspec/rspec) and [simplecov](https://github.com/colszowka/simplecov); the entire database was built using [Ruby on Rails](http://rubyonrails.org/).
 
 The live site for CareerAtlas can be found at [CareerAtlas](https://careeratlas.herokuapp.com/). This application was built as a capstone project for an engineering immersive bootcamp at [The Iron Yard](https://www.theironyard.com/) in Washington, DC.
 
@@ -44,6 +44,10 @@ This is how you would format your key in the `.env` file: `WALKSCOREAPIKEY=YOURA
 Make sure you are running 'grunt && grunt watch'. Add test code in the `spec\client` file.<br> To run tests on the new code you have written, head to your terminal and go to your root directory. Run the command `open .`. This will take you to your finder. From here, select the file `coverage`, click on the `chrome` folder, then click on `index.html`. This will open up a window in your chrome browser that will have a status bar and your `js` file. Once you click into your `js` file you can then navigate to a certain spec file you were working in for more details about what your tests are covering.
 
 ### Back end testing ###
+In order to run tests for the backend make sure that `gem "rspec-rails"` and `gem "simpplecov"` are in the Gemfile and `bundle install` has been run. To run any tests simply write `bundle exec rspec` in the command line. This will run all files that end in `_spec.rb` in the `spec` folder. A coverage report will be generate that you can access by running the command `open .`, finding the `coverage` folder and clicking on the `index.html` file.  Documentation about rspec for rails can be found [here](https://github.com/rspec/rspec-rails).
+
+### Travis CI satus ###
+[![Build Status](https://travis-ci.org/CareerAtlas/career_atlas.svg?branch=master)](https://travis-ci.org/CareerAtlas/career_atlas)
 
 ### [CareerAtlas](https://careeratlas.herokuapp.com/) was built by the following developers:
 
