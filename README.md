@@ -29,12 +29,17 @@ This project utilizes the Google Maps API to show a map on the home site, and dr
 
 ### Setting up the Indeed API ###
 CareerAtlas uses the Indeed API to get job information based off of the user's specifications. In order to use the Indeed API you need to set up a publisher account [here](https://www.indeed.com/publisher) with Indeed. After you have created your account, Indeed will assign you a publisher ID that will need to be sent with every request. The best place to store this is in a `.env` file so you do not post your publisher ID on the internet.
+This is how you would format your key in the `.env` file: INDEEDAPIKEY=YOURAPIKEY. Then, you would put ENV[INDEEDAPIKEY] as part of your query sent to Indeed.
 
 ### Setting up the Glassdoor API ###
 All of the company review information for this project comes from the Glassdoor API. You can sign up for API access [here](https://www.glassdoor.com/developer/register_input.htm). After a successful sign up, Glassdoor will assign you a partner ID and partner key that has to be sent with every request. The best place to store this is in a `.env` file so you do not post your partner ID and key on the internet. You can go [here](https://www.glassdoor.com/developer/index.htm) for more documentation on using the Glassdoor API and [here](https://www.glassdoor.com/developer/companiesApiActions.htm) for an example request and response.
+This is how you would format your key in the `.env` file: GLASSDOORID=YOURAPIID. Then, you would put ENV[GLASSDOORID] as part of your query sent to Glassdoor. You would also have to do the same setup for your partner key.
+
 
 ### Setting up the WalkScore API ###
 This project uses the WalkScore API to get a composite score of the neighborhood for each job. You can request access to the API [here](https://www.walkscore.com/professional/api-sign-up.php), the free version should be enough for any starting project. WalkScore will give you an API key that must be sent with each request. The best place to store this is in a `.env` file so you do not post your API key on the internet. For more documentation regarding the WalkScore API you can go [here](https://www.walkscore.com/professional/api.php).
+This is how you would format your key in the `.env` file: WALKSCOREAPIKEY=YOURAPIKEY. Then, you would put ENV[WALKSCOREAPIKEY] as part of your query sent to WalkScore.
+
 
 ### [CareerAtlas](https://careeratlas.herokuapp.com/) was built by the following developers:
 
