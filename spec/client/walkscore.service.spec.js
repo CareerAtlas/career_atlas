@@ -1,20 +1,20 @@
 (function() {
- 'use strict';
+  'use strict';
 
- let expect = chai.expect;
+  let expect = chai.expect;
 
- describe('walkscore service', function(){
+  describe('walkscore service', function(){
 
-   let WalkscoreService;
+    let WalkscoreService;
 
-   beforeEach(module('career_atlas'));
+    beforeEach(module('career_atlas'));
 
-   beforeEach(inject(function(_WalkscoreService_){
-     WalkscoreService = _WalkscoreService_;
-   }));
+    beforeEach(inject(function(_WalkscoreService_){
+      WalkscoreService = _WalkscoreService_;
+    }));
 
-   it('should expect the function to be function', function() {
-     expect(WalkscoreService.getWalkscoreInformation).to.be.a('function');
-   });
- });
+    it('should expect the function to be function', function() {
+      expect(WalkscoreService.getWalkscoreInformation).to.be.a('function');
+    });
+  });
 }());

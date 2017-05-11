@@ -2,7 +2,7 @@
   'use strict';
 
   angular.module('career_atlas')
-    .factory('UserService', UserService);
+  .factory('UserService', UserService);
 
   UserService.$inject = ['$http', '$q'];
 
@@ -14,10 +14,10 @@
     }
 
     /**
-     * [createUser description]
-     * @param  {Object} user [description]
-     * @return {Promise}      [description]
-     */
+    * [createUser description]
+    * @param  {Object} user [description]
+    * @return {Promise}      [description]
+    */
     function createUser(user) {
 
       return $http({
@@ -36,16 +36,15 @@
         }
       })
       .then(function handleResponse(response) {
-
         return response.data;
       });
     }
 
     /**
-     * [login description]
-     * @param  {Object} user [description]
-     * @return {Promise}      [description]
-     */
+    * [login description]
+    * @param  {Object} user [description]
+    * @return {Promise}      [description]
+    */
     function login(user) {
       if (!user) {
         return $q.reject('No user info has been provided');
@@ -98,10 +97,5 @@
       login:login,
       logout:logout
     };
-
   }
-
-
-
-
 }());

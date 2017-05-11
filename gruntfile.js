@@ -1,11 +1,8 @@
 'use strict';
 
 module.exports = function(grunt) {
-
   grunt.initConfig({
-
     clean: ['public/'],
-
     copy: {
       html: {
         files: [
@@ -118,14 +115,13 @@ module.exports = function(grunt) {
       }
     }
   });
-grunt.loadNpmTasks('grunt-karma');
-grunt.loadNpmTasks('grunt-contrib-jshint');
-grunt.loadNpmTasks('grunt-contrib-copy');
-grunt.loadNpmTasks('grunt-contrib-sass');
-grunt.loadNpmTasks('grunt-contrib-watch');
-grunt.loadNpmTasks('grunt-babel');
-grunt.loadNpmTasks('grunt-contrib-concat');
-grunt.loadNpmTasks('grunt-contrib-clean');
-
-grunt.registerTask('default', ['jshint', 'clean', 'concat', 'babel', 'copy', 'sass']);
+  grunt.loadNpmTasks('grunt-karma');
+  grunt.loadNpmTasks('grunt-contrib-jshint');
+  grunt.loadNpmTasks('grunt-contrib-copy');
+  grunt.loadNpmTasks('grunt-contrib-sass');
+  grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-babel');
+  grunt.loadNpmTasks('grunt-contrib-concat');
+  grunt.loadNpmTasks('grunt-contrib-clean');
+  grunt.registerTask('default', ['jshint', 'clean', 'concat', 'babel', 'copy', 'sass']);
 };

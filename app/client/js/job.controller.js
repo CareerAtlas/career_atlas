@@ -19,18 +19,18 @@
     vm.notification = null;
     vm.getAToken = {};
     /**
-     * Shows or hides search form in home page
-     * @return {Boolean}
-     */
+    * Shows or hides search form in home page
+    * @return {Boolean}
+    */
     vm.toggleSearchForm = function toggleSearchForm() {
       vm.hideSearch = !vm.hideSearch;
     };
 
     /**
-     * Shows list of saved jobs when you click on 'saved jobs' in the navigation bar
-     * @param  {Object} authorization   Authorization token
-     * @return {Promise}
-     */
+    * Shows list of saved jobs when you click on 'saved jobs' in the navigation bar
+    * @param  {Object} authorization   Authorization token
+    * @return {Promise}
+    */
     vm.showListOfSavedJobs = function showListOfSavedJobs(authorization) {
       console.log('hiiiiii show list of savedjobs');
       JobService.getAllSavedJobs()
@@ -41,7 +41,6 @@
       .catch(function handleError(err) {
         vm.message = 'Something went wrong here. Error = ' + err.status;
       });
-
     };
 
     if ($state.is('saved-jobs')) {
@@ -84,17 +83,17 @@
     };
 
     /**
-     * [saveJob description]
-     * @param  {String} key [description]
-     * @return {Promise}     [description]
-     */
+    * [saveJob description]
+    * @param  {String} key [description]
+    * @return {Promise}     [description]
+    */
     vm.saveJob = function saveAJob(key) {
       return JobService.saveJobSearch(key)
       .then(function handleSavedJobs(savedJobObj) {
         vm.savedJob = {};
         vm.savedJob.savedJobObj = savedJobObj;
         console.log('savedJobObj', savedJobObj);
-        vm.notification = 'This job has been saved!';
+        vm.notification = 'Job saved!';
 
         // find the job that was saved, and flip its switch
         let foundJob = vm.jobs.find(function findJob(job) {
@@ -145,10 +144,10 @@
     };
 
     /**
-     * [deleteJob description]
-     * @param  {[type]} key [description]
-     * @return {Promise}     [description]
-     */
+    * [deleteJob description]
+    * @param  {[type]} key [description]
+    * @return {Promise}     [description]
+    */
     vm.deleteJob = function deleteJob(key) {
       console.log('this is key', key);
       if(!key) {

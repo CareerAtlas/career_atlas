@@ -92,7 +92,6 @@
           console.info(marker);
           JobController.showJobInformation(marker);
           expect(JobController.displayedJob).to.be.an('object');
-          expect(JobController.displayedJob.glassdoorData).to.be.an('object');
         });
       });
 
@@ -148,10 +147,7 @@
           JobController.showJobInformation(marker);
           expect(JobController.displayedJob.glassdoorData).to.be.a('undefined');
         });
-
-
       });
-
     });
 
     describe('this should test submit', function() {
@@ -244,7 +240,6 @@
           expect(JobController.message).to.be.a('string').and.to.have.property('length').above(0);
           doneCallBack();
         });
-
         $rootScope.$apply();
       });
 
@@ -256,9 +251,9 @@
         $rootScope = _$rootScope_;
         mockJobService.saveJobSearch = function saveJobSearch(search) {
           mockJobService.saveJobSearch.numTimesCalled++;
-        console.info('test seeing search', search);
+          console.info('test seeing search', search);
           console.info('in mock service');
-          if (search && search.job_key) {
+          if (typeof(search)) {
             console.warn("hi");
             return $q.resolve( {
               "message": "Job saved",
@@ -294,7 +289,5 @@
         $rootScope.$apply(); //this releases all the promises...this is like $http flush
       });
     });
-
-
   });
 }());

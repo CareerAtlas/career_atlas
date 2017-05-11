@@ -1,11 +1,61 @@
 @media screen and (min-width: $TabletBreakPoint) {
-  .jumbotron {
-    padding: 0em;
-    height: 470px;
-    margin: 2em;
+  .navbar {
+    font-size: 1.15em;
   }
+
+  .glyphicon-heart, .glyphicon-usd, .glyphicon-user, .glyphicon-sunglasses, .glyphicon-star, .glyphicon-briefcase, .glyphicon-home, .glyphicon-cog {
+    font-size: 5em;
+  }
+
+  .glyphicon-star + .badge {
+    top: -30px;
+    left: -2px;
+  }
+
+  .glyphicon-usd + .badge {
+    top: -32px;
+    left: -5px;
+  }
+
+  .glyphicon-heart + .badge, .glyphicon-sunglasses + .badge {
+    top: -33px;
+    left: -1px;
+  }
+
+  .glyphicon-user + .badge {
+    padding: 4px;
+  }
+
+  .glyphicon-user + .badge {
+    top: -40px;
+    left: -10px;
+  }
+
+  .glyphicon-briefcase + .badge {
+    top: -30px;
+  }
+
+  .glyphicon-home + .badge {
+    top: -35px;
+    left: -2px;
+  }
+
+  .badge-notify {
+    font-size: 3em;
+  }
+
+  .apply_here {
+    width: 20%;
+    font-size: 1.15em;
+  }
+
+  .apply_here_button {
+    display: block;
+    margin: auto;
+  }
+
   .developer_section {
-   flex-direction: row;
+    flex-direction: row;
   }
 
   .search_form {
@@ -13,7 +63,6 @@
   }
 
   .headshots {
-    height: 250px;
     width: 250px;
     border-radius: 0.5em;
   }
@@ -27,17 +76,12 @@
     }
   }
   .icon-section {
-    flex-direction: row;
-    display: flex;
-    justify-content: space-around;
-    width: 95%;
-    position: relative;
-    top: -125px;
+    width: 100%;
     margin: 0em;
     aside {
       margin: 1em;
       h5 {
-        font-size: 1.25em;
+        font-size: 2em;
       }
     }
   }
@@ -59,23 +103,16 @@
     font-size: .75em;
   }
 
-  .more-information-section
-    .walkscore-description {
-      font-size: .75em;
-      margin: 0em;
-    }
-
   .saved-jobs {
     h4, p {
       padding: 0.25em;
     }
   }
 
-  .more-information-section {
-    .walkscore-description {
-      padding: 1em;
-      margin-top: 0.5em;
-    }
+  .foot-image {
+    height: 130px;
+    width: 130px;
+    margin: 1em;
   }
 
   .badge-info {
@@ -94,31 +131,43 @@
     margin: 0.25em;
     display: inline-block;
     float: right;
+    clear: both;
     font-size: 1.15em;
   }
 
   .job-information {
     section {
-      display: flex;
+      aside {
+        margin: 0em;
+        padding: 0em 1em;
+      }
     }
   }
 
   .thumbnail {
-    margin: 1.5em;
-    height: 200px;
-    width: 200px;
+    width: 240px;
   }
 
   .walk-score-information {
-    width: 40%;
-    display: flex;
-    float: right;
-    position: relative;
-    top: -125px;
+    p {
+      padding: 2em;
+      font-size: 2em;
+    }
   }
 
   .date-posted {
-    position: relative;
-    top: -125px;
+    font-size: 2em;
+  }
+
+  .company-name {
+    font-size: 2em;
+  }
+
+  #job-title {
+    font-size: 2em;
+  }
+
+  .more-information-button {
+    padding: 0.5em;
   }
 }
