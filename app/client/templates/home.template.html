@@ -86,7 +86,7 @@
       name='Save'
       class='job-info-button'
       ng-click='jobCtrl.saveJob(jobCtrl.displayedJob.job_key)'
-      ng-hide='jobCtrl.displayedJob.saved'
+      ng-show='!jobCtrl.displayedJob.saved && jobCtrl.getAToken()'
       value='Save Job'>
     <p ng-show='jobCtrl.notification' class='job-saved-notification-message'>{{jobCtrl.notification}}</p>
     <section>
